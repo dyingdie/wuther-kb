@@ -1,12 +1,12 @@
 {
-  "built": "2026-10-23T11:48:54.679Z",
+  "built": "2026-10-23T12:18:00.759Z",
   "pages": [
     {
       "file": "person",
       "title": "她是谁",
       "n": 18,
-      "cp": 6350,
-      "liteCp": 2275
+      "cp": 6404,
+      "liteCp": 2329
     },
     {
       "file": "lines",
@@ -32,9 +32,9 @@
     {
       "file": "chars",
       "title": "别人是谁",
-      "n": 19,
-      "cp": 3478,
-      "liteCp": 2252
+      "n": 20,
+      "cp": 4114,
+      "liteCp": 2429
     },
     {
       "file": "chars-npc",
@@ -95,9 +95,9 @@
     {
       "file": "jargon",
       "title": "玩家黑话",
-      "n": 23,
-      "cp": 2816,
-      "liteCp": 2060
+      "n": 24,
+      "cp": 3078,
+      "liteCp": 2270
     },
     {
       "file": "roles",

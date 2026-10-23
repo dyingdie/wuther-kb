@@ -68,6 +68,18 @@ const STOP = new Set([
   '告诉我', '怎么办', '为什么事', '的话', '的话呢', '关系是什么', '什么关系',
 ])
 
+// 客套话和虚词：句首称呼被摘掉之后，整句剩下的全是这些，就说明人家不是在问内容
+const FLUFF = ['自己', '认识', '知道', '介绍', '一下', '说说', '讲讲', '聊聊', '告诉',
+  '你', '您', '我', '咱', '吧', '呀', '啊', '呢', '哈', '哦', '嘛', '了',
+  '是', '不', '在', '有', '和', '与', '就', '都', '也', '很', '太', '吗']
+// 一句话里还剩多少「有内容」的字：全被停用词和客套话吃光，就算没在问内容
+const hasContent = (s) => {
+  let rest = String(s || '')
+  for (const w of STOP) rest = rest.split(w).join('')
+  for (const w of FLUFF) rest = rest.split(w).join('')
+  return rest.replace(/[^\p{L}\p{N}]/gu, '').length >= 2
+}
+
 // ---------- 载入：entries + manifest ----------
 const loadPages = async () => {
   const out = new Map()
@@ -127,6 +139,12 @@ const blocksOf = (q) => {
   }
   return { blocks: blocks, stopped: Array.from(new Set(stopped)) }
 }
+
+// 整句切块有个坑：「娅娅，介绍一下自己」正好八个字，等于 DEF_MAXG 上限，会被当成一整块，
+// 什么都对不上。称呼回退那次按标点断开再切，称呼自己才是一个能用的块
+const PUNCT_SPLIT = /[\s，。！？、；：,.!?;:"'（）()【】\[\]…～~]+/
+const blocksBySplit = (q) =>
+  q.split(PUNCT_SPLIT).filter(Boolean).flatMap((seg) => blocksOf(seg).blocks)
 
 const clean = (s) => String(s ?? '').replace(/\s+/g, ' ').trim()
 
@@ -191,17 +209,14 @@ const scoreOne = (q, blocks, rec) => {
   return { rec: rec, score: top.score, band: top.band, seg: top.seg, hits: hits }
 }
 
-// ---------- 查一句 ----------
-const ask = (q, entries, opts) => {
-  // 句首称呼先摘掉：「娅娅，秧秧是谁」里「娅娅」不是问的宾语，是叫她的
-  const voc = q.match(VOCATIVE_RE)
-  const target = voc ? q.slice(voc[0].length) : q
-  const part = blocksOf(target)
-  const blocks = part.blocks
+// ---------- 排一遍 ----------
+const rank = (text, entries, opts, blocksOverride) => {
+  const part = blocksOf(text)
+  const blocks = blocksOverride || part.blocks
   const scored = []
   for (const rec of entries) {
     if (opts.page && rec.page !== opts.page) continue
-    const s = scoreOne(target, blocks, rec)
+    const s = scoreOne(text, blocks, rec)
     if (s) scored.push(s)
   }
   // --strict：把被停止词挡住的词块也当成弱命中放进来。默认不放 —— 那些多半是撞词的巧合，
@@ -220,7 +235,7 @@ const ask = (q, entries, opts) => {
   }
   // 问题类型优先于人名：认成机制·养成问句就重排一次。人物页里那条要是自己都没提
   // 这个维度（只答了「她是谁」），就该让位给讲打法的页
-  const asked = asksMech(target)
+  const asked = asksMech(text)
   const mech = asked.length > 0
   if (mech) {
     for (const s of scored) {
@@ -239,9 +254,31 @@ const ask = (q, entries, opts) => {
   scored.sort((a, b) => (b.score - a.score) || a.rec.page.localeCompare(b.rec.page))
 
   const strong = scored.filter((s) => (opts.all || opts.strict ? true : s.band !== 'id'))
-  const top = strong.slice(0, opts.top)
+  return { scored: scored, strong: strong, part: part, asked: asked, mech: mech }
+}
+
+// ---------- 查一句 ----------
+const ask = (q, entries, opts) => {
+  // 句首称呼先摘掉：「娅娅，秧秧是谁」里「娅娅」不是问的宾语，是叫她的
+  const voc = q.match(VOCATIVE_RE)
+  const target = voc ? q.slice(voc[0].length) : q
+  let res = rank(target, entries, opts)
+  let fallback = false
+  // 摘掉称呼之后整句只剩客套话（「娅娅，介绍一下自己」剩下「介绍一下自己」，一个词条名都不含），
+  // 库里必然零命中。这时拿原句连称呼一起再试一次 —— 称呼自己就是个能用的词块，能把人领回
+  // 她那一页。只在这一种情况下回退：摘完称呼还剩内容的句子走原路，一个字没动
+  if (voc && !res.strong.length && !hasContent(target)) {
+    res = rank(q, entries, opts, blocksBySplit(q))
+    fallback = true
+  }
+  const scored = res.scored
+  const part = res.part
+  const asked = res.asked
+  const mech = res.mech
+  const top = res.strong.slice(0, opts.top)
   console.log('· 问题：' + q)
   if (voc) console.log('  · 句首称呼「' + voc[1] + '」已忽略（叫她的，不是问她的）')
+  if (fallback) console.log('  · 摘掉称呼后没剩什么内容，改用原句再匹配一次（称呼自己也算词）')
   if (mech) console.log('  · 认成机制·养成问句（' + asked.join('、') + '）：机制页加权，身份页自己没讲这个维度时让位')
   if (!top.length) {
     console.log('  没命中。库里没有能对上这句的词条 —— 别硬答，按她那三句含糊带过。')

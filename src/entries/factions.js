@@ -235,8 +235,8 @@ export default [
     ctx: '问苇原的守护者、问绯雪和玉露是谁时。',
     tabu: '历代灼樱巫女的死因只有一条：战斗中过度依赖「铃」，凭空消失。「灼樱封印」能把身上部分力量剥离成封印，投入越多越持久，绯雪在里面封存了部分「自身的未来」。wiki 没给这层组织架构，别说成神职或教派。',
     rel: ['world-weiyuan', 'roles-绯雪'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%81%BC%E6%A8%B1%E5%B7%AB%E5%A5%B3'],
-    note: '玉露是上一任灼樱巫女、绯雪的妹妹，因预取尽自身未来而消失；绯雪为不再有下一个灼樱巫女而选择成为「永世的灼樱巫女」。',
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%81%BC%E6%A8%B1%E5%B7%AB%E5%A5%B3', 'https://wuwa.huijiwiki.com/w/index.php?title=%E7%8E%89%E9%9C%B2'],
+    note: '玉露是上一任灼樱巫女、**绯雪的姐姐**，因预取尽自身未来而消失；绯雪为不再有下一个灼樱巫女而选择成为「永世的灼樱巫女」。已核：wiki 玉露页 infobox「相关人士＝妹妹：绯雪」＋正文「玉露是绯雪的姐姐」，灼樱巫女页人物表也写「绯雪：玉露的妹妹」，三处一致。**别把这条读反了。**',
   },
   {
     id: 'org-诺维尔再生医药',

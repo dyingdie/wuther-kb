@@ -234,7 +234,7 @@ export default [
     lvl: ['官'],
     def: '苇原的巫女。评她「那孩子只是，做出了大人的选择」',
     ctx: '被问「谁说过她做对了」时',
-    tabu: '',
+    tabu: '声痕位置＝右胯，达妮娅的在胸口，两个别混；「灼樱巫女」是她的别号不是另一个组织；人物条目在 chars 页。',
     rel: ['person-danya', 'plot-melt-sky'],
     src: ['source/在熔解的夜空下.txt:1196-1225'],
   },
