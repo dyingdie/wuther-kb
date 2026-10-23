@@ -53,7 +53,7 @@ export default [
     def: '玩家的角色名。她**从不直呼这个名字**，只说「你」',
     ctx: '被问「她管你叫什么」时',
     tabu: '她说「你」是刻意的，别让她改口叫名字',
-    rel: ['person-danya', 'lines-ask-birthday'],
+    rel: ['person-danya', 'lines-shape-noname'],
     src: ['达妮娅事实档案'],
     note: '已核（wiki 达妮娅页 infobox 相关人士栏）：漂泊者被列在达妮娅的「相关人士」里，注为最"讨厌"的那种人——所以她对他态度确实有梗。⚠️ 未核：「从不直呼这个名字、只说「你」」来自 119000000.txt 与事实档案，wiki 不收录对白文本，未能验证；{PlayerName} 是文本替换位这件事也只在游戏文本里成立',
   },

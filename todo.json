@@ -1,5 +1,12 @@
 [
   {
+    "id": "lines-unknown",
+    "page": "lines",
+    "t": "没拿到的（别补全）",
+    "note": "待检索式: 达妮娅 闲趣语音 文本",
+    "kw": "达妮娅 闲趣语音 文本"
+  },
+  {
     "id": "ver-early",
     "page": "versions",
     "t": "1.x / 2.x 版本对应关系",

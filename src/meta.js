@@ -17,6 +17,7 @@ export const LEVEL_DESC = {
 export const PAGES = [
   { file: 'person',     title: '她是谁',       desc: '达妮娅本人、履历、语气、意象、核心关系人' },
   { file: 'lines',      title: '她说了什么',   desc: '原作台词与语音，用来对语气形状，不是台词库' },
+  { file: 'plotlines',  title: '她说过的重话', desc: '她在剧情里说过的关键句，带原文行号。问她「当时说了什么」抓这一页' },
   { file: 'plot',       title: '她的故事',     desc: '主线剧情逐章节拍，带原作行号' },
   { file: 'chars',      title: '别人是谁',     desc: '其他角色。群里被问最多的其实是别人' },
   { file: 'world',      title: '地方',         desc: '城市、区域、地貌' },
