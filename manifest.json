@@ -1,12 +1,12 @@
 {
-  "built": "2026-10-23T13:30:42.247Z",
+  "built": "2026-10-23T16:26:50.690Z",
   "pages": [
     {
       "file": "person",
       "title": "她是谁",
       "n": 18,
-      "cp": 6492,
-      "liteCp": 2385
+      "cp": 6539,
+      "liteCp": 2433
     },
     {
       "file": "lines",
@@ -39,16 +39,16 @@
     {
       "file": "chars-npc",
       "title": "别处的人",
-      "n": 42,
-      "cp": 7565,
-      "liteCp": 5109
+      "n": 41,
+      "cp": 7241,
+      "liteCp": 4878
     },
     {
       "file": "world",
       "title": "地方",
       "n": 14,
-      "cp": 2909,
-      "liteCp": 1695
+      "cp": 2977,
+      "liteCp": 1763
     },
     {
       "file": "world-extra",
@@ -61,8 +61,8 @@
       "file": "org",
       "title": "组织势力",
       "n": 15,
-      "cp": 4727,
-      "liteCp": 2627
+      "cp": 4758,
+      "liteCp": 2658
     },
     {
       "file": "factions",
@@ -74,9 +74,23 @@
     {
       "file": "terms",
       "title": "机制术语",
-      "n": 47,
-      "cp": 6519,
-      "liteCp": 4391
+      "n": 46,
+      "cp": 6512,
+      "liteCp": 4414
+    },
+    {
+      "file": "terms-official",
+      "title": "官方机制词",
+      "n": 15,
+      "cp": 2561,
+      "liteCp": 1765
+    },
+    {
+      "file": "terms-story",
+      "title": "官方剧情词",
+      "n": 21,
+      "cp": 4102,
+      "liteCp": 2644
     },
     {
       "file": "titles",
@@ -144,16 +158,16 @@
     {
       "file": "nicknames",
       "title": "昵称绰号",
-      "n": 13,
-      "cp": 2005,
-      "liteCp": 1341
+      "n": 14,
+      "cp": 2515,
+      "liteCp": 1756
     },
     {
       "file": "ships",
       "title": "二创 CP",
       "n": 14,
-      "cp": 4780,
-      "liteCp": 2598
+      "cp": 4836,
+      "liteCp": 2654
     },
     {
       "file": "allusions",
@@ -168,6 +182,27 @@
       "n": 14,
       "cp": 3825,
       "liteCp": 2224
+    },
+    {
+      "file": "lore-terms",
+      "title": "官方新名词",
+      "n": 22,
+      "cp": 3512,
+      "liteCp": 2348
+    },
+    {
+      "file": "docs",
+      "title": "官方档案",
+      "n": 23,
+      "cp": 4340,
+      "liteCp": 2575
+    },
+    {
+      "file": "battle-terms",
+      "title": "官方战斗词",
+      "n": 22,
+      "cp": 3880,
+      "liteCp": 2438
     }
   ],
   "todo": 9,

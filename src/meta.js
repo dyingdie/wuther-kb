@@ -26,6 +26,8 @@ export const PAGES = [
   { file: 'org',        title: '组织势力',     desc: '残星会 / 新联邦 / 星炬学院 / 深空联合等，她主线的骨架' },
   { file: 'factions',    title: '阵营名录',     desc: '各个商会、家族、军团。主线里不出现，被问名字时查这里' },
   { file: 'terms',      title: '机制术语',     desc: '共鸣、频率、虚质、鸣式等最容易说错的一批' },
+  { file: 'terms-official', title: '官方机制词',   desc: '官方术语档案原文：共鸣者四种类型、拉贝尔检测法、超频、二次共鸣、虚质防壁等。问「共鸣者有几种/超频是什么」抓这里' },
+  { file: 'terms-story', title: '官方剧情词',   desc: '官方术语档案原文：剧本、彼世、隧门、归源之仪、换日仪式、索拉电影节等剧情专有名词' },
   { file: 'titles',     title: '官方名号',     desc: '唤取标题、满链、成就、收藏品、服饰名、PV' },
   { file: 'items',      title: '东西',         desc: '她的道具、装置、随身物' },
   { file: 'jargon',     title: '玩家黑话',     desc: '抽卡、配队、养成、深塔这些群里天天在说的词' },
@@ -39,6 +41,9 @@ export const PAGES = [
   { file: 'ships',      title: '二创 CP',      desc: '玩家配对向，非官方', noSrc: true },
   { file: 'allusions',  title: '台词出处',     desc: '游戏台词致敬的外部作品与俗语。问「这句什么意思」抓这里', noSrc: true },
   { file: 'versions',   title: '时间线',       desc: '版本号 ↔ 剧情推进 ↔ 角色登场' },
+  { file: 'lore-terms',  title: '官方新名词',   desc: '官方术语档案里 3.5/3.6/3.7 三版新增的世界观专有名词：咎笼、玄方地界、偃师、宿镜、心钥井、朝月会等' },
+  { file: 'docs',        title: '官方档案',     desc: '官方文书：条例、日志、信件、纸条、鉴定报告。问「X 档案里写了什么」「官方怎么说」抓这里' },
+  { file: 'battle-terms', title: '官方战斗词',   desc: '官方术语档案原文：震谐、光噪、电磁、异常、增益、吸血反伤等战斗状态与伤害类型' },
 ]
 
 // 检索路由：什么问题查哪页。index.html 顶部固定展示，抓一次就够定位
@@ -51,6 +56,8 @@ export const ROUTES = [
   ['某个组织是干什么的', 'org'],
   ['某个商会、家族、军团是什么', 'factions'],
   ['共鸣、频率、虚质、鸣式这些词', 'terms'],
+  ['共鸣者有几种 / 超频 / 拉贝尔检测法 / 二次共鸣', 'terms-official'],
+  ['官方剧情专有名词 / 剧本、彼世、归源之仪', 'terms-story'],
   ['她的称号、成就、收藏品', 'titles'],
   ['泡泡、相册、玩偶这类东西', 'items'],
   ['社区在玩什么梗 / 秧秧神秘写信女', 'memes'],
@@ -65,6 +72,9 @@ export const ROUTES = [
   ['谁怎么叫她 / 绰号', 'nicknames'],
   ['CP / 配对向', 'ships'],
   ['什么时候出的 / 版本对应剧情', 'versions'],
+  ['咎笼 / 玄方地界 / 偃师 / 宿镜 / 心钥井 / 朝月会 这些新名词', 'lore-terms'],
+  ['某份档案 / 官方文书写了什么', 'docs'],
+  ['震谐 / 光噪 / 电磁是什么 / 减益效果有几种', 'battle-terms'],
 ]
 
 // 页面尺寸硬上限：工具结果裁剪器 thresholdChars，超过只留头 4096 + 尾 1024

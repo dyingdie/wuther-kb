@@ -135,23 +135,24 @@ node tools/yakitahome.mjs list info 达妮娅
 
 ## 全文拉取 —— pull-info.mjs / pull-conv.mjs
 
-两个都往 `kb/source/` 里存一份「正文全文」。档案 66 条、飞讯 289 段**已经全部拉完**（2026-10-23 验收）。
+两个都往 `kb/source/` 里存一份「正文全文」。档案 **722 条**、飞讯 289 段**已经全部拉完**（2026-10-24 验收）。
 
 | 脚本 | 端点 | 产物 |
 | --- | --- | --- |
-| `tools/pull-info.mjs` | `GET /api/info/detail?id=<档案 id>` | `source/yakitahome-info-full.json`（66 条）+ 同名 `-index.md` 清单 |
+| `tools/pull-info.mjs` | `GET /api/info/detail?id=<档案 id>` | `source/yakitahome-info-full.json`（722 条）+ 同名 `-index.md` 清单 |
 | `tools/pull-conv.mjs` | `GET /api/feixun/conversation/<会话 id>` | `source/yakitahome-feixun-full.json`（289 段）+ 同名 `-index.md` 清单 |
 
 都支持断点续拉：重跑只拉没拉过的，中途崩了直接再跑一次。名单要收紧或放宽用 `--kw`，**不用重拉**。
 
-### 筛选口径（那 66 条是这么选出来的）
+### 筛选口径（现在是全量，别再按老口径筛）
 
-- 命中 `CORE` 词表（37 个词，达妮娅圈）→ 直接收
-- 只命中 `WIDE` 词表（48 个词，组织 / 机制 / 地名）→ 还要版本 ≥ 3.2
-- 版本号从 `3.3版本` 这类字段里解析；`三测沿用` 之类解析成 0，等于不参与门槛
-- 772 条 → 66 条（8.5%）
+- **2026-10-24 起默认 `--all`：772 条全拉**，产物 722 条、198383 字（5 条空文本）
+- 老的 CORE（37 词）/ WIDE（48 词）+ 版本 ≥ 3.2 的门槛还在代码里，但只有**不加** `--all` 时才生效——那 66 条是它筛出来的
+- 命令行：`node tools/pull-info.mjs --all --conc 2 --gap 700 --print 0`（已跑完，exit 0）
+- `--kw 词` 可以额外按关键词收；`--force` 重拉；`--limit N` 限条数；`--print` 列清单
+- 并发与间隔由 `pull-common.mjs` 的 `NET_CONCURRENCY` / `NET_GAP_MS` 控制
 
-lead 2026-10-23 拍板：**口径不收紧，66 条留着**。瑝珑残象 3.6-3.7、黑海岸 2.8 那批确实混进来了，知道有这回事，等真要用再 `--kw` 重筛。下一个人接着筛的时候先看这段，别重新发明门槛。
+lead 2026-10-23 的老拍板「口径不收紧，66 条留着」已被 2026-10-24 的全量取代：既然 772 条能一次拉完，就别再靠关键词门槛去挑。**别重新发明门槛，也别再跑一次筛选。**
 
 ### ⚠ 站点有并发限流（重踩过一次）
 
@@ -171,7 +172,9 @@ node tools/info-diff.mjs --top 30 --min 60   多出来的干货，从多到少
 node tools/info-diff.mjs --id 28050004       打印某一条的全文
 ```
 
-实测：66 条、正文合计 16392 字、0 失败；64 条是 preview 的加长版，2 条 preview 不是全文前缀；13 条正文本来就短于 90 字，preview 已是全部、没有增量。
+实测（2026-10-23 当时的 66 条）：正文合计 16392 字、0 失败；64 条是 preview 的加长版，2 条 preview 不是全文前缀；13 条正文本来就短于 90 字，preview 已是全部、没有增量。
+
+**2026-10-24 改成全量 722 条后**（198383 字），上面这套「增量」判断仍然成立 —— 但**别再拿 66 条的结论当现状**，要数字看 `source/yakitahome-info-full-index.md`。
 
 判据写在脚本里：`preview` 是全文前缀时「新增」= 前缀之后的尾巴；不是前缀时全文另算（这种会标出来，别当成增量）。
 

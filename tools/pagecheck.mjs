@@ -42,6 +42,47 @@ const MECH_DEMOTE = 0.3      // 身份页自己没提这个词，就乘这个再
 // 否则「达妮娅本身自己还带霜渐弱吧」这种主语会被误当称呼剥掉
 const VOCATIVE_RE = /^\s*@?[（(]?(达妮娅|娅娅|西西|漂泊者|阿漂|漂子)[）)]?\s*[，,、：:]\s*/
 
+// 退场话：她答不上来时的含糊话。认出这一句 = 这个问题她当时没答上，
+// 算「库还答不上」的补库考题 —— 不算命中，也不算未命中，是第三种判定。
+// 词表照抄人设（dsh-onebot-qq/personas/达妮娅.md 第六节「退场三句」+ 第四节的不确定说法）：
+//   「这个…我不太记得了…」「你怎么突然问这个呀」「下次吧…我现在有点懒」「差不多吧」「忘了…」
+// 词表是拿 QQ 日志里她真实回过的话一句句对过的：太宽的词（「懒得」单独出现、「不知道」裸着）会误判，已剔掉。
+// 这份表和 tools/qq-log-scan.mjs 里那份必须一样：改了那边记得改这边。
+const EXIT_RULES = [
+  { name: '不记得', words: ['不太记得', '真不记得', '我不记得', '不记得了', '还是不记得', '想不起来'] },
+  { name: '不知道', words: ['我不知道', '真不知道', '还是不知道'] },
+  { name: '怎么突然问', words: ['怎么突然问'] },
+  { name: '下次吧／有点懒', words: ['下次吧', '下次再说', '我现在有点懒', '有点懒'] },
+  { name: '忘了', words: ['我忘了', '忘记了', '忘了。', '忘了，', '忘了…'] },
+  { name: '差不多吧', words: ['差不多吧', '差不多啊', '差不多嘛'] },
+  { name: '没翻到', words: ['没翻到', '翻不到', '查不到'] },
+  { name: '说不准', words: ['没印象', '不清楚', '说不好'] },
+]
+// 认出一句退场话：返回 { name, phrase }，没认出来返回 null。
+// 只看她开口的地方：第一行头 18 个字，第二行只认头 6 个字（她要退场是直接说出来的，
+// 第二行开头再退一次也算）。
+// 整句扫会误判 —— 她念台词（「…还是不知道比较幸福」）、替用户复述（「你都说忘了、…」）
+// 都不是退场；「懒得」单独出现更是日常（懒得吹头发、懒得挂电话），不算。
+// 一条回复里还可能夹着别的题的答案（「…叫我达妮娅不好吗／秧秧我是真不记得嘛」），
+// 退场话在第二行中间就别算进前一个问题头上。
+// 这份词表是拿 QQ 日志里她真实回过的话一句句对过的，别随便加词。
+const detectExit = (text) => {
+  const s = String(text || '').trim()
+  if (!s) return null
+  const lines = s.split(/\r?\n/)
+  const windows = []
+  if (lines.length) windows.push(lines[0].slice(0, 18))
+  if (lines.length > 1) windows.push(lines[1].slice(0, 6))
+  for (const w of windows) {
+    for (const r of EXIT_RULES) {
+      for (const word of r.words) {
+        if (w.includes(word)) return { name: r.name, phrase: word }
+      }
+    }
+  }
+  return null
+}
+
 // 问句点到的那几个机制词（属性？形态？提升？）
 const asksMech = (q) => {
   const low = String(q || '').toLowerCase()
@@ -258,7 +299,11 @@ const rank = (text, entries, opts, blocksOverride) => {
 }
 
 // ---------- 查一句 ----------
-const ask = (q, entries, opts) => {
+// 判定有三种：命中 / 未命中 / 退场。
+// 退场 = 她当时回的是「我不记得了…」「你怎么突然问这个呀」「下次吧…我现在有点懒」这类含糊话，
+// 说明这题她没答上来 —— 这是「库还答不上」的补库考题，既不算命中，也不算未命中，单独一类。
+const ask = (q, entries, opts, exit) => {
+  const say = opts.quiet ? () => {} : (...a) => console.log(...a)
   // 句首称呼先摘掉：「娅娅，秧秧是谁」里「娅娅」不是问的宾语，是叫她的
   const voc = q.match(VOCATIVE_RE)
   const target = voc ? q.slice(voc[0].length) : q
@@ -276,34 +321,46 @@ const ask = (q, entries, opts) => {
   const asked = res.asked
   const mech = res.mech
   const top = res.strong.slice(0, opts.top)
-  console.log('· 问题：' + q)
-  if (voc) console.log('  · 句首称呼「' + voc[1] + '」已忽略（叫她的，不是问她的）')
-  if (fallback) console.log('  · 摘掉称呼后没剩什么内容，改用原句再匹配一次（称呼自己也算词）')
-  if (mech) console.log('  · 认成机制·养成问句（' + asked.join('、') + '）：机制页加权，身份页自己没讲这个维度时让位')
+  say('· 问题：' + q)
+  if (voc) say('  · 句首称呼「' + voc[1] + '」已忽略（叫她的，不是问她的）')
+  if (fallback) say('  · 摘掉称呼后没剩什么内容，改用原句再匹配一次（称呼自己也算词）')
+  if (mech) say('  · 认成机制·养成问句（' + asked.join('、') + '）：机制页加权，身份页自己没讲这个维度时让位')
+  // 判定先给出来，后面那串命中条目是它的证据
+  if (exit) {
+    say('  · 判定：退场 —— 她回的是「' + (exit.phrase || exit.name || '退场话') + '」这类话，这题她没答上来（不算命中，也不算未命中）')
+  } else if (!top.length) {
+    say('  · 判定：未命中')
+  } else {
+    say('  · 判定：命中')
+  }
   if (!top.length) {
-    console.log('  没命中。库里没有能对上这句的词条 —— 别硬答，按她那三句含糊带过。')
+    say(exit
+      ? '  库里也没有能对上这句的词条 —— 这条得补一条词条'
+      : '  没命中。库里没有能对上这句的词条 —— 别硬答，按她那三句含糊带过。')
     if ((opts.all || opts.strict) && scored.length) {
-      for (const s of scored.slice(0, opts.top)) console.log('  （放宽后只有弱命中：' + s.band + ' / ' + s.rec.page + ' / ' + s.rec.e.id + '）')
+      for (const s of scored.slice(0, opts.top)) say('  （放宽后只有弱命中：' + s.band + ' / ' + s.rec.page + ' / ' + s.rec.e.id + '）')
     }
-    return
+    return exit ? 'exit' : 'miss'
   }
   top.forEach((s, i) => {
     const e = s.rec.e
     const def1 = clean(e.def).split(/[；;。]/)[0]
-    const why = { t: 't 精确', alias: '别称', def: '正文命中', id: 'id 匹配', stop: '停止词挡住的（弱，调词表用）' }[s.band]
-    console.log('  ' + (i + 1) + '. [' + s.rec.page + '] ' + s.rec.pageTitle + '　' + e.t + '　(id ' + e.id + ')')
-    console.log('     ' + why + '：「' + s.seg + '」')
-    if (def1) console.log('     def：' + def1.slice(0, 70) + (def1.length > 70 ? '…' : ''))
-    if (e.lvl && e.lvl.length) console.log('     lvl：' + e.lvl.join('、'))
+    const why = { t: 't 精确', alias: '别称', def: '正文命中', id: 'id 匹配', stop: '停止词挡住的（弱，调词表用）', name: '按角色名命中' }[s.band]
+    say('  ' + (i + 1) + '. [' + s.rec.page + '] ' + s.rec.pageTitle + '　' + e.t + '　(id ' + e.id + ')')
+    say('     ' + why + '：「' + s.seg + '」')
+    if (def1) say('     def：' + def1.slice(0, 70) + (def1.length > 70 ? '…' : ''))
+    if (e.lvl && e.lvl.length) say('     lvl：' + e.lvl.join('、'))
   })
   const first = top[0]
-  console.log('  → 先翻 ' + SITE + '/' + first.rec.page + '.html（' + first.rec.pageTitle + '）；' +
+  say('  → 先翻 ' + SITE + '/' + first.rec.page + '.html（' + first.rec.pageTitle + '）；' +
     '页名对不上就抓 index.html 顶部的路由表')
+  if (exit) say('  （她当时还是退了 —— 词条在库里，但没接住这个问法：def 或别称缺了那几个字）')
+  return exit ? 'exit' : 'hit'
 }
 
 // ---------- 入口 ----------
 const argv = process.argv.slice(2)
-const opts = { top: DEF_TOP }
+const opts = { top: DEF_TOP, quiet: false, reply: '' }
 const qs = []
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i]
@@ -311,55 +368,104 @@ for (let i = 0; i < argv.length; i++) {
   else if (a === '--page') { opts.page = argv[i + 1]; i++ }
   else if (a === '--all') opts.all = true
   else if (a === '--strict') opts.strict = true
+  // --reply：把她当时回的那句原话给进来。认出退场话，这题就判「退场」
+  else if (a === '--reply') { opts.reply = String(argv[i + 1] || ''); i++ }
+  // --exit-only：只吐退场清单（补库考题），别的一律不打
+  else if (a === '--exit-only') opts.quiet = true
+  else if (a === '--help' || a === '-h') opts.help = true
   else qs.push(a)
 }
 
 // 标准输入有两种喂法，都得认：
 //   一、qq-log-scan.mjs --out 的三行一块 —— 「· [日期] 文件 #id 谁」/「  问句」/「  命中词：秧秧→chars-npc」
+//      她当时退了的那题，块里还多一行「  退场话：…」，表头也带 [退场] 标记 —— 这题判「退场」
 //   二、裸问句，一行一句
 // 一要是照「一行一句」读，表头和命中词都会变成考题：命中词那行是扫描器自己算好的
 // 答案，喂进来等于把答案抄进卷子，这种题必中，分数会被抬上去而排序其实没变好。
 function parseStdin(raw) {
-  const lines = String(raw).split(/\r?\n/).map((s) => s.trim()).filter(Boolean)
+  // Windows 上很多编辑器/工具写文件会带 BOM，不剥掉的话第一行前面会挂个看不见的 \uFEFF
+  const lines = String(raw).replace(/^\uFEFF/, '').split(/\r?\n/).map((s) => s.trim()).filter(Boolean)
   const isHead = (l) => /^[·•]\s*\[/.test(l)
-  if (!lines.some(isHead)) return { list: lines, blockMode: false }
-  const list = []
+  // 被过滤掉的那段表头是 ✗，不是考题
+  const isDrop = (l) => /^[✗×]\s*\[/.test(l)
+  // 扫描器标出来的那句退场话：「  退场话：这个…我不太记得了…（不记得）」
+  const exOf = (l) => {
+    if (!/^退场话[：:]/.test(l)) return null
+    const body = l.replace(/^退场话[：:]\s*/, '').trim()
+    const mm = body.match(/^(.*)（([^（）]+)）$/)
+    return mm ? { name: mm[2], phrase: mm[1] } : { name: '退场话', phrase: body }
+  }
+  // 有表头 = 扫描器的块格式；没有 = 一行一句的裸问句。两种都要认退场话
+  const blockMode = lines.some(isHead)
+  const items = []
   let cur = []
-  let inBlock = false
-  const flush = () => { if (cur.length) { list.push(cur.join(' ')); cur = [] } }
+  let curExit = null
+  let headExit = false
+  let inDrop = false
+  const flush = () => {
+    if (cur.length) {
+      items.push({
+        q: cur.join(' '),
+        exit: curExit || (headExit ? { name: '扫描器标记', phrase: '（扫描器标了退场）' } : null),
+      })
+      cur = []
+    }
+    curExit = null
+    headExit = false
+  }
   for (const l of lines) {
-    if (isHead(l)) { flush(); inBlock = true; continue }
+    const ex = exOf(l)
+    if (ex) {
+      // 退场话行：块格式里归给正在攒的这道题，裸问句里归给上一道题
+      if (cur.length) curExit = ex
+      else if (items.length) items[items.length - 1].exit = ex
+      else curExit = ex
+      continue
+    }
+    if (isHead(l)) { flush(); inDrop = false; headExit = /\[退场\]/.test(l); continue }
+    if (isDrop(l)) { flush(); inDrop = true; continue }
+    if (inDrop) continue
     if (/^命中词[：:]/.test(l)) { flush(); continue }
-    if (!inBlock) { list.push(l); continue }
+    if (/^（/.test(l)) continue          // 扫描器的说明行（「（以下 N 条被过滤掉…」），不是题
+    if (!blockMode) { items.push({ q: l, exit: null }); continue }
     cur.push(l)
   }
   flush()
-  return { list, blockMode: true }
+  return { items, blockMode }
 }
 
-let questions = qs
+let items = []
 let blockMode = false
-if (!questions.length && !process.stdin.isTTY) {
+if (!qs.length && !process.stdin.isTTY) {
   const parsed = parseStdin(readFileSync(0, 'utf8'))
-  questions = parsed.list
+  items = parsed.items
   blockMode = parsed.blockMode
+} else {
+  // --reply 给了她当时回的那句，就拿它判退场；认出是退场话，这题不再算命中/未命中
+  const ex = opts.reply ? detectExit(opts.reply) : null
+  items = qs.map((q) => ({ q: q, exit: ex }))
 }
 if (blockMode) {
   // 走 stderr，别混进给人看的结果里
-  console.error('[pagecheck] 按 q.txt 三行块读，只取问句行（表头和「命中词」行都不算题）—— 共 ' + questions.length + ' 道')
+  console.error('[pagecheck] 按 q.txt 三行块读，只取问句行（表头和「命中词」行都不算题）—— 共 ' + items.length + ' 道')
 }
-if (!questions.length) {
-  console.log([
+const HELP = [
     'pagecheck —— 本地问一句「库里有没有答案」（只读 src/entries 和 manifest.json，不联网）',
     '',
     '  node tools/pagecheck.mjs 秧秧是谁',
     '  node tools/pagecheck.mjs "阿列夫一是什么" "虚质空间在哪"',
     '  node tools/pagecheck.mjs 爱达千怎么配队 --page teams',
     '  node tools/pagecheck.mjs 虚质 --top 8 --all',
+    '  node tools/pagecheck.mjs 秧秧是谁 --reply "这个…我不太记得了…"',
     '',
     '开关：--top N 给几条（默认 ' + DEF_TOP + '）　--page <页名> 只看一页　--all 连 id 匹配也算',
     '　　　　--strict 连 id 匹配和「被停止词挡住的」弱命中一起放出来，调词表时用',
-  ].join(String.fromCharCode(10)))
+    '　　　　--reply <她回的话> 认退场话（「我不记得了…」「你怎么突然问这个呀」「下次吧…」「差不多吧」「忘了…」）',
+    '　　　　　→ 这题判「退场」：她没答上来 = 库还答不上，不算命中也不算未命中',
+    '　　　　--exit-only 只吐退场清单（补库考题），别的一律不打',
+]
+if (opts.help || !items.length) {
+  console.log(HELP.join(String.fromCharCode(10)))
   process.exit(0)
 }
 
@@ -368,8 +474,21 @@ if (!entries.length) {
   console.log('  ! src/entries/ 里没读到词条')
   process.exit(1)
 }
-for (const q of questions) {
-  ask(q, entries, opts)
-  console.log('')
+const tally = { hit: 0, miss: 0, exit: 0 }
+const exitList = []
+for (const it of items) {
+  const v = ask(it.q, entries, opts, it.exit)
+  tally[v]++
+  if (v === 'exit') exitList.push(it)
+  if (!opts.quiet) console.log('')
+}
+console.log('· 判定：命中 ' + tally.hit + ' 条 / 未命中 ' + tally.miss + ' 条 / 退场 ' + tally.exit + ' 条')
+if (exitList.length) {
+  console.log('· 退场清单（她当时答不上来 = 库还答不上，优先补这些）：' + exitList.length + ' 条')
+  exitList.forEach((it, i) => {
+    console.log('  ' + (i + 1) + '. ' + it.q + '　（退场话：' + (it.exit.phrase || it.exit.name || '退场话') + '）')
+  })
+} else {
+  console.log('· 退场清单：无（这批问题她当时都答上来了）')
 }
 console.log('· 扫了 ' + new Set(entries.map((r) => r.page)).size + ' 页 / ' + entries.length + ' 条词条（字段 t、alias、def、id）')

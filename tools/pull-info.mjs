@@ -48,6 +48,8 @@ for (let i = 2; i < process.argv.length; i++) {
   if (process.argv[i] === '--kw') { extra.push(String(process.argv[i + 1] || '')); i++ }
 }
 const WORDS = CORE.concat(WIDE, extra.filter(Boolean))
+// --all：不管筛词，把本地档案全拉一遍（标题+预览只有前 90 字，筛词会漏掉正文里才提到人的档案）
+const ALL = process.argv.includes('--all')
 const PRINT = opts.rest[0] === '--print' ? Number(process.argv[process.argv.indexOf('--print') + 1] || 0) : 120
 
 const local = loadJson(LOCAL)
@@ -74,8 +76,8 @@ for (const e of all) {
   const hitCore = CORE.filter((w) => hay.includes(w))
   const hitWide = WIDE.filter((w) => hay.includes(w))
   const ver = e.version || ''
-  const ok = hitCore.length > 0 || (hitWide.length > 0 && verNum(ver) >= MIN_VER)
-  if (ok) picked.push({ id: String(e.id), title: t, version: ver, hit: hitCore.concat(hitWide), why: hitCore.length ? 'core' : 'wide+' + ver })
+  const ok = ALL || hitCore.length > 0 || (hitWide.length > 0 && verNum(ver) >= MIN_VER)
+  if (ok) picked.push({ id: String(e.id), title: t, version: ver, hit: hitCore.concat(hitWide), why: ALL ? 'all' : (hitCore.length ? 'core' : 'wide+' + ver) })
 }
 
 const prev = loadJson(OUT)

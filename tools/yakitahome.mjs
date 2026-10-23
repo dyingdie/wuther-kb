@@ -16,7 +16,9 @@
 //   node tools/yakitahome.mjs info 生日行程            看档案条目（本地只有前 90 字）
 //   node tools/yakitahome.mjs list msg                 列联系人 / 其他数据集索引
 //   node tools/yakitahome.mjs pull 28050004            联网：取 /api/info/detail 全文
-//   node tools/yakitahome.mjs pull-conv 32000          联网：取逐条飞讯消息
+//   node tools/yakitahome.mjs api-meta                 联网：/api/meta，192 个文件清单和版本差
+//   node tools/yakitahome.mjs api-terms [关键词]        联网：/api/terms，288 条官方术语（多语种）
+//   node tools/yakitahome.mjs api-search <词…>          联网：POST /api/search（全库检索，参数名是 query 不是 q）
 //
 // 常用开关：--full（不限条数、不截断）、--raw（飞讯不滤语言）、--lang zh-Hant|en|all、
 //           --limit N、--conv <会话 id>、--timeout <毫秒>
@@ -99,7 +101,7 @@ const CJK = /[一-鿿]/
 const PLAIN = /^[\s\d.:：\-—>*·…]+$/
 const looksZhHans = (s) => {
   if (KANA.test(s) || TRAD.test(s)) return false
-  const cjk = (s.match(CJK_G) || []).length
+  const cjk = (s.match(CJK) || []).length   // 原来写成 CJK_G，那个名字文件里根本没定义，一搜就 ReferenceError
   const all = s.replace(/\s/g, '').length || 1
   return cjk >= all * 0.4
 }
@@ -406,6 +408,149 @@ const cmdPullConv = async (id, opts) => {
   if (msgs.length > shown.length) console.log('  …… 还有 ' + (msgs.length - shown.length) + ' 条，加 --full 全看')
 }
 
+// ---------- 联网三条（api-meta / api-terms / api-search） ----------
+// 这三条查的是站点全库，跟上面读本地快照的命令不是一回事；细节见 kb/reports/yakitahome-api.md
+// 坑一：search 的参数名是 query，q / keyword / term / text / searchText / kw / s / words / content / phrase 全试过，total 都是 0
+// 坑二：命中项的 c 字段只有 "en" 一个键，里面装的却是中文——服务端语言键标错了，别按键名当成语种
+// 坑三：所有命中都来自 meta.files[128]（multi_text/MultiText.json），另外 191 个文件搜不到
+const API_CONCURRENCY = 3
+let apiBusy = 0
+const apiQueue = []
+const apiGate = async () => {
+  if (apiBusy >= API_CONCURRENCY) await new Promise((r) => apiQueue.push(r))
+  apiBusy++
+  return () => { apiBusy--; const next = apiQueue.shift(); if (next) next() }
+}
+
+// 能 POST 的取 JSON；出错一律中文提示，不抛栈
+const apiFetch = async (url, init, opts) => {
+  if (typeof fetch !== 'function') {
+    console.log('  ! 这个 node 没有 fetch，取不了')
+    return { code: 0 }
+  }
+  const release = await apiGate()
+  const ac = new AbortController()
+  const timer = setTimeout(() => ac.abort(), Number((opts && opts.timeout) || NET_TIMEOUT))
+  try {
+    const r = await fetch(url, {
+      method: (init && init.method) || 'GET',
+      signal: ac.signal,
+      headers: {
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0.0.0 Safari/537.36',
+        ...((init && init.headers) || {}),
+      },
+      body: init && init.body,
+    })
+    if (r.status === 404) {
+      console.log('  ! 站点没这条（404）：' + url)
+      return { code: 404 }
+    }
+    if (!r.ok) {
+      console.log('  ! 站点回 ' + r.status + '：' + url)
+      return { code: r.status }
+    }
+    const txt = await r.text()
+    try {
+      return { code: 200, json: JSON.parse(txt) }
+    } catch {
+      console.log('  ! 返回的不是 JSON（多半是被限流挡了，隔两秒再试）')
+      return { code: 0 }
+    }
+  } catch (e) {
+    const why = e && e.cause ? (e.cause.code || e.cause.message) : (e && e.name === 'AbortError' ? '超时' : (e && e.message))
+    console.log('  ! 没取到（' + why + '）：' + url)
+    return { code: 0 }
+  } finally {
+    clearTimeout(timer)
+    release()
+  }
+}
+
+// meta 拿一次就留着，f 下标翻文件名要用
+const apiMetaCache = { v: null }
+const apiMeta = async (opts) => {
+  if (!apiMetaCache.v) {
+    const got = await apiFetch(HOST + '/api/meta', null, opts)
+    apiMetaCache.v = got.code === 200 ? got.json : null
+  }
+  return apiMetaCache.v
+}
+
+const cmdApiMeta = async (opts) => {
+  const m = await apiMeta(opts)
+  if (!m) return
+  const byPrefix = {}
+  for (const file of m.files) {
+    const p = String(file).includes('/') ? String(file).split('/')[0] : '(根目录)'
+    byPrefix[p] = (byPrefix[p] || 0) + 1
+  }
+  console.log('· 源版本 ' + m.dataVersion + '｜索引模式 ' + m.indexMode + '｜检索可用 ' + m.searchAvailable)
+  console.log('· 语种 ' + m.languages.join('、') + '（共 ' + m.languages.length + '）')
+  console.log('· 文件 ' + m.totalFiles + ' 个｜条目 ' + m.totalEntries + ' 条')
+  console.log('· 版本差 ' + JSON.stringify(m.versionDiffs))
+  console.log('· 进度版本 ' + m.storyProgressVersions.map((v) => v.value).join(' '))
+  console.log('· 文件类别（按前缀，前 20）：')
+  for (const [k, v] of Object.entries(byPrefix).sort((a, b) => b[1] - a[1]).slice(0, 20)) console.log('    ' + k.padEnd(20) + v)
+  console.log('· ⚠️ search 只搜得出 files[128] = ' + m.files[128] + '，另外 ' + (m.totalFiles - 1) + ' 个文件搜不到')
+}
+
+const cmdApiTerms = async (query, opts) => {
+  const got = await apiFetch(HOST + '/api/terms', null, opts)
+  if (got.code !== 200) return
+  const j = got.json
+  const langs = langList(opts)
+  let list = j.terms
+  if (query) list = list.filter((t) => [t.title, t.description, flatten(t.i18n && t.i18n.title), flatten(t.i18n && t.i18n.description)].join(' ').includes(query))
+  const shown = list.slice(0, opts.full ? list.length : Number(opts.limit || 20))
+  console.log('· 官方术语 ' + j.terms.length + ' 条（源版本 ' + j.sourceVersion + '，构建于 ' + j.builtAt + '）' + (query ? '，含「' + query + '」的 ' + list.length + ' 条' : '') + '，显示 ' + shown.length + ' 条')
+  for (const t of shown) {
+    console.log('  [' + (t.uid || t.debugId) + '] ' + (t.title || '') + (t.version ? '  ' + t.version : ''))
+    for (const l of langs) {
+      const title = l === DEF_LANG ? t.title || pick(t.i18n && t.i18n.title, l) : pick(t.i18n && t.i18n.title, l)
+      const desc = l === DEF_LANG ? t.description || pick(t.i18n && t.i18n.description, l) : pick(t.i18n && t.i18n.description, l)
+      if (!title && !desc) continue
+      if (langs.length > 1) console.log('      ' + l + '  ' + title)
+      const body = flatLine(desc)
+      if (body) console.log('      ' + (opts.full ? body : snip(body, [query], 160)))
+    }
+    console.log('      出处：' + HOST + '/terms（本地副本 source/yakitahome-terms.json）')
+  }
+  if (!shown.length) console.log('（一条都没筛出来，换个关键词或加 --full）')
+}
+
+const cmdApiSearch = async (queries, opts) => {
+  const m = await apiMeta(opts)
+  const limit = Math.min(Number(opts.limit || 10), 100)   // 实测 pageSize 超过 100 对方就不给 JSON 了
+  const lang = opts.lang || DEF_LANG
+  for (const q of queries) {
+    const got = await apiFetch(HOST + '/api/search', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ query: q, pageSize: limit, page: 1 }),
+    }, opts)
+    if (got.code !== 200) continue
+    const j = got.json
+    const rs = j.results || []
+    console.log('· 「' + q + '」命中 ' + j.total + ' 条（' + j.mode + ' 匹配，取回 ' + rs.length + ' 条）')
+    if (!rs.length) {
+      console.log('    一条都没搜到。这站只索引 multi_text 一个文件，角色名、地名大量 0 命中，别当成「游戏里真没有」')
+      continue
+    }
+    const hitFiles = [...new Set(rs.map((x) => x.f))].map((i) => (m && m.files[i]) || ('下标 ' + i))
+    console.log('    命中文件：' + hitFiles.join('、'))
+    rs.forEach((x, i) => {
+      const keys = x.c && typeof x.c === 'object' ? Object.keys(x.c) : []
+      const text = x.c && typeof x.c === 'object'
+        ? (x.c[lang] != null ? String(x.c[lang]) : (keys.length ? String(x.c[keys[0]] == null ? '' : x.c[keys[0]]) : ''))
+        : ''
+      console.log('  ' + String(i + 1).padStart(2) + '. ' + x.id + '｜' + ((m && m.files[x.f]) || '未知文件') + '｜说话人 ' + (x.speaker == null ? '无' : x.speaker))
+      console.log('      ' + snip(text, [q], 90))
+      if (keys.length && x.c[lang] == null) console.log('      提示：没有 ' + lang + ' 键，只给了 "' + keys.join('/') + '"（实测里面装的是中文，服务端语言键标错了）')
+      if (x.versionTag && x.versionTag.firstSeen) console.log('      最早出现：' + x.versionTag.firstSeen + (x.versionTag.hasChanges ? '（之后有改动）' : ''))
+    })
+  }
+}
+
 // ---------- 用法 ----------
 const usage = (code = 0) => {
   console.log([
@@ -419,6 +564,9 @@ const usage = (code = 0) => {
     '  node tools/yakitahome.mjs list [term|msg|info|item] [关键词]',
     '  node tools/yakitahome.mjs pull <档案 id>                 联网：取 /api/info/detail 全文',
     '  node tools/yakitahome.mjs pull-conv <会话 id>            联网：取逐条飞讯消息',
+    '  node tools/yakitahome.mjs api-meta                      联网：/api/meta 文件清单、版本差',
+    '  node tools/yakitahome.mjs api-terms [关键词]             联网：/api/terms 官方术语（多语种）',
+    '  node tools/yakitahome.mjs api-search <词…>               联网：POST /api/search，参数名是 query 不是 q',
     '',
     '开关：--full（不限条数）  --limit N  --raw（飞讯不滤语言）  --lang zh-Hant|ja|en|all  --timeout 毫秒',
     '数据：source/yakitahome-terms.json、source/yakitahome-feixun.json、cache/yakitahome-info.json、cache/yakitahome-items.json',
@@ -451,4 +599,11 @@ else if (cmd === 'info') cmdInfo(rest.join(' '), opts)
 else if (cmd === 'list') cmdList(rest[0], opts)
 else if (cmd === 'pull') await cmdPull(rest[0], opts)
 else if (cmd === 'pull-conv') await cmdPullConv(rest[0], opts)
+else if (cmd === 'api-meta') await cmdApiMeta(opts)
+else if (cmd === 'api-terms') await cmdApiTerms(rest.join(' '), opts)
+else if (cmd === 'api-search') {
+  const qs = rest.length ? rest : (opts.q ? [opts.q] : [])
+  if (qs.length) await cmdApiSearch(qs, opts)
+  else usage(1)
+}
 else usage(cmd ? 1 : 0)
