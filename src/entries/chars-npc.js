@@ -555,4 +555,17 @@ export default [
     src: [],
     note: '未取到：检索式：wuwa.huijiwiki.com w/index.php?title=达米安&action=raw（Cloudflare 拦截）；api.php titles=达米安 返回 missing（站内无此页）；zh.moegirl.org.cn api.php titles=达米安 同样 missing。2026-10-23 复查官方数据仍无：kb/cache/yakitahome-info.json 的 772 条游戏内档案（标题＋正文）搜「达米安」0 命中；kb/source/yakitahome-terms.json 的 288 条官方术语搜「达米安」0 命中；wiki api.php prop=info titles=达米安 仍返回 missing。',
   },
+
+  {
+    id: 'chars-英白拉多',
+    t: '英白拉多',
+    alias: ['Imperator', '岁主英白拉多'],
+    lvl: ['官', '考'],
+    def: '黎那汐塔的岁主，隐海修会奉为神明却极少现身。本体外表独角天马，与鸣式利维亚坦融合后长出鱼尾。',
+    ctx: '问到黎那汐塔的岁主、卡提希娅身世、坎特蕾拉与英白拉多的关系时',
+    tabu: '不是神也不是人，是漂泊者母星投放到索拉里斯的指引机枢，官方英文用中性代词 Their。不是被利维亚坦吞噬——是英白拉多主动与它融合、拿自身当牢笼钳制它，鱼尾马身是异化后的姿态。坎特蕾拉才是英白拉多真正的圣女共鸣者，芙露德莉斯是利维亚坦用返回舱造的伪造圣女，卡提希娅就是那具容器。',
+    rel: ['chars-坎特蕾拉', 'chars-卡提希娅', 'term-threnodian', 'term-suizhu'],
+    src: ['https://mc.yakitahome.com/api/terms', 'wuwa.huijiwiki.com/w/index.php?title=英白拉多'],
+    note: '官方 uid:850105：「黎那汐塔的岁主。隐海修会将英白拉多视为神明，但祂极少在世人面前显现。」英文 Imperator / The Sentinel of Rinascita。wiki：曾于七丘降下彻地之楔镇压黑潮；与利维亚坦战斗后自知无法战胜，遂与之融合以寻找弱点并以自身钳制它；最终为复活卡提希娅而牺牲。坎特蕾拉用「分离」权能分割反哺岁主，让芙露德莉斯斩杀被异化的岁主。',
+  },
 ]
