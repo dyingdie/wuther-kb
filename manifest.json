@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-23T06:06:22.361Z",
+  "built": "2026-10-23T06:36:23.286Z",
   "pages": [
     {
       "file": "person",
@@ -68,10 +68,22 @@
       "cp": 2890
     },
     {
+      "file": "jargon",
+      "title": "玩家黑话",
+      "n": 14,
+      "cp": 2471
+    },
+    {
       "file": "memes",
       "title": "社区梗",
-      "n": 2,
-      "cp": 712
+      "n": 20,
+      "cp": 4125
+    },
+    {
+      "file": "memes-her",
+      "title": "关于她的梗",
+      "n": 16,
+      "cp": 3824
     },
     {
       "file": "nicknames",
@@ -84,6 +96,12 @@
       "title": "二创 CP",
       "n": 1,
       "cp": 230
+    },
+    {
+      "file": "allusions",
+      "title": "台词出处",
+      "n": 25,
+      "cp": 3425
     },
     {
       "file": "versions",

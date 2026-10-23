@@ -26,9 +26,12 @@ export const PAGES = [
   { file: 'terms',      title: '机制术语',     desc: '共鸣、频率、虚质、鸣式等最容易说错的一批' },
   { file: 'titles',     title: '官方名号',     desc: '唤取标题、满链、成就、收藏品、服饰名、PV' },
   { file: 'items',      title: '东西',         desc: '她的道具、装置、随身物' },
-  { file: 'memes',      title: '社区梗',       desc: '社区玩梗。接之前先看语境和禁忌', noSrc: true },
+  { file: 'jargon',     title: '玩家黑话',     desc: '抽卡、配队、养成、深塔这些群里天天在说的词' },
+  { file: 'memes',      title: '社区梗',       desc: '整个游戏社区在玩梗。她自己的梗在 memes-her', noSrc: true },
+  { file: 'memes-her',  title: '关于她的梗',   desc: '别人玩达妮娅的梗。群里最容易接的一页，接之前先看禁忌', noSrc: true },
   { file: 'nicknames',  title: '昵称绰号',     desc: '各种叫法、爱称、谐称' },
   { file: 'ships',      title: '二创 CP',      desc: '玩家配对向，非官方', noSrc: true },
+  { file: 'allusions',  title: '台词出处',     desc: '游戏台词致敬的外部作品与俗语。问「这句什么意思」抓这里', noSrc: true },
   { file: 'versions',   title: '时间线',       desc: '版本号 ↔ 剧情推进 ↔ 角色登场' },
 ]
 
@@ -45,6 +48,9 @@ export const ROUTES = [
   ['她的称号、成就、收藏品', 'titles'],
   ['泡泡、相册、玩偶这类东西', 'items'],
   ['社区在玩什么梗 / 秧秧神秘写信女', 'memes'],
+  ['别人玩她的梗 / 娅娅鸭子坐邪恶水蜜桃', 'memes-her'],
+  ['深塔、专拐、大保底、传家宝这些词', 'jargon'],
+  ['这句台词是什么意思 / 致敬了什么', 'allusions'],
   ['谁怎么叫她 / 绰号', 'nicknames'],
   ['CP / 配对向', 'ships'],
   ['什么时候出的 / 版本对应剧情', 'versions'],
