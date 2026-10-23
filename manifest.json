@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-23T16:26:50.690Z",
+  "built": "2026-10-23T16:30:05.830Z",
   "pages": [
     {
       "file": "person",
@@ -39,9 +39,9 @@
     {
       "file": "chars-npc",
       "title": "别处的人",
-      "n": 41,
-      "cp": 7241,
-      "liteCp": 4878
+      "n": 42,
+      "cp": 7565,
+      "liteCp": 5109
     },
     {
       "file": "world",
@@ -74,9 +74,9 @@
     {
       "file": "terms",
       "title": "机制术语",
-      "n": 46,
-      "cp": 6512,
-      "liteCp": 4414
+      "n": 47,
+      "cp": 6720,
+      "liteCp": 4570
     },
     {
       "file": "terms-official",
