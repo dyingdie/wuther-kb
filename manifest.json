@@ -1,127 +1,168 @@
 {
-  "built": "2026-10-23T07:57:00.742Z",
+  "built": "2026-10-23T11:14:10.073Z",
   "pages": [
     {
       "file": "person",
       "title": "她是谁",
-      "n": 7,
-      "cp": 2420
+      "n": 18,
+      "cp": 6135,
+      "liteCp": 2070
     },
     {
       "file": "lines",
       "title": "她说了什么",
-      "n": 28,
-      "cp": 6446
+      "n": 32,
+      "cp": 5865,
+      "liteCp": 3319
     },
     {
       "file": "plotlines",
       "title": "她说过的重话",
-      "n": 6,
-      "cp": 1845
+      "n": 18,
+      "cp": 5596,
+      "liteCp": 2218
     },
     {
       "file": "plot",
       "title": "她的故事",
-      "n": 5,
-      "cp": 2404
+      "n": 13,
+      "cp": 6092,
+      "liteCp": 1674
     },
     {
       "file": "chars",
       "title": "别人是谁",
-      "n": 25,
-      "cp": 7726
+      "n": 19,
+      "cp": 3478,
+      "liteCp": 2252
+    },
+    {
+      "file": "chars-npc",
+      "title": "别处的人",
+      "n": 41,
+      "cp": 7152,
+      "liteCp": 4789
     },
     {
       "file": "world",
       "title": "地方",
-      "n": 20,
-      "cp": 7705
+      "n": 14,
+      "cp": 2863,
+      "liteCp": 1649
+    },
+    {
+      "file": "world-extra",
+      "title": "别处的地方",
+      "n": 19,
+      "cp": 4704,
+      "liteCp": 2159
     },
     {
       "file": "org",
       "title": "组织势力",
-      "n": 7,
-      "cp": 3190
+      "n": 15,
+      "cp": 4684,
+      "liteCp": 2571
     },
     {
       "file": "factions",
       "title": "阵营名录",
-      "n": 10,
-      "cp": 2618
+      "n": 22,
+      "cp": 4807,
+      "liteCp": 3602
     },
     {
       "file": "terms",
       "title": "机制术语",
-      "n": 13,
-      "cp": 5089
+      "n": 45,
+      "cp": 5972,
+      "liteCp": 3953
     },
     {
       "file": "titles",
       "title": "官方名号",
-      "n": 8,
-      "cp": 2314
+      "n": 41,
+      "cp": 5168,
+      "liteCp": 3138
     },
     {
       "file": "items",
       "title": "东西",
-      "n": 11,
-      "cp": 2890
+      "n": 21,
+      "cp": 3594,
+      "liteCp": 2501
     },
     {
       "file": "jargon",
       "title": "玩家黑话",
-      "n": 14,
-      "cp": 2471
+      "n": 23,
+      "cp": 2816,
+      "liteCp": 2060
+    },
+    {
+      "file": "roles",
+      "title": "角色属性",
+      "n": 25,
+      "cp": 3988,
+      "liteCp": 2629
     },
     {
       "file": "teams",
       "title": "配队",
       "n": 23,
-      "cp": 6004
+      "cp": 3851,
+      "liteCp": 2440
     },
     {
       "file": "combat",
       "title": "战斗",
-      "n": 23,
-      "cp": 5415
+      "n": 27,
+      "cp": 4296,
+      "liteCp": 2929
     },
     {
       "file": "memes",
       "title": "社区梗",
-      "n": 20,
-      "cp": 4125
+      "n": 21,
+      "cp": 3230,
+      "liteCp": 2399
     },
     {
       "file": "memes-her",
       "title": "关于她的梗",
-      "n": 16,
-      "cp": 3824
+      "n": 17,
+      "cp": 2865,
+      "liteCp": 2171
     },
     {
       "file": "nicknames",
       "title": "昵称绰号",
-      "n": 6,
-      "cp": 2109
+      "n": 13,
+      "cp": 1967,
+      "liteCp": 1303
     },
     {
       "file": "ships",
       "title": "二创 CP",
-      "n": 1,
-      "cp": 230
+      "n": 14,
+      "cp": 4780,
+      "liteCp": 2598
     },
     {
       "file": "allusions",
       "title": "台词出处",
-      "n": 25,
-      "cp": 3425
+      "n": 38,
+      "cp": 4755,
+      "liteCp": 3867
     },
     {
       "file": "versions",
       "title": "时间线",
-      "n": 3,
-      "cp": 1061
+      "n": 11,
+      "cp": 3141,
+      "liteCp": 1757
     }
   ],
-  "todo": 4,
+  "todo": 5,
   "missing": []
 }

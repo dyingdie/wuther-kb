@@ -1,6 +1,8 @@
 // 页面：别人是谁（chars）
-// 收录原则：达妮娅有交集的优先，其次主线/队伍核心，再次敌方要员。
+// 收录原则：只收拉海洛这条线上的——星炬学院师生、残星会，还有和她直接打过交道的人。
+// 其他地区的角色（瑝珑 / 今州那边、黑海岸、明庭）归 chars-npc 页。
 // 拿不到可靠来源的一律标【待】并写清检索式，不许编。
+
 export default [
   // ---------- 达妮娅身边：星炬学院 ----------
   {
@@ -12,8 +14,9 @@ export default [
     ctx: '问「达妮娅在学院归谁管」「谁不让她见绯雪」的时候。',
     tabu: 'wiki 只写她回绝了绯雪的探望，别替她补动机；记忆宫殿是重演旧日光景，不是改写过去。',
     rel: ['person-danya', 'chars-千咲', 'chars-琳奈', 'rel-svigirl', 'chars-凯尔梅尔'],
-    src: ['wuwa.huijiwiki/wiki/洛瑟菈', 'wuwa.huijiwiki/wiki/达妮娅'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=洛瑟菈', 'wuwa.huijiwiki.com/w/index.php?title=达妮娅'],
     note: '已核（wiki 洛瑟菈页、达妮娅/经历页）。学生名单里有艾米娅（已亡）。绯雪、陆·赫斯、莫宁都是她的同事；wiki 另记绯雪本想看望达妮娅、被她回绝。共鸣属性栏写「冷凝」，不是「冷凝系」。飞讯签名「风格在语言之前表达。」',
+
   },
   {
     id: 'chars-千咲',
@@ -24,8 +27,9 @@ export default [
     ctx: '问「学院里那些学生」时最常被点到的；也常和西格莉卡、琳奈一起被提。',
     tabu: 'wiki 有独立页，角色页只写「星炬学院」；「隧者工学部」出自 wiki 考据页的拉海洛时间线，别当成角色页原文。',
     rel: ['person-danya', 'rel-svigirl', 'chars-琳奈', 'chars-洛瑟菈'],
-    src: ['wuwa.huijiwiki/wiki/千咲'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=千咲'],
     note: '已核（wiki 千咲页）。好友澄夏已亡。成就《三人成行》是和西格莉卡一起探学院暗面。⚠️未核：wiki 无「预科」二字，学部只到隧者工学部战术开发学科群这一层。',
+
   },
   {
     id: 'chars-琳奈',
@@ -36,8 +40,9 @@ export default [
     ctx: '问「谁冒名进了学院」「琳奈是不是残星会的人」时；这个身份梗很容易被说串。',
     tabu: '残星会那个「琳奈」和眼前这个佣兵琳奈不是同一个人；老师先是魏尔伦，后来才是莫宁。',
     rel: ['person-danya', 'chars-千咲', 'chars-莫宁', 'chars-魏尔伦'],
-    src: ['wuwa.huijiwiki/wiki/琳奈', 'wuwa.huijiwiki/wiki/残星会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=琳奈', 'wuwa.huijiwiki.com/w/index.php?title=残星会'],
     note: '本名在 wiki 上就是 ■■，没写出来——别替她编真名。',
+
   },
   {
     id: 'chars-爱弥斯',
@@ -48,8 +53,9 @@ export default [
     ctx: '学院学生名单被问到时可能出现，3.1 上线，与琳奈、西格莉卡、千咲同届。',
     tabu: 'wiki 原文是「现已成为无人可见的『电子幽灵』」——别说成她还在学院正常上学；也别补她的性格和结局之外的经历。',
     rel: ['person-danya', 'chars-千咲', 'rel-svigirl', 'chars-琳奈'],
-    src: ['wuwa.huijiwiki/wiki/爱弥斯'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=爱弥斯'],
     note: '已核（wiki 爱弥斯独立页）。个人状态：牺牲自己把鸣式阿列夫一困在隧门后；3.3 从隧门后重返拉海洛。家人是漂泊者。',
+
   },
   {
     id: 'chars-莫宁',
@@ -60,8 +66,9 @@ export default [
     ctx: '问学院老师是谁、问琳奈和千咲的老师是谁的时候。',
     tabu: '他是教授不是学生，wiki 原文是「星炬学院隧者工学部教授」；魏尔伦那边 wiki 只写「星炬学院教授」，没写学部，别替谁补。',
     rel: ['chars-琳奈', 'chars-千咲', 'chars-伊摩尔', 'rel-svigirl'],
-    src: ['wuwa.huijiwiki/wiki/星炬学院', 'wuwa.huijiwiki/wiki/残星会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=星炬学院', 'wuwa.huijiwiki.com/w/index.php?title=残星会'],
     note: '已核（wiki 星炬学院页、残星会页）。身份另有深空联合研究院研究员、生研社（生体机械隧群造物研究社）顾问。',
+
   },
   {
     id: 'chars-陆赫斯',
@@ -72,10 +79,11 @@ export default [
     ctx: '问学院教职、问「谁在盯着残星会」时。',
     tabu: '魏尔伦是被他控制的，灭口的却是残星会会长——这两步别混成一步。',
     rel: ['chars-克里斯托弗', 'chars-海德拉', 'chars-魏尔伦', 'chars-洛瑟菈'],
-    src: ['wuwa.huijiwiki/wiki/星炬学院', 'wuwa.huijiwiki/wiki/残星会', 'wuwa.huijiwiki/wiki/海德拉'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=星炬学院', 'wuwa.huijiwiki.com/w/index.php?title=残星会', 'wuwa.huijiwiki.com/w/index.php?title=海德拉'],
     note: '已核（wiki 星炬学院页、残星会页）：校医兼心理医生，养父是埃尔温·赫斯。⚠️未核：「海德拉这个名字是他先提的」全 wiki 查不到，已删。',
-  },
+
   // ---------- 残星会 ----------
+  },
   {
     id: 'chars-克里斯托弗',
     t: '克里斯托弗',
@@ -85,8 +93,9 @@ export default [
     ctx: '问「残星会有哪些会监」、问娜波摩那个身份是谁做出来的时候。',
     tabu: 'wiki 另记「娜波摩这一身份由克里斯托弗创造」，与会长亲自扮演身份的记录并存，两种说法都在。',
     rel: ['rel-nabomo', 'rel-floro', 'chars-海德拉', 'rel-aleevy'],
-    src: ['wuwa.huijiwiki/wiki/残星会', 'wuwa.huijiwiki/wiki/达妮娅'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=残星会', 'wuwa.huijiwiki.com/w/index.php?title=达妮娅'],
     note: '已核（wiki 残星会页、残星会会长页）。会长命他前往新联邦给副会长厄里斯送信。',
+
   },
   {
     id: 'chars-海德拉',
@@ -97,8 +106,9 @@ export default [
     ctx: '问到残星会高层、或问到「谁在给残星会造东西」时。',
     tabu: 'wiki 上只有这几行：没有出身、没有声痕、也没有形象。别给他加设定。',
     rel: ['chars-塞壬', 'chars-陆赫斯', 'rel-floro'],
-    src: ['wuwa.huijiwiki/wiki/海德拉', 'wuwa.huijiwiki/wiki/残星会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=海德拉', 'wuwa.huijiwiki.com/w/index.php?title=残星会'],
     note: '已核（wiki 残星会会长页）：会长在黯原「寂静断崖」探索报告找到的录音（未知录音·虚妄摇篮）里评价他——「你真恶心。」是四个字，也不在换日庆典上。',
+
   },
   {
     id: 'chars-塞壬',
@@ -109,8 +119,9 @@ export default [
     ctx: '残星会名单里被点到时。',
     tabu: '别跟悲鸣、鸣式那套术语里的「塞壬」混为一谈——本库没有证据说明它们是同一个东西。',
     rel: ['chars-海德拉'],
-    src: ['wuwa.huijiwiki/wiki/残星会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=残星会'],
     note: '资料极少，不要扩写。',
+
   },
   {
     id: 'chars-魏尔伦',
@@ -121,8 +132,9 @@ export default [
     ctx: '问学院教授、问「虚质磁暴是谁搞的」时——这条线直接连到达妮娅被送回学院。',
     tabu: '他是被陆·赫斯控制的，不是被漂泊者抓的；开枪的是残星会会长。',
     rel: ['chars-琳奈', 'chars-陆赫斯', 'rel-nabomo', 'chars-莫宁'],
-    src: ['wuwa.huijiwiki/wiki/残星会', 'wuwa.huijiwiki/wiki/星炬学院'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=残星会', 'wuwa.huijiwiki.com/w/index.php?title=星炬学院'],
     note: '已核（wiki 残星会页、魏尔伦页）。参与主持过「换日仪式」；越狱后劫持娜波摩进天槎空间站。⚠️未核：wiki 从未写他是「拉贝尔开发学部」教授，原文已删。',
+
   },
   {
     id: 'chars-厄里斯',
@@ -133,7 +145,8 @@ export default [
     ctx: '问到残星会层级（会长／副会长／会监）的时候。',
     tabu: '会长只有一个，副会长是厄里斯，会监另有一批——别把这两层搞混。',
     rel: ['chars-克里斯托弗', 'rel-floro'],
-    src: ['wuwa.huijiwiki/wiki/残星会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=残星会'],
+
   },
   {
     id: 'chars-伊摩尔',
@@ -144,7 +157,8 @@ export default [
     ctx: '问秘日六席、或问虚质磁暴那件事的执行人时。',
     tabu: '他叫莫宁「残废」是 wiki 记下的原话；结局是被打倒，不是被杀。',
     rel: ['chars-莫宁', 'chars-魏尔伦'],
-    src: ['wuwa.huijiwiki/wiki/残星会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=残星会'],
+
   },
   {
     id: 'chars-伤痕',
@@ -155,8 +169,9 @@ export default [
     ctx: '问到残星会的战斗人员，或问「谁说过漂泊者以前可能是残星会一员」时。',
     tabu: '「漂泊者当过残星会」只有伤痕和会长那句「路标」作证，是残星会那边的说法，别说成已定论。',
     rel: ['chars-克里斯托弗'],
-    src: ['wuwa.huijiwiki/wiki/残星会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=残星会'],
     note: '已核（wiki 残星会页）：会监名单里排第三。目前正被仇远追杀。',
+
   },
   {
     id: 'chars-奥戈',
@@ -167,8 +182,9 @@ export default [
     ctx: '被问到「残星会的小兵怎么想」时；他那篇日记很好引用。',
     tabu: '他不是会监，只是被裹进去的普通成员，别和海德拉那批人并列。',
     rel: ['chars-克里斯托弗'],
-    src: ['wuwa.huijiwiki/wiki/残星会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=残星会'],
     note: '已核（wiki 残星会页，含其日记原文）。登场于纪闻「重嶂轶闻」。',
+
   },
   {
     id: 'chars-芬莱克',
@@ -179,9 +195,10 @@ export default [
     ctx: '聊隐海、黑潮这条线的时候。',
     tabu: '他后来被鸣式蛊惑，独自留下清理黑潮而死——别写成从头到尾的反派。',
     rel: [],
-    src: ['wuwa.huijiwiki/wiki/残星会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=残星会'],
+
+  // ---------- 洛瑟菈的家世 ----------
   },
-  // ---------- 其他 ----------
   {
     id: 'chars-凯尔梅尔',
     t: '凯尔梅尔',
@@ -191,70 +208,11 @@ export default [
     ctx: '被追问洛瑟菈家世的时候。',
     tabu: '「一位不称职的老师」是 wiki 记的原话，别翻译成争吵或决裂。',
     rel: ['chars-洛瑟菈', 'person-danya'],
-    src: ['wuwa.huijiwiki/wiki/洛瑟菈'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=洛瑟菈'],
     note: '已核（wiki 洛瑟菈页）：她是新联邦审查官，凯尔梅尔自称「一位不称职的老师罢了」；wiki 里她称女儿 Luci（故别号小洛）。',
-  },
-  {
-    id: 'chars-椿',
-    t: '椿',
-    alias: [],
-    lvl: ['官'],
-    def: '黑海岸的「执花」，漂泊者的命定之种，上司是守岸人。她相信命定，然后顺着那份牵引往前走。',
-    ctx: '聊黑海岸线，或有人提到漂泊者的「命定之种」的时候。',
-    tabu: '别把她当残星会的人——那是在泰缇斯系统模拟的星图时间线里发生的事。',
-    rel: [],
-    src: ['wuwa.huijiwiki/wiki/椿', 'wuwa.huijiwiki/wiki/残星会'],
-    note: '已核（wiki 椿页）：身份栏写「执花」，所属团体写「黑海岸」，出身地区是「未知」；别把「黑海岸」说成她的出身地。',
-  },
-  {
-    id: 'chars-卡卡罗',
-    t: '卡卡罗',
-    alias: [],
-    lvl: ['官'],
-    def: '跨国雇佣兵组织「幽灵猎犬」的团长。冷静、心狠、看着利益至上，其实所做一切都是为了护住自家人。',
-    ctx: '群里提到他多半是跟丹瑾一起提；也常出现在瑝珑那条线上。',
-    tabu: '「库尔特族」「因为霜寒失去痛觉所以从不喊疼」本库查不到 wiki 页面，别当成设定往外说。',
-    rel: ['chars-丹瑾'],
-    src: ['wuwa.huijiwiki/wiki/卡卡罗'],
-    note: '已核（wiki 卡卡罗页）。曾是被流放者，几乎一个人把幽灵猎犬带起来；wiki 记出身新联邦。⚠️未核：站内搜「库尔特」无任何命中，别当成已证设定。',
-  },
-  {
-    id: 'chars-丹瑾',
-    t: '丹瑾',
-    alias: ['玉玉女侠'],
-    lvl: ['官'],
-    def: '十五岁的游侠少女，能把自己的血凝成绯色的刀刃。她替今州清剿流放者，正准备进军策府当司察。',
-    ctx: '和卡卡罗一起被提；问她怎么打、问她为什么打。',
-    tabu: 'wiki 记的是她小时候有个妹妹、妹妹死于拐带的案子；这跟「霜寒」那套不是一回事，别拼成同一个人。',
-    rel: ['chars-卡卡罗', 'chars-素玙'],
-    src: ['wuwa.huijiwiki/wiki/丹瑾', 'wuwa.huijiwiki/wiki/丹瑾/经历'],
-    note: '已核（wiki 丹瑾页、丹瑾/经历页）。二测名「丹槿」；飞讯签名「只要不被打中，就没什么大不了的！」；出身瑝珑。',
-  },
-  {
-    id: 'chars-素玙',
-    t: '素玙',
-    alias: [],
-    lvl: ['官'],
-    def: '今州军策府的人，丹瑾被要求在她监管下出剑。她说丹瑾其实相当可爱，爱笑，有时像个孩子。',
-    ctx: '提到丹瑾近况、或者瑝珑线（3.5「危构悬天问丹心」）的时候。',
-    tabu: '本库只记到「军策府」这一层，别替她补职衔。wiki 没有她的独立页。',
-    rel: ['chars-丹瑾', 'chars-忌炎'],
-    src: ['wuwa.huijiwiki/wiki/丹瑾/经历'],
-    note: '已核（wiki 丹瑾/经历页）：军策府要丹瑾的剑暂受她监管，并有意让丹瑾当司察。',
-  },
-  {
-    id: 'chars-忌炎',
-    t: '忌炎',
-    alias: [],
-    lvl: ['官'],
-    def: '今州的将军。是他觉得丹瑾的性格和能力适合当司察，素玙真去接触之后才发现她挺可爱。',
-    ctx: '瑝珑线或者提到军策府的时候。',
-    tabu: '本库只记了他这几句话，别补战功、也别补他和丹瑾的私交。',
-    rel: ['chars-素玙', 'chars-丹瑾'],
-    src: ['wuwa.huijiwiki/wiki/丹瑾/经历', 'wuwa.huijiwiki/wiki/忌炎'],
-    note: '已核（wiki 忌炎页）：今州夜归军现任军将，出身瑝珑，飞讯签名「岂曰无衣，与子同袍」。',
-  },
+
   // ---------- 剧情里出现过、但 wiki 没有独立页的人 ----------
+  },
   {
     id: 'chars-艾莉亚',
     t: '艾莉亚',
@@ -264,8 +222,9 @@ export default [
     ctx: '有人提起这个名字的时候。',
     tabu: 'wiki 全站没有她的角色页，身份、立场、结局一概不明。**只说这一句对白，别顺着编她的剧情。**',
     rel: ['plot-shadow-gold'],
-    src: ['../wuwa/168800009.txt:587-589', '检索式：wuwa.huijiwiki 艾莉亚（站内 9 条命中全是无关页，无角色页）'],
-    note: '已核：wiki 站内搜「艾莉亚」无角色页，检索式留在 src 里备查。对白原文取自我们抓的 wuther.in《影下不落的黄金》章节文本（已存 ../wuwa/168800009.txt），不是 wiki 收录的设定文本，要说「剧情里她这么讲过」而不是「设定里写着」。',
+    src: ['source/影下不落的黄金.txt:587-589', '检索式：wuwa.huijiwiki 艾莉亚（站内 9 条命中全是无关页，无角色页）'],
+    note: '已核：wiki 站内搜「艾莉亚」无角色页，检索式留在 src 里备查。对白原文取自我们抓的 wuther.in《影下不落的黄金》章节文本（已存 source/影下不落的黄金.txt），不是 wiki 收录的设定文本，要说「剧情里她这么讲过」而不是「设定里写着」。',
+
   },
   {
     id: 'chars-阿里曼托',
@@ -276,10 +235,11 @@ export default [
     ctx: '达妮娅频率急剧衰减那段时间被问到的时候。',
     tabu: '**「阿里曼托」和「阿里曼」是不是同一个人，本库没查实**——wiki 里两处都出现，只有「阿里曼」有记录。别替他补职务、阵营和长相。',
     rel: ['person-danya', 'plot-melt-sky', 'plot-shadow-gold'],
-    src: ['https://wuwa.huijiwiki.com/wiki/达妮娅/经历', 'https://wuwa.huijiwiki.com/wiki/达妮娅/档案'],
-    note: '已核（wiki 达妮娅/经历页、档案页）：经历页记「负责监护达妮娅的阿里曼请求漂泊者与达妮娅交涉，并给她安定药物」；档案页另有「阿里曼，把黯原那边找到的记录发给我」。零点十五分泡泡困人一段见 ../wuwa/119000000.txt:1196-1225。⚠️未核：wiki 无「阿里曼托」独立页（站内搜该词零命中）。',
-  },
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=达妮娅/经历', 'https://wuwa.huijiwiki.com/w/index.php?title=达妮娅/档案'],
+    note: '已核（wiki 达妮娅/经历页、档案页）：经历页记「负责监护达妮娅的阿里曼请求漂泊者与达妮娅交涉，并给她安定药物」；档案页另有「阿里曼，把黯原那边找到的记录发给我」。零点十五分泡泡困人一段见 source/在熔解的夜空下.txt:1196-1225。⚠️未核：wiki 无「阿里曼托」独立页（站内搜该词零命中）。',
+
   // ---------- 3.6 新角色：达妮娅的震谐/聚爆队友 ----------
+  },
   {
     id: 'chars-清宵',
     t: '清宵',
@@ -289,20 +249,7 @@ export default [
     ctx: '被问「清宵是谁」「那个剑仙」时；也常见于达妮娅的震谐队讨论。',
     tabu: '**是气动，不是热熔也不是震谐**——震谐是偏谐路线名不是属性。常见别称「琴剑双绝」在 wiki infobox 查不到，没核实，别当官方称号。',
     rel: ['chars-秧秧', 'attr-qingxiao', 'term-zhenxie'],
-    src: ['https://wuwa.huijiwiki.com/wiki/清宵'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=清宵'],
     note: '已核（wiki 清宵页 infobox wikitext，api.php 取第 0 节模板参数）：属性气动、武器迅刀、上线 2026-08-20（3.6）。师承：师父静微真人，共轭师徒是漂泊者（《金瞳异人剑法》）。下属：秋鸿、秧秧·玄翎、椋羽。⚠️未核：「琴剑双绝」。2026-08-17 是战斗演示公布日，08-20 才是 wiki 记的上线日，两个日期别混。',
-  },
-  // ---------- 1.0 首发角色：达妮娅主线里没有她，但群里问得到 ----------
-  {
-    id: 'chars-秧秧',
-    t: '秧秧',
-    alias: ['玄翎', '秧秧·玄翎'],
-    lvl: ['官', '社'],
-    def: '《鸣潮》看板娘（玩家叫的），1.0 登场的四星共鸣者，气动迅刀，离家去今州城当夜归的踏白。异能力「风声羽息」，能读携带声音与情感的「流息」。',
-    ctx: '群里被直接问「秧秧是谁」时。**这条曾经是真实缺口**——日志里她真答过「…叫我达妮娅，秧秧…我不记得了」。她 1.0 就在了，是全游戏的看板娘，别当 3.5 新人介绍。',
-    tabu: '「看板娘」「神秘送信女」都是社区叫法，不是官方称号，被人纠正也不用改口。她和达妮娅**没有交集**，达妮娅的主线从头到尾没有她，别把两人说成旧识。「明庭音乐世家二小姐」「跨版本给漂泊者寄信」只见于社区条目，wiki 未收录，当传闻讲就行。',
-    rel: ['ver-35'],
-    src: ['https://wuwa.huijiwiki.com/wiki/秧秧', 'https://wuwa.huijiwiki.com/wiki/发展年表'],
-    note: '已核（wiki 秧秧页，pageid 371，API 抓的正文）：开篇明写「《鸣潮》的**四星共鸣者**」；简介「离家远行，成长为优秀踏白成员的少女」；异能力「风声羽息」＋感知对象「流息」（能携带声音与情感）；注释参考《寰宇人类注疏：群星交错》——秧秧。已核（wiki 发展年表页）：3.5「遗音扶剑，荡梦而歌」新增五星 SP「秧秧·玄翎」与梦州玄方地界。⚠️未核：「明庭音乐世家二小姐」「寄信起始时间与次数」、她那句「有一个常年漂泊在外的『榜样』，给我寄来了很多这样的故事」——wiki 秧秧页未收录对白与身世，来源是社区报道与百科条目，别当成游戏原文引用。3.5 给了她五星 SP 形态「秧秧·玄翎」，社区因此又叫她「神秘送信女」。CV：中文虫虫／日文石川由依／英文 Rebecca Yeo。',
   },
 ]

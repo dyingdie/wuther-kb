@@ -1,0 +1,7 @@
+# 只挡系统杂项。html / manifest.json / todo.json / sitemap.xml 都是生成物，
+# 但站点现在就靠仓库里已跟踪的 html 直接出 Pages（源是 main 分支 /root），
+# 从 index 里摘掉而没先把 Pages 源切成 GitHub Actions，线上会直接空白——所以照旧跟踪。
+# 以后要去掉，前置条件：人先把 Pages 源切成 GitHub Actions，切了再回来加 deploy job + git rm --cached（见 NEXT.md）
+
+.DS_Store
+Thumbs.db

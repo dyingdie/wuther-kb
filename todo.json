@@ -1,30 +1,37 @@
 [
   {
-    "id": "lines-unknown",
+    "id": "lines-voice-gap",
     "page": "lines",
-    "t": "没拿到的（别补全）",
-    "note": "待检索式: 达妮娅 闲趣语音 文本",
-    "kw": "达妮娅 闲趣语音 文本"
+    "t": "战斗语音 160–162（类目未查到）",
+    "note": "检索式：wiki 达妮娅/档案（pageid 1273）insource 全文检索「但愿能有用」「归我咯」「没人看见就行」，0 命中；档案页 90 条语音都标了场合，只有 135 逆势反击·一那行台词栏是空的（135「安静！」只能按位置推，无第二处佐证）。闲趣三条已据同页核实，存 lines-unknown。101–159 可按档案页场合逐条文本对齐（靠文本比对，不是数据集自带标注）：101–107 普攻一~七／108–111 重击一~四／112–117 空中攻击一~六／118–123 共鸣技能一~六／124–129 共鸣解放一~六／130–131 变奏技能一~二／132–134 极限闪避一~三／135–138 逆势反击一~四／139–140 受击一~二／141–144 重伤一~四／145–147 力竭一~三／148 声骸异能·召唤／149 声骸异能·变身／150–151 进战提醒一~二／152–153 滑翔一~二／154 感知／155–156 冲刺一~二／157–159 获得补给一~三",
+    "kw": "wiki 达妮娅/档案（pageid 1273）insource 全文检索「但愿能有用」「归我咯」「没人看见就行」，0 命中；档案页 90 条语音都标了场合，只有 135 逆势反击·一那行台词栏是空的（135「安静！」只能按位置推，无第二处佐证）。闲趣三条已据同页核实，存 lines-unknown。101–159 可按档案页场合逐条文本对齐（靠文本比对，不是数据集自带标注）：101–107 普攻一~七／108–111 重击一~四／112–117 空中攻击一~六／118–123 共鸣技能一~六／124–129 共鸣解放一~六／130–131 变奏技能一~二／132–134 极限闪避一~三／135–138 逆势反击一~四／139–140 受击一~二／141–144 重伤一~四／145–147 力竭一~三／148 声骸异能·召唤／149 声骸异能·变身／150–151 进战提醒一~二／152–153 滑翔一~二／154 感知／155–156 冲刺一~二／157–159 获得补给一~三"
   },
   {
-    "id": "combat-element-reaction",
-    "page": "combat",
-    "t": "元素反应 / 效应系统",
-    "note": "官方目前只承认「六种共鸣属性」，元素 Debuff 叠加是爆料里提的。",
-    "kw": ""
+    "id": "chars-巴蒂尔",
+    "page": "chars-npc",
+    "t": "巴蒂尔",
+    "note": "未取到：检索式：wuwa.huijiwiki.com w/index.php?title=巴蒂尔&action=raw（Cloudflare 拦截）；api.php titles=巴蒂尔 返回 missing（站内无此页）；zh.moegirl.org.cn api.php titles=巴蒂尔 同样 missing。2026-10-23 复查官方数据仍无：kb/cache/yakitahome-info.json 的 772 条游戏内档案（标题＋正文）搜「巴蒂尔」0 命中；kb/source/yakitahome-terms.json 的 288 条官方术语搜「巴蒂尔」0 命中；wiki api.php prop=info titles=巴蒂尔 仍返回 missing。",
+    "kw": "wuwa.huijiwiki.com w/index.php?title=巴蒂尔&action=raw（Cloudflare 拦截）；api.php titles=巴蒂尔 返回 missing（站内无此页）；zh.moegirl.org.cn api.php titles=巴蒂尔 同样 missing。2026-10-23 复查官方数据仍无：kb/cache/yakitahome-info.json 的 772 条游戏内档案（标题＋正文）搜「巴蒂尔」0 命中；kb/source/yakitahome-terms.json 的 288 条官方术语搜「巴蒂尔」0 命中；wiki api.php prop=info titles=巴蒂尔 仍返回 missing。"
+  },
+  {
+    "id": "chars-达米安",
+    "page": "chars-npc",
+    "t": "达米安",
+    "note": "未取到：检索式：wuwa.huijiwiki.com w/index.php?title=达米安&action=raw（Cloudflare 拦截）；api.php titles=达米安 返回 missing（站内无此页）；zh.moegirl.org.cn api.php titles=达米安 同样 missing。2026-10-23 复查官方数据仍无：kb/cache/yakitahome-info.json 的 772 条游戏内档案（标题＋正文）搜「达米安」0 命中；kb/source/yakitahome-terms.json 的 288 条官方术语搜「达米安」0 命中；wiki api.php prop=info titles=达米安 仍返回 missing。",
+    "kw": "wuwa.huijiwiki.com w/index.php?title=达米安&action=raw（Cloudflare 拦截）；api.php titles=达米安 返回 missing（站内无此页）；zh.moegirl.org.cn api.php titles=达米安 同样 missing。2026-10-23 复查官方数据仍无：kb/cache/yakitahome-info.json 的 772 条游戏内档案（标题＋正文）搜「达米安」0 命中；kb/source/yakitahome-terms.json 的 288 条官方术语搜「达米安」0 命中；wiki api.php prop=info titles=达米安 仍返回 missing。"
   },
   {
     "id": "combat-support-role",
     "page": "combat",
     "t": "协奏辅助 / 衍射辅助",
-    "note": "留占位是为了标明「查过、没查到」，不是要她照着编。",
+    "note": "检索记录（2026-10）：api.php prop=info 查 协奏辅助/衍射辅助/辅助/定位/职业/配队/角色定位 全 missing；srsearch=\"协奏辅助\"、\"衍射辅助\" totalhits=0；insource:\"协奏辅助\" 在 ns0/ns10/ns828/ns8/ns12 无结果；分类:角色 子分类只有 NPC/自机角色/敌方/共鸣者/联动角色/修行者，分类:共鸣者 只有 NPC共鸣者/自机共鸣者，没有按定位或属性分的辅助类；角色信息模板（白芷页 raw 第 11 行起）无定位字段。萌娘百科 鸣潮/白芷/角色 extract 为空、鸣潮/共鸣者 extract 无相关词；qieyou.com/content/110465 无命中；taptap 两条 moment 是 JS 页取不到正文；巴哈姆特指南前 100KB 无命中；游民星空与 3DM 偏谐文里没有这两个词。唯一沾边的是内测期攻略 taptap.cn/moment/400697256342192797 讲的「协奏反应」（协奏球满切人时按切人前后两名角色的属性触发，入场角色吃加成），与这两个标签无关，且该文是内测期口径（六属性写作 风/光/暗（解离）/火/雷/冰，暗属性现已改称湮灭）。",
     "kw": ""
   },
   {
-    "id": "ver-early",
-    "page": "versions",
-    "t": "1.x / 2.x 版本对应关系",
-    "note": "待补",
-    "kw": ""
+    "id": "ships-no-basis",
+    "page": "ships",
+    "t": "没建条目的配对",
+    "note": "检索式：grep kb/source 三个底本（达妮娅_原文存档_v1.md、在熔解的夜空下.txt、影下不落的黄金.txt）里各人名。×千咲、×陆·赫斯、×阿里曼托、×秋水在底本里一句都没跟达妮娅对上话（陆·赫斯与阿里曼只跟漂泊者谈她）；×会长/斯瓦茨洛在三个底本里连一行台词都没有。真查不到互动的就别硬建，也别在这条里替人圆。",
+    "kw": "grep kb/source 三个底本（达妮娅_原文存档_v1.md、在熔解的夜空下.txt、影下不落的黄金.txt）里各人名。×千咲、×陆·赫斯、×阿里曼托、×秋水在底本里一句都没跟达妮娅对上话（陆·赫斯与阿里曼只跟漂泊者谈她）；×会长/斯瓦茨洛在三个底本里连一行台词都没有。真查不到互动的就别硬建，也别在这条里替人圆。"
   }
 ]

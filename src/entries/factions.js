@@ -11,7 +11,7 @@ export default [
     ctx: '愚人剧团、黄金之歌（被它送上朝圣船）、以及莫塔里家族的「私人终端」到底从哪来。',
     tabu: 'wiki 原话是「拉古那地区（黎那汐塔群岛除外）」，别扩大成全球性的宗教势力。芬莱克当过主座，他后来暗中和残星会合建隐海试验场——那是他的个人行径，别记成修会政策。',
     rel: ['org-愚人剧团', 'org-莫塔里家族', 'org-黄金之歌', 'org-残星会'],
-    src: ['wuwa.huijiwiki.com/wiki/隐海修会'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=隐海修会'],
     note: '仅二手整理，未见一手章节锚点。'
   },
   {
@@ -23,7 +23,7 @@ export default [
     ctx: '莫塔里家族的对立面；坎特蕾拉这个翡萨烈家主的立场。',
     tabu: '别把它和莫塔里家族讲成正派／反派。翡萨烈家主坎特蕾拉对族内那些激进行动「动毫不动心」。',
     rel: ['org-莫塔里家族', 'org-隐海修会'],
-    src: ['wuwa.huijiwiki.com/wiki/翡萨烈家族'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=翡萨烈家族'],
     note: '仅二手整理，未见一手章节锚点。'
   },
   {
@@ -35,7 +35,7 @@ export default [
     ctx: '和翡萨烈家族对着干的那一家；也解释「私人终端」为什么能在修会眼皮底下继续运转。',
     tabu: '「血里流着贝币的爆发户」是某些保守家族对他们的谗毁，莫塔里人自己不当回事，别当官方定性。',
     rel: ['org-翡萨烈家族', 'org-隐海修会'],
-    src: ['wuwa.huijiwiki.com/wiki/莫塔里家族'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=莫塔里家族'],
     note: '仅二手整理，未见一手章节锚点。'
   },
   {
@@ -47,7 +47,7 @@ export default [
     ctx: '「鸣式是人类集体意志的凝聚」这个设定最早的线索之一；也和悲鸣祸岛那条线接得上。',
     tabu: '成员名以 wiki 的音译写法为准，我没能一手核实对应人物。别把三个人名的译法当铁证往外用。',
     rel: ['org-隐海修会', 'org-愚人剧团'],
-    src: ['wuwa.huijiwiki.com/wiki/黄金之歌'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=黄金之歌'],
     note: '仅二手整理，人名译法存疑；wiki 写「岁主英白拉多与鸣式利维基亚坦融合」，此处保留了关系、去掉了专名。'
   },
   {
@@ -59,7 +59,7 @@ export default [
     ctx: '黎那汐塔这条线；禁锁十契、黄金之歌都跟它同源。',
     tabu: 'wiki 只写了剧团本身，成员名单和结局没有，缺的地方别自己补。',
     rel: ['org-隐海修会', 'org-禁锁十契', 'org-黄金之歌'],
-    src: ['wuwa.huijiwiki.com/wiki/愚人剧团'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=愚人剧团'],
     note: '仅二手整理，未见一手章节锚点。'
   },
   {
@@ -71,7 +71,7 @@ export default [
     ctx: '悲鸣祸岛支线，和愚人剧团同源。',
     tabu: '别把「锁衿」当成十契里的某一个人。wiki 只给了这一段，我没有查到对应的章节锚点。',
     rel: ['org-愚人剧团'],
-    src: ['wuwa.huijiwiki.com/wiki/禁锁十契'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=禁锁十契'],
     note: 'wiki 仅一句话条目，成员与结局均未核实。'
   },
   {
@@ -83,7 +83,7 @@ export default [
     ctx: '梦州和玄方城的商业背景；玄方界机关叛乱之后它「毛遂自荐」去援建的那一段。',
     tabu: '「毛遂自荐援建」是商会的自我表述，wiki 原文挂了参考标记，别当成第三方认定。玄方界与玄方城是两个地方，别混。',
     rel: ['org-琢钧堂', 'org-稷廷', 'org-呜呜物流'],
-    src: ['wuwa.huijiwiki.com/wiki/昭明商会']
+    src: ['wuwa.huijiwiki.com/w/index.php?title=昭明商会']
   },
   {
     id: 'org-琢钧堂',
@@ -94,7 +94,7 @@ export default [
     ctx: '玄方城是谁建的、「心」为什么不要它。',
     tabu: '「不加约束」是 wiki 的中性描述，别说成邪恶组织；它也不是玄方城事件的幕后黑手。',
     rel: ['org-稷廷', 'org-昭明商会'],
-    src: ['wuwa.huijiwiki.com/wiki/琢钧堂']
+    src: ['wuwa.huijiwiki.com/w/index.php?title=琢钧堂']
   },
   {
     id: 'org-稷廷',
@@ -105,7 +105,7 @@ export default [
     ctx: '第四章玄方城、琢钧堂没被选中的原因。',
     tabu: 'wiki 对它只有一段介绍，别往深了编制度、地图和对外关系。',
     rel: ['org-琢钧堂', 'org-残星会'],
-    src: ['wuwa.huijiwiki.com/wiki/稷廷'],
+    src: ['wuwa.huijiwiki.com/w/index.php?title=稷廷'],
     note: '残星会会长与稷廷的「未楹」可能有关联——wiki 原文就写了「可能」，别升级成定论。'
   },
   {
@@ -117,7 +117,150 @@ export default [
     ctx: '《在溶解的夜空下》零点十五分那一下；有人把它说成军事单位的时候。',
     tabu: '别把泡泡装置说成残星会或学院配发的。灯灯不戴仓鼠耳朵斗笠，是全公司唯一的例外。',
     rel: ['org-昭明商会', 'plot-melt-sky'],
-    src: ['wuwa.huijiwiki.com/wiki/呜呜物流', 'plot-melt-sky']
+    src: ['wuwa.huijiwiki.com/w/index.php?title=呜呜物流', 'plot-melt-sky']
+  },
+
+  // ---------- 名录型：主线里不露面，但常被当名字问 ----------
+  {
+    id: 'org-谛天鉴',
+    t: '谛天鉴',
+    alias: ['Ministry of Sentinel Affairs'],
+    lvl: ['官'],
+    def: '谛天鉴。瑝珑专司观测各州岁主、天文和历法的机构，驻地明庭。最高长官叫监正，其余六州的下属机构长官叫州监',
+    ctx: '被问瑝珑谁在管岁主、天文历法归谁时。',
+    tabu: '它只有建议权和监察权，不是行政机构，别说成瑝珑的政府。wiki 的编者注写明词源取自明代掌天文历法的钦天监。梦州州监先是蛇菰、后是锁暝——蛇菰在残星会那边也挂着一个身份，别当同一人搞混。',
+    rel: ['world-huanglong', 'world-mengzhou'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E8%B0%9B%E5%A4%A9%E9%89%B4'],
+    note: 'wiki 标注领导者林监正并附注「可能已退任」。岁主心月狐为谛天鉴成员制有信物「锦妙锁」，能防护、指引与警示。',
+  },
+  {
+    id: 'org-定玄卫',
+    t: '定玄卫',
+    alias: ['Xuanfang Wardens'],
+    lvl: ['官'],
+    def: '定玄卫。梦州边庭设在玄方城里的守城军队，官方说它是玄方城最后一道屏障；定玄卫长是秋鸿。另设三人小队「后玄三骑」专对付强残象',
+    ctx: '问玄方城归谁守、问秧秧为什么在玄方城时。',
+    tabu: '秧秧本是今州夜归军的踏白，为查失踪案深入玄方城后暂调定玄卫、代理后玄骑使——wiki 把「现暂调」和「目前只有两骑」都标在黑幕里，属未公开设定，拿不准就别当定论讲，别把后玄三骑说成三人都还在。',
+    rel: ['world-xuanfang', 'chars-秧秧', 'chars-清宵'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%AE%9A%E7%8E%84%E5%8D%AB'],
+    note: '玄方城建立后，梦州军策府为清宵加设「镇玄司骑」职位（清宵角色故事「云渊之后」，由心提议）。',
+  },
+  {
+    id: 'org-归魂互助会',
+    t: '归魂互助会',
+    alias: ['The Séance Society'],
+    lvl: ['官'],
+    def: '归魂互助会。偃师在今州建的组织，按家属记忆做成人偶、代替已逝之人；实际目的是给残星会提供能诱发超频的归魂人偶',
+    ctx: '问偃师、问吟霖那条线、问超频怎么被人利用时。',
+    tabu: '它对外的说法是「提供虚假的慰藉」，别把这层当真相讲。真相是拿人偶诱发超频，偃师从残星会换资源和素材。最后被漂泊者和吟霖捣毁，偃师收押在今州治安署——别说偃师是残星会成员。',
+    rel: ['world-jinzhou', 'org-残星会', 'chars-吟霖'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%BD%92%E9%AD%82%E4%BA%92%E5%8A%A9%E4%BC%9A'],
+    note: '受害者由华胥研究院（今州分院）收治。组织领导者栏写的是偃师。',
+  },
+  {
+    id: 'org-岐路司',
+    t: '岐路司',
+    alias: ['Kiroshi'],
+    lvl: ['官'],
+    def: '岐路司。义体改良技术的行业巨头，专精光学义眼的研发制造；大家干脆用「岐路司」泛指所有做过科技改造的眼部义体',
+    ctx: '有人问岐路司是什么、或者看到义眼这种叫法时。',
+    tabu: '这不是鸣潮本土组织——wiki 把它挂在《赛博朋克》的联动授权设定下，页面里直接链到赛博朋克中文维基。别说成索拉里斯真有这么一家公司。',
+    rel: [],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%B2%90%E8%B7%AF%E5%8F%B8'],
+  },
+  {
+    id: 'org-寻幽客',
+    t: '寻幽客',
+    alias: ['Nethermancer'],
+    lvl: ['官'],
+    def: '寻幽客。穿梭在蜃境里打捞逝者残响的行当，有点像风水师；wiki 写它并不是架构紧密的组织或宗派',
+    ctx: '问蜃境、问残响是什么、问景燃是谁时。',
+    tabu: '别把它说成有组织有纪律的门派——wiki 原话是「似乎并非存在架构紧密的组织或宗派，而是一种类似风水师之类的行当」。已知的寻幽客只有祝三刀和景燃两个：景燃 15 岁入行，师父祝三刀为护他死在蜃境。',
+    rel: [],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%AF%BB%E5%B9%BD%E5%AE%A2'],
+  },
+  {
+    id: 'org-夜归军',
+    t: '夜归军',
+    alias: ['Midnight Rangers'],
+    lvl: ['官'],
+    def: '夜归军。今州军策府统辖的镇戍军，负责抵御残象潮，由忌炎任将军、前任是哥舒临。编制分踏白（斥候）、破阵（前锋）、伏波（后卫）',
+    ctx: '问今州谁在守城、问秧秧在哪支部队时。',
+    tabu: '「踏白」的「白」就念白（出自唐宋执行侦察的踏白军），别念成薄。秧秧是踏白成员，但她为查失踪案去了玄方城并暂调定玄卫——这半句 wiki 标在黑幕里，属未公开设定。',
+    rel: ['world-jinzhou', 'chars-忌炎', 'chars-秧秧'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%A4%9C%E5%BD%92%E5%86%9B'],
+  },
+  {
+    id: 'org-幽灵猎犬',
+    t: '幽灵猎犬',
+    alias: ['Ghost Hounds'],
+    lvl: ['官'],
+    def: '幽灵猎犬。卡卡罗创立的跨国独立雇佣兵团，由他早先的「恶狗帮」秘密改建，用来终结新联邦清剿无法地带造成的乱局',
+    ctx: '问卡卡罗在做什么、问新联邦的无法地带时。',
+    tabu: '它成立之后禁掉了新联邦残酷的声骸决斗游戏——所以别把它说成新联邦的官方武装，它跟新联邦是对着干的。它替新联邦「终结混乱」不等于效忠新联邦。',
+    rel: ['chars-卡卡罗', 'org-新联邦'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%B9%BD%E7%81%B5%E7%8C%8E%E7%8A%AC'],
+    note: '出处为卡卡罗角色故事「动物凶猛」与活动任务「激斗！向着荣耀之丘」。wiki 别名栏写「猎犬」。',
+  },
+  {
+    id: 'org-玄元门',
+    t: '玄元门',
+    alias: ['Xuanyuan School'],
+    lvl: ['官'],
+    def: '玄元门。清宵在玄方地界那场危机之后创立的门派，成员两人；名字是周围小孩现编的，她当场就认了这个',
+    ctx: '问清宵开宗立派、问玄方地界后续时。',
+    tabu: 'wiki 明确标注「尚未正式成立」（引的是先行公约的辟谣视频）——别说成已经开山立派、广收门徒。门主是清宵、组织人数 2，别写成大门派。',
+    rel: ['chars-清宵', 'world-xuanfang'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%8E%84%E5%85%83%E9%97%A8'],
+    note: '名字来历：漂泊者问宗门叫什么时清宵还没想好，是孩童议论时喊出来的。',
+  },
+  {
+    id: 'org-谕女',
+    t: '谕女',
+    alias: ['Priestess'],
+    lvl: ['官'],
+    def: '谕女。七丘四方殿里的预言者群体，地位极高：以焰光为媒，借共鸣力在火中窥见未来，再以各种方式把预言传出去。现任谕女之首是莉莉贝',
+    ctx: '问七丘的预言者是谁、问尤诺来历时。',
+    tabu: '焰光只是燃烧特定矿物产生的火焰，wiki 明说它本身没有特异效用，谕女只拿它当媒介——别把焰光写成神器。尤诺是四方殿第 127 位谕女，她的存在后来被抹除，这条涉及剧情剧透，答之前看对方在问什么。',
+    rel: ['world-septimont', 'chars-尤诺'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E8%B0%95%E5%A5%B3'],
+    note: '前任谕女之首德伊福柏曾自愿分出四方殿部分辖地给角斗士扎营。莉莉贝持有记录预言的卷轴「预言书」。',
+  },
+  {
+    id: 'org-灼樱巫女',
+    t: '灼樱巫女',
+    alias: [],
+    lvl: ['官'],
+    def: '灼樱巫女。世代守护苇原的巫女，长期与鸣式对抗；能借岁主颂物「铃」看到自己未来的可能性并加以利用，但没法跟那个影子沟通',
+    ctx: '问苇原的守护者、问绯雪和玉露是谁时。',
+    tabu: '历代灼樱巫女的死因只有一条：战斗中过度依赖「铃」，凭空消失。「灼樱封印」能把身上部分力量剥离成封印，投入越多越持久，绯雪在里面封存了部分「自身的未来」。wiki 没给这层组织架构，别说成神职或教派。',
+    rel: ['world-weiyuan', 'roles-绯雪'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%81%BC%E6%A8%B1%E5%B7%AB%E5%A5%B3'],
+    note: '玉露是上一任灼樱巫女、绯雪的妹妹，因预取尽自身未来而消失；绯雪为不再有下一个灼樱巫女而选择成为「永世的灼樱巫女」。',
+  },
+  {
+    id: 'org-诺维尔再生医药',
+    t: '诺维尔再生医药',
+    alias: ['Novialle Regenerative Group'],
+    lvl: ['官'],
+    def: '诺维尔再生医药。新联邦的中小型医药集团，核心技术是「日髓」（外号黄金血）；所有者是陆·赫斯的养父埃尔温·赫斯',
+    ctx: '问陆·赫斯的身世、问日髓是什么时。',
+    tabu: '别把它说成残星会的产业——残星会是后来意识到日髓有「进化」的可能才介入，并由会长换掉了原来的所有者。别把日髓写成已经普及的药，官方一直强调它伴随争议。',
+    rel: ['org-新联邦', 'org-残星会', 'chars-陆赫斯'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E8%AF%BA%E7%BB%B4%E5%B0%94%E5%86%8D%E7%94%9F%E5%8C%BB%E8%8D%AF'],
+    note: '陆·赫斯察觉真相后与漂泊者合作、一度潜入残星会调查（第三章・幕间「日光落处」及其角色故事）。',
+  },
+  {
+    id: 'org-新联邦企业',
+    t: '新联邦的企业',
+    alias: [],
+    lvl: ['官'],
+    def: '新联邦常被提到的企业名录：哈默韦医疗公司、灰岭能源、凯旋航电、诺维尔再生医药、全景运输',
+    ctx: '被问新联邦有哪些公司、或者听到一个没听过的公司名时。',
+    tabu: '五家都只是背景板，官方没给规模；只有诺维尔写了所有者。凯旋航电和全景运输是索拉里斯少数能拿到航空资质、与外界一起把物资运进拉海洛的两家——那是货运资质，不是航空公司。灰岭能源只在台词里被提过一次。',
+    rel: ['org-新联邦'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%87%AF%E6%97%8B%E8%88%AA%E7%94%B5', 'https://wuwa.huijiwiki.com/w/index.php?title=%E5%85%A8%E6%99%AF%E8%BF%90%E8%BE%93', 'https://wuwa.huijiwiki.com/w/index.php?title=%E7%81%B0%E5%B2%AD%E8%83%BD%E6%BA%90', 'https://wuwa.huijiwiki.com/w/index.php?title=%E5%93%88%E9%BB%98%E9%9F%A6%E5%8C%BB%E7%96%97%E5%85%AC%E5%8F%B8'],
+    note: '哈默韦医疗公司 3.0 版本由星炬学院 NPC 朱尔斯的隐藏对话提及（他毕业后去该公司工作）；灰岭能源在第三章・第五幕「昨夜群星」被提及，相关成员写的是深空联合总负责人查特。',
   },
 
   // ---------- 查不到出处的 ----------

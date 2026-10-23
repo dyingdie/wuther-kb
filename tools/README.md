@@ -1,0 +1,253 @@
+# kb/tools —— 维护者用的工具
+
+都在 kb/ 目录下用捆绑版 node 跑。全是**零依赖、纯 node 内置模块**；只有 `pull-*` 那两个脚本会联网写 source/，其余都不写文件。
+
+| 工具 | 干什么 | 联网 |
+| --- | --- | --- |
+| `tools/yakitahome.mjs` | 查瑝览类书（mc.yakitahome.com）的四份本地 JSON：术语 / 飞讯 / 档案 / 物品 | 默认不联网，只有 `pull`、`pull-conv` 两条命令会发请求 |
+| `tools/pagecheck.mjs` | 本地问一句「库里有没有答案」：该翻哪一页 + 命中的条目 id + 一行 def | 从不联网 |
+| `tools/pull-info.mjs` | 把游戏内档案的**正文全文**整批拉进 source/（一条一请求，带断点续拉） | 联网 |
+| `tools/pull-conv.mjs` | 把飞讯会话的**结构化正文**（带发送人）整批拉进 source/ | 联网 |
+| `tools/info-diff.mjs` | 比对档案全文和本地那份 90 字 preview，打印「preview 里没有的干货」 | 从不联网 |
+
+node 不在 PATH，用捆绑版：
+```
+C:\Users\28945\.dsh\dsh-runtimes\dsh-plugin-desktop-primary-runtime\dependencies\node\bin\node.exe tools\yakitahome.mjs search 达妮娅
+```
+
+---
+
+## yakitahome.mjs
+
+数据来源（本地副本，站点是 SPA、抓 HTML 没用，正文全在 api 里）：
+
+| 文件 | 端点 | 内容 |
+| --- | --- | --- |
+| source/yakitahome-terms.json | /api/terms | 288 条官方术语，8 语种 |
+| source/yakitahome-feixun.json | /api/feixun | 114 联系人 / 289 条会话 / 2607 条消息 |
+| cache/yakitahome-info.json | /api/info | 772 条游戏内档案，**本地这份 preview 每语种硬砍到 90 字** |
+| cache/yakitahome-items.json | /api/items | 2136 条物品 |
+
+常用开关：`--full`（不限条数、不截断）、`--limit N`、`--lang zh-Hant|ja|en|all`、`--raw`（飞讯不滤语言）、`--timeout 毫秒`。
+
+### 1. search —— 四库一起搜
+
+```
+node tools/yakitahome.mjs search 达妮娅
+```
+```
+· 飞讯  命中 5 条（共 289 条）
+  [飞讯 33035] 西格莉卡：前辈，今天方便见一面吗？
+      …是關於達妮婭的事……我收到了她留給我的信。 …
+      联系人 62 西格莉卡 · 6 条消息 · 3.3版本
+  …
+· 档案  命中 4 条（共 772 条）
+  [档案 28050004] 达妮娅的生日行程
+      版本 3.3版本 · preview 只有前 90 字，全文用 pull 28050004
+· 物品  命中 4 条（共 2136 条）
+  [物品 item:71190001] 达妮娅的生日蛋糕
+      四星 · 3.3版本 · /assets/items/icons/T_IconTask80_Task_215_UI.webp
+· 一共命中 13 条
+```
+命中行都带数据集和条目 id，好往 src 的 note 里抄。
+
+### 2. term —— 看术语原文
+
+```
+node tools/yakitahome.mjs term 调律者
+```
+```
+· 术语  命中 1 条（共 288 条）
+  [术语 850111] 调律者  2.4版本
+      …，对频率的调节，也即对事物本质的探究。 黑海岸通过对星图的调律，实现对悲鸣本质的溯源和解析。 …
+      出处：https://mc.yakitahome.com/terms （id 850111；本地副本 source/yakitahome-terms.json）
+```
+`--lang all` 一次给 8 个语种；`--lang zh-Hant` 看繁体。
+
+### 3. msg —— 飞讯私信
+
+```
+node tools/yakitahome.mjs msg 洛瑟菈
+```
+```
+· 联系人 [3] 洛瑟菈
+  风格在言语之前表达。
+  25 条会话，共 163 条消息
+  [会话 32000] [动画表情]你好 · 13 条 · 3.2版本 · 本地有全文（带发送人的结构化正文在站点 /api/feixun/conversation/32000）
+  [会话 32010] 长话短说，我们发现了爱弥斯频率的痕迹。 · 14 条 · 3.2版本 · …
+  ……
+  看某条会话的正文：node tools/yakitahome.mjs msg 洛瑟菈 --conv <会话 id>
+```
+
+看某条会话的本地全文（`--conv`）：本地只有多语种摊平的 searchText，脚本按启发式挑出简体行，
+加 `--raw` 看原样。**带发送人的结构化正文要联网**：
+
+```
+node tools/yakitahome.mjs pull-conv 32000
+```
+```
+· 会话 [32000] [动画表情]你好  3.2版本
+  联系人 3 洛瑟菈 · 13 条消息
+  端点 https://mc.yakitahome.com/api/feixun/conversation/32000；可写进 src 的 id：32000
+  系统：你收到一条来自洛瑟菈的飞讯。
+  洛瑟菈：[动画表情]你好
+  洛瑟菈：抱歉，漂泊者，这个时间突然打扰你。
+  漂泊者：校长也会用如此可爱的表情？
+  ……
+```
+
+### 4. info / pull —— 档案全文要单独取（实测结论）
+
+本地 cache 那份 info 每条 preview 只有前 90 字。**全文端点是**：
+
+```
+https://mc.yakitahome.com/api/info/detail?id=<档案 id>
+```
+用 `info` 先在本地找到 id，再 `pull` 取全文：
+
+```
+node tools/yakitahome.mjs info 生日行程
+node tools/yakitahome.mjs pull 28050004
+```
+```
+· 档案 [28050004] 达妮娅的生日行程  3.3版本
+  端点 https://mc.yakitahome.com/api/info/detail?id=28050004；可写进 src 的 id：28050004（标题 key InfoDisplay_28050004_Title）
+  标题：关于特殊收容共鸣者“达妮娅”的外出流程管控方案及接触人员名单
+  密级：内部受限
+  一、行动批准依据
+  根据《拉海洛虚质防护安全条例》，经深空联合虚质科学部及校长洛瑟菈审议，现批准收容共鸣者“达妮娅”进行限定区域的外出活动。
+  ……
+  （原文里有 {PlayerName} 这种占位符，是游戏里替换玩家名的，不是漏字）
+```
+
+摸过的、**不管用**的写法（别再试）：`/api/info/28050004`、`/api/info/infos`、`/api/entry`、
+`/api/infoText`、`?full=1`、`?previewLength=100000`、`?ids=a,b`（批量）、`detail/<id>` 路径形态 —— 全 404 或无效。
+
+### 5. list —— 列索引
+
+```
+node tools/yakitahome.mjs list            四个数据集各多少条
+node tools/yakitahome.mjs list msg        114 个联系人
+node tools/yakitahome.mjs list info 达妮娅
+```
+
+---
+
+## 全文拉取 —— pull-info.mjs / pull-conv.mjs
+
+两个都往 `kb/source/` 里存一份「正文全文」。档案 66 条、飞讯 289 段**已经全部拉完**（2026-10-23 验收）。
+
+| 脚本 | 端点 | 产物 |
+| --- | --- | --- |
+| `tools/pull-info.mjs` | `GET /api/info/detail?id=<档案 id>` | `source/yakitahome-info-full.json`（66 条）+ 同名 `-index.md` 清单 |
+| `tools/pull-conv.mjs` | `GET /api/feixun/conversation/<会话 id>` | `source/yakitahome-feixun-full.json`（289 段）+ 同名 `-index.md` 清单 |
+
+都支持断点续拉：重跑只拉没拉过的，中途崩了直接再跑一次。名单要收紧或放宽用 `--kw`，**不用重拉**。
+
+### 筛选口径（那 66 条是这么选出来的）
+
+- 命中 `CORE` 词表（37 个词，达妮娅圈）→ 直接收
+- 只命中 `WIDE` 词表（48 个词，组织 / 机制 / 地名）→ 还要版本 ≥ 3.2
+- 版本号从 `3.3版本` 这类字段里解析；`三测沿用` 之类解析成 0，等于不参与门槛
+- 772 条 → 66 条（8.5%）
+
+lead 2026-10-23 拍板：**口径不收紧，66 条留着**。瑝珑残象 3.6-3.7、黑海岸 2.8 那批确实混进来了，知道有这回事，等真要用再 `--kw` 重筛。下一个人接着筛的时候先看这段，别重新发明门槛。
+
+### ⚠ 站点有并发限流（重踩过一次）
+
+首轮飞讯按并发 3 跑，**289 段里有 59 段失败**，报错 `Unexpected token '<'` —— 站点返回的是 HTML 挡人页，不是 JSON。
+
+- 补那 59 段用 `node tools/pull-conv.mjs --conc 1 --gap 1500`，59/59 成功，90.9 秒
+- 爬得慢不是 bug，是限流。别为了快把并发往上加
+- `pull-common.mjs` 的 `read()` 现在先 parse 再报错；非 JSON 会明说「站点返回的不是 JSON（HTTP …，开头「…」）」，并退避 2 秒重试
+
+### info-diff.mjs —— 哪些干货 preview 里没有
+
+`cache/yakitahome-info.json` 那份 preview 每条硬砍 90 字，全文在 `source/yakitahome-info-full.json`。入库前先跑这个：
+
+```
+node tools/info-diff.mjs --sum               拉到几条、失败几条
+node tools/info-diff.mjs --top 30 --min 60   多出来的干货，从多到少
+node tools/info-diff.mjs --id 28050004       打印某一条的全文
+```
+
+实测：66 条、正文合计 16392 字、0 失败；64 条是 preview 的加长版，2 条 preview 不是全文前缀；13 条正文本来就短于 90 字，preview 已是全部、没有增量。
+
+判据写在脚本里：`preview` 是全文前缀时「新增」= 前缀之后的尾巴；不是前缀时全文另算（这种会标出来，别当成增量）。
+
+---
+
+## pagecheck.mjs —— 验收「她能不能答对」
+
+不去线上抓 html，本地问一句，告诉你该翻哪一页、命中哪个条目 id、def 是什么。
+只读 `src/entries/*.js` 和 `manifest.json`，不联网、不写文件。
+
+```
+node tools/pagecheck.mjs 秧秧是谁
+```
+```
+· 问题：秧秧是谁
+  1. [chars-npc] 别处的人　秧秧　(id chars-秧秧)
+     t 精确：「秧秧」
+     def：《鸣潮》看板娘（玩家叫的），1.0 登场的四星共鸣者，气动迅刀，离家去今州城当夜归的踏白
+     lvl：官、社
+  → 先翻 https://dyingdie.github.io/wuther-kb/chars-npc.html（别处的人）；页名对不上就抓 index.html 顶部的路由表
+
+· 扫了 22 页 / 357 条词条（字段 t、alias、def、id）
+```
+
+命中强度：**t 精确 > alias 别称 > def 正文子串 > 全库 id 匹配**，默认给前 5 条。
+开关：`--top N`、`--page <页名>` 只看一页、`--all` 连最弱的 id 匹配也算、`--strict` 把 id 匹配和「被停止词挡住的」弱命中全放出来、`--help`。
+一次可以问多句（带引号），也可以从标准输入灌（`node tools/pagecheck.mjs < q.txt`，一行一句）。
+
+没命中就说没命中，不瞎猜：
+
+```
+node tools/pagecheck.mjs 今天天气
+```
+```
+· 问题：今天天气
+  没命中。库里没有能对上这句的词条 —— 别硬答，按她那三句含糊带过。
+```
+
+### 排序里有五条规矩（2026-10-23 改的，不看代码也得知道）
+
+1. **句首称呼摘掉再匹配**。句首是「达妮娅，」「娅娅，」这类名字、**后面紧跟标点**的，判成叫唤她不是问她，整段去掉再匹配（问题原文照抄显示，另起一行说明摘掉了谁）。后面必须跟标点，否则「达妮娅本身自己还带霜渐弱吧」这种主语会被误剥。
+2. **问题类型优先于人名**。句里出现 属性／共鸣链／共鸣／形态／buff／提升／养成／配装／配队／毕业／武器／技能／cost 时：combat / teams / jargon / **roles** 加权 +2500，person / chars / chars-npc 降权 ×0.3。
+3. **降权有豁免**。身份页那条要是自己就讲了**问句点到的那几个词**（按 t/alias/def/ctx/tabu/body 全文逐词对，不是一沾机制词就放过），就不降权 —— 那一页真有这个维度的话，推去 teams 反而丢答案。「达妮娅的共鸣能力是什么」就该留在 person（泡影视阈在那儿）。
+4. **词条文件读不进来就跳过**，开头报一句跳过了哪几个，不会整个炸掉（别人正改着词条文件时的常态）。
+5. **roles 页的「按角色名命中」要单独放出来**。roles 的条目 id 是 `roles-角色名`，问句里只要出现角色名就算命中，但这种命中走的是 id 弱命中那一档，默认视图直接藏掉 —— 于是第 2 条给 roles 加的权加在一个看不见的候选上，问「XX 是什么属性」还是 person 第一（实测过，一行改动零效果）。所以问**属性／武器**时，把 roles 里这类 id 弱命中提回正常候选（band 改 name，score 4000）。只对 roles 页、只对属性/武器这两种问法，不动别的页的 id 弱命中。
+
+改这五条是因为验收报告里那批真实提问：问「XX 提升怎么样 / XX 带 buff 吗 / XX 什么形态」时，句首人名总把 person 页顶上来；roles 页建起来之后，「XX 是什么属性 / XX 拿什么武器」又一度找不到那 25 条。三轮改动的数据见 `reports/pagecheck-accuracy.md`（第一轮 / 第二轮 / 第三轮并排）。
+
+### 已知局限（别当搜索引擎用）
+
+**它不做同义词扩展。** 主人拍过板：假命中的危害比查不到大得多。所以「她生日那天想吃啥」这种换个说法的问句多半查不到——它只认词条名、别称、def 里的原词和条目 id。想让它答得全，靠的是 def 写全、别称写够，不是靠它猜。
+
+默认挡掉的东西：`--all` 才放 id 匹配，`--strict` 连「被停止词挡住的」也放出来（调词表时用）：
+
+```
+node tools/pagecheck.mjs 今天天气 --strict
+```
+```
+· 问题：今天天气
+  1. [lines] 她说了什么　她祝你生日快乐时　(id lines-birthday-wish)
+     停止词挡住的（弱，调词表用）：「今天」
+     def：「哈哈，开个玩笑啦，今天是个很特别的日子对吧？祝你生日快乐！」
+```
+
+### 已知脾气（改词表前记得看一眼）：
+- 问句按「从长到短、贪心不重叠」切词块，中文没有分词器，短问句比长问句更容易靠 def 命中
+- 疑问词和日常词（今天、天气、怎么、意思……）进了停止词表，所以「今天天气」不会在某个 def 里撞上两个字
+- def 命中时如果 t/alias 里也提到这个词块（「深塔 / 爬塔」遇上「深塔」），会往前排一排
+
+---
+
+## 已知限制（全站，动手前扫一眼）
+
+- **站点有并发限流**：并发 3 跑飞讯，289 段里有 59 段被挡（返回 HTML 不是 JSON）。要拉就 `--conc 1 --gap 1500`。见上面那节。
+- **本地 preview 只有 90 字**：`cache/yakitahome-info.json` 不能当正文引用。要正文用 `info-diff.mjs` 或 `yakitahome.mjs pull`。
+- **档案全文端点只有 `detail?id=` 一种形态**：路径形态、`?full=1`、`?ids=` 变体全试过，404 或无效，别再试一遍。
+- 术语 / 飞讯 / 物品三份 JSON 是站点整包导出的，条目数会随版本变；对不上就重下 `source/yakitahome-terms.json`。
+- 原文里的 `{PlayerName}` 是游戏里替换玩家名的占位符，不是漏字；正文带 `<b>` 之类标签，入库前抹掉。
+

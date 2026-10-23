@@ -13,7 +13,7 @@ export const entries = [
     def: '群里有人问配队、阵容、辅助、主C、她配谁时翻这页。属性查 wiki，队伍是社区共识。',
     ctx: '群里有人问配队、阵容、辅助、主C、她配谁',
     tabu: '社区队伍随时会变，别当成唯一答案；没核实的属性不许现编',
-    src: ['https://wuwa.huijiwiki.com/wiki/达妮娅'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=达妮娅'],
     note: '这一页和 combat.js 分工：机制在那边，配队在这边。属性一条一人，都是 wiki infobox 的原文。',
   },
 
@@ -36,9 +36,10 @@ export const entries = [
   {
     id: 'team-aidajie',
     t: '爱达千',
+    alias: ['队友', '配队的队友', '我的队友', '队里都有谁'],
     lvl: ['社'],
     def: '社区叫「聚爆铁三角」：爱弥斯主C爆发，达妮娅专辅兼副C，千咲减抗续航。',
-    ctx: '有人直接说「爱达千」或问聚爆队怎么配',
+    ctx: '有人直接说「爱达千」或问聚爆队怎么配，也包括泛问「你的队友是谁」「配队带谁」——这种她答这一套，别答单个人',
     tabu: '爱弥斯在3.1爆料期被说过「只能玩震谐队」，那是缺聚爆启动器时的旧口径，达妮娅3.3上线后变了',
     rel: ['team-danya-role', 'term-jubao-effect'],
     src: [
@@ -97,7 +98,7 @@ export const entries = [
     ctx: '有人问爱弥斯什么属性、用什么武器',
     tabu: '提前引爆只改结算时机，伤害仍按层数上限算，别说她能「无限叠」',
     rel: ['chars-爱弥斯', 'term-jubao-effect', 'team-aidajie'],
-    src: ['https://wuwa.huijiwiki.com/wiki/爱弥斯'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=爱弥斯'],
   },
   {
     id: 'attr-luhesi',
@@ -107,7 +108,7 @@ export const entries = [
     ctx: '有人问陆·赫斯什么属性、用什么武器',
     tabu: '库里的条目 id 是 chars-陆赫斯，中间的间隔号只在页面标题里',
     rel: ['chars-陆赫斯', 'team-ludamo'],
-    src: ['https://wuwa.huijiwiki.com/wiki/陆·赫斯'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=陆·赫斯'],
   },
   {
     id: 'attr-qianxiao',
@@ -117,7 +118,7 @@ export const entries = [
     ctx: '有人问千咲什么属性、为什么爱达千里要带她',
     tabu: '她改了上限不是改了基础值；基础10层、13层结算是10层的两倍',
     rel: ['chars-千咲', 'term-jubao-effect', 'team-aidajie'],
-    src: ['https://wuwa.huijiwiki.com/wiki/千咲'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=千咲'],
   },
   {
     id: 'attr-moning',
@@ -126,8 +127,8 @@ export const entries = [
     def: '热熔属性，长刃武器，2026-01-15上线（3.0）。星炬学院教授。',
     ctx: '有人问莫宁什么属性、用什么武器',
     tabu: '她也在琳奈的偏谐队里出现，别因为属性是热熔就只想到聚爆',
-    rel: ['rel-nabomo', 'chars-莫宁', 'team-ludamo'],
-    src: ['https://wuwa.huijiwiki.com/wiki/莫宁'],
+    rel: ['chars-莫宁', 'team-ludamo'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=莫宁'],
   },
   {
     id: 'attr-linnai',
@@ -137,7 +138,7 @@ export const entries = [
     ctx: '有人问琳奈什么属性、为什么她在偏谐队里',
     tabu: '能切模态是她个人技能，不是所有角色都能切，别推给全队',
     rel: ['chars-琳奈', 'term-zhenxie'],
-    src: ['https://wuwa.huijiwiki.com/wiki/琳奈'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=琳奈'],
   },
   {
     id: 'attr-lupa',
@@ -147,7 +148,7 @@ export const entries = [
     ctx: '有人问露帕什么属性、用什么武器',
     tabu: '',
     rel: ['team-threefire'],
-    src: ['https://wuwa.huijiwiki.com/wiki/露帕'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=露帕'],
   },
   {
     id: 'attr-bulanti',
@@ -157,7 +158,7 @@ export const entries = [
     ctx: '有人问布兰特什么属性、用什么武器',
     tabu: '',
     rel: ['team-threefire'],
-    src: ['https://wuwa.huijiwiki.com/wiki/布兰特'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=布兰特'],
   },
   {
     id: 'attr-changli',
@@ -167,7 +168,7 @@ export const entries = [
     ctx: '有人问长离什么属性、用什么武器',
     tabu: '',
     rel: ['team-threefire'],
-    src: ['https://wuwa.huijiwiki.com/wiki/长离'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=长离'],
   },
   {
     id: 'attr-qingxiao',
@@ -177,7 +178,7 @@ export const entries = [
     ctx: '有人问清宵什么属性、是不是热熔或震谐',
     tabu: '是气动，不是热熔也不是震谐；震谐是偏谐路线名不是属性，见 term-zhenxie-is-not-attr',
     rel: ['chars-清宵'],
-    src: ['https://wuwa.huijiwiki.com/wiki/清宵'],
+    src: ['https://wuwa.huijiwiki.com/w/index.php?title=清宵'],
     note: '「气动」已核对 wiki infobox。常见的「琴剑双绝」在 infobox 里没有，没核实。2026-08-17 是战斗演示公布日，wiki 写的上线日期是 08-20。',
   },
 
@@ -189,11 +190,12 @@ export const entries = [
     def: '热熔攻击给敌人叠的层数，叠满爆炸造成热熔伤害并清空。基础上限10层，15秒不叠掉1层。',
     ctx: '有人问聚爆是什么、爱弥斯提前引爆怎么回事',
     tabu: '这是异常效应不是共鸣属性；2.8版本改过叠层与爆炸表现，别拿旧版本数据说',
-    rel: ['team-aidajie', 'attr-qianxiao', 'danya-modes'],
+    rel: ['team-aidajie', 'attr-qianxiao', 'danya-modes', 'term-jubao'],
     src: [
       'https://baike.baidu.com/item/聚爆效应/67359016',
       'https://forum.gamer.com.tw/C.php?bsn=74934',
     ],
+    note: '官方术语原文在 combat 页 term-jubao（uid term:853708，3.7版本：「每5秒，使持有者受到5*层数的效果伤害。」）。这条讲的是层数机制，src 是百度百科属二手，与官方有出入以官方为准。',
   },
   {
     id: 'term-jubao-trail',
@@ -202,8 +204,9 @@ export const entries = [
     def: '聚爆体系下敌人身上的额外层数：每叠1层聚爆效应附1层轨迹，每层+10%聚爆伤害，至多30层。',
     ctx: '有人问聚爆伤害为什么越叠越高',
     tabu: '轨迹层数和聚爆效应层数是两回事，别合并成一个数字',
-    rel: ['term-jubao-effect'],
+    rel: ['term-jubao-effect', 'term-jubao'],
     src: ['https://baike.baidu.com/item/聚爆效应/67359016'],
+    note: '官方术语原文在 combat 页 term-jubao（uid term:853708，3.7版本）。这条讲轨迹层数怎么加算聚爆伤害，src 同为百度百科属二手，有出入以官方为准。',
   },
   {
     id: 'term-jianbeng',
@@ -238,7 +241,7 @@ export const entries = [
     lvl: ['官'],
     def: '震谐干涉＝响应角色对目标打一次特殊攻击，适合单体；集谐干涉＝全队对该敌人叠伤害，适合群怪。',
     ctx: '有人问震谐队和集谐队差在哪',
-    tabu: '琳奈暂是3.0唯一能上偏移的角色，这是攻略组推测不是官方承诺。官方技能文本写「集谱」，攻略站多写「集谐」，是同一组词，讲的时候按官方的说，被追问再解释',
+    tabu: '琳奈暂是3.0唯一能上偏移的角色，这是攻略组推测不是官方承诺。官方技能文本写「集谱」，攻略站多写「集谐」，是同一组词，讲的时候按官方的说，被追问再解释。3.7 官方术语里「震谐」另指四种负面状态之一（聚爆、震谐、光噪、电磁），见 combat 页减益效果——同词两义，按上下文说',
     rel: ['attr-linnai', 'term-pianxie-branch', 'danya-modes'],
     src: [
       'https://www.gamersky.com/handbook/202512/2065880.shtml',
