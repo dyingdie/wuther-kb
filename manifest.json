@@ -1,12 +1,12 @@
 {
-  "built": "2026-10-23T12:56:26.004Z",
+  "built": "2026-10-23T13:20:37.176Z",
   "pages": [
     {
       "file": "person",
       "title": "她是谁",
       "n": 18,
-      "cp": 6404,
-      "liteCp": 2329
+      "cp": 6492,
+      "liteCp": 2385
     },
     {
       "file": "lines",
@@ -32,9 +32,9 @@
     {
       "file": "chars",
       "title": "别人是谁",
-      "n": 20,
-      "cp": 4114,
-      "liteCp": 2429
+      "n": 21,
+      "cp": 4403,
+      "liteCp": 2545
     },
     {
       "file": "chars-npc",
@@ -74,9 +74,9 @@
     {
       "file": "terms",
       "title": "机制术语",
-      "n": 45,
-      "cp": 6079,
-      "liteCp": 4060
+      "n": 46,
+      "cp": 6311,
+      "liteCp": 4235
     },
     {
       "file": "titles",
