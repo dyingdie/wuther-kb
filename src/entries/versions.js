@@ -10,7 +10,8 @@ export default [
     ctx: '被问「她在第几章/哪个版本」时',
     tabu: '两章都是第三章里的，位置不同：一章是幕间任务，一章是第四幕',
     rel: ['plot-melt-sky', 'plot-shadow-gold', 'person-danya'],
-    src: ['wuther.in/zh/main-story/119000000/', 'wuther.in/zh/main-story/168800009/'],
+    src: ['wuther.in/zh/main-story/119000000/', 'wuther.in/zh/main-story/168800009/', 'wuwa.huijiwiki/wiki/达妮娅/经历'],
+    note: '已核（wiki 达妮娅/经历页）：《影下不落的黄金》=【潮汐任务】第三章·第四幕，《在溶解的夜空下》=【潮汐任务】第三章·幕间。达妮娅角色页相关成就把这版标为 3.3。',
   },
   {
     id: 'ver-33',
@@ -21,7 +22,7 @@ export default [
     tabu: '它是后日谈，不在第三章主线里——容易和《在溶解的夜空下》混',
     rel: ['titles-sunlight-season', 'plot-melt-sky'],
     src: ['wuwa.huijiwiki.com', '达妮娅事实档案'],
-    note: '《阳光季节》的完整对白没有可靠文本',
+    note: '已核（wiki 达妮娅页相关成就「Seasons in the sun｜3.3｜完成『阳光季节』」）。⚠️未核：《阳光季节》的完整对白没有可靠文本。wiki 同一批成就里把《在熔解的夜空下》写成「熔解」，而达妮娅/经历页写「溶解」，两处并存。',
   },
   {
     id: 'ver-35',
@@ -29,10 +30,10 @@ export default [
     lvl: ['社'],
     def: '秧秧化身五星「玄翎」，玄方城（梦州墨家机关仙土）上线，主线第四章幕间《灵籁之契相因》',
     ctx: '聊到秧秧、玄方城、或社区那阵子的梗时',
-    tabu: '这是社区整理的时间点，不是游戏内文本；说的时候用「大概」「社区的说法」',
+    tabu: '前半已核（wiki 发展年表：5版本「遗音扶剑，荡梦而歌」发布，第四章·幕间「灵籁之契相因」，新地区「梦州·玄方地界」，新增五星「秧秧·玄翎」）；后半「神秘写信女」是社区梗，不是游戏内文本，说的时候用「大概」「社区的说法」',
     rel: ['meme-writer-girl', 'ships-wanghuang'],
-    src: ['17173 2026-07-13', '腾讯新闻 2026-07-11'],
-    note: '「神秘写信女」这个梗就是在这段时间传开的',
+    src: ['17173 2026-07-13', '腾讯新闻 2026-07-11', 'wuwa.huijiwiki/wiki/发展年表'],
+    note: '已核（wiki 发展年表页）。⚠️未核：上线具体日期与「神秘写信女」梗的传播时间，wiki 都没有。',
   },
   {
     id: 'ver-early',

@@ -1,59 +1,65 @@
 {
-  "built": "2026-10-23T04:49:12.618Z",
+  "built": "2026-10-23T05:23:03.296Z",
   "pages": [
     {
       "file": "person",
       "title": "她是谁",
       "n": 7,
-      "cp": 2130
+      "cp": 2420
     },
     {
       "file": "lines",
       "title": "她说了什么",
       "n": 10,
-      "cp": 1848
+      "cp": 3209
     },
     {
       "file": "plot",
       "title": "她的故事",
       "n": 5,
-      "cp": 2384
+      "cp": 2404
     },
     {
       "file": "chars",
       "title": "别人是谁",
-      "n": 21,
-      "cp": 4722
+      "n": 22,
+      "cp": 6092
     },
     {
       "file": "world",
       "title": "地方",
       "n": 19,
-      "cp": 5238
+      "cp": 7235
     },
     {
       "file": "org",
       "title": "组织势力",
-      "n": 17,
-      "cp": 5758
+      "n": 7,
+      "cp": 3190
+    },
+    {
+      "file": "factions",
+      "title": "阵营名录",
+      "n": 10,
+      "cp": 2618
     },
     {
       "file": "terms",
       "title": "机制术语",
       "n": 13,
-      "cp": 2525
+      "cp": 5089
     },
     {
       "file": "titles",
       "title": "官方名号",
       "n": 8,
-      "cp": 1083
+      "cp": 2314
     },
     {
       "file": "items",
       "title": "东西",
       "n": 11,
-      "cp": 1563
+      "cp": 2844
     },
     {
       "file": "memes",
@@ -65,7 +71,7 @@
       "file": "nicknames",
       "title": "昵称绰号",
       "n": 6,
-      "cp": 1039
+      "cp": 2109
     },
     {
       "file": "ships",
@@ -77,7 +83,7 @@
       "file": "versions",
       "title": "时间线",
       "n": 3,
-      "cp": 715
+      "cp": 1068
     }
   ],
   "todo": 6,
