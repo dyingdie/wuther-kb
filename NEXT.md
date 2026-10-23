@@ -208,6 +208,7 @@
 9. **`write` 工具整块多行会被压成一行**（每条塌成 `{, id: …,, t: …`，`node` 报 `Unexpected token ','`）。整文件重写要用 line 数组分段写，或按双逗号切；**写完必须 `read` 复核行数与 id 重复**。
 10. **并行派活要看清"谁先谁后"**。2026-10-23 踩过：排第二棒的人 `read` 的是上一棒**改之前**的文件，看到 "biographer 在改 plot.js" 就以为已经派别人了，结果那处**白转一道手**没人做。要么在派单里点名「这处现在归你」，要么让人**不要读别人正在改的文件**。
 11. **拆分网络任务别派两个 agent 同时拉**——会重复请求、可能撞车。要么合并给一个，要么指定「档案给 A、飞讯给 B」互不重叠。
+12. **贴给别人（或贴进网页编辑器）的 YAML，先自己校验一遍**。2026-10-23 贴 ci.yml 时把 `pull_request:` 写成 **1 个空格**、上面 `push:` 是 2 个 —— 同一个父节点下键的缩进必须一致，那压根不是合法 YAML。GitHub 报 `Invalid workflow file: ci.yml#L3`，而且**一个 job 都没启动**（`total_count: 0`，别误判成「跑失败了」，那是「压根没跑起来」）。白让主人点了一次。
 
 ---
 
@@ -215,7 +216,8 @@
 
 - ✅ 清掉 `_org_raw.txt` / `_fetch_orgs.ps1`，`.urls.txt` 挪成 `source/urls-manual-check.txt`
 - ✅ `sitemap.xml` 由 `build.mjs` 生成，只列**真写出来的**那几页（空页压根没生成 html，列进去等于送死链）
-- ✅ `.github/workflows/ci.yml`：checkout + setup-node 22，只跑 lint
+- ✅ `.github/workflows/ci.yml`：checkout + setup-node 22，只跑 lint。**2026-10-23 深夜已上线并在跑绿**（从 commit `84d900f` 起 CI 全绿）
+  ⚠️ 这文件是主人在 GitHub 网页上加的 —— 本地那个 PAT 没有 `workflow` scope，`git push` 和 GitHub API 都会被 403 挡回来。**以后改 CI 只能走网页**。
 - ✅ `.gitignore` 只留 `.DS_Store` / `Thumbs.db`
 - ✅ 本地查询工具 `kb/tools/`：`yakitahome.mjs`（查飞讯/术语）、`pagecheck.mjs`（问一句 → 告诉你该翻哪页、库里有没有答案）
 
