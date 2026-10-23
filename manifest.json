@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-23T05:23:03.296Z",
+  "built": "2026-10-23T05:29:48.730Z",
   "pages": [
     {
       "file": "person",
@@ -23,7 +23,7 @@
       "file": "chars",
       "title": "别人是谁",
       "n": 22,
-      "cp": 6092
+      "cp": 6450
     },
     {
       "file": "world",
@@ -76,8 +76,8 @@
     {
       "file": "ships",
       "title": "二创 CP",
-      "n": 2,
-      "cp": 445
+      "n": 1,
+      "cp": 230
     },
     {
       "file": "versions",
@@ -86,6 +86,6 @@
       "cp": 1068
     }
   ],
-  "todo": 6,
+  "todo": 7,
   "missing": []
 }
