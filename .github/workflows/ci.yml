@@ -1,0 +1,19 @@
+# kb 的 CI：只跑 lint。
+# 不生成文件（--check 不写盘）、不查死链——死链要访问 huijiwiki / 萌娘百科，
+# CI 那边的出口 IP 一律吃 403，满屏噪音只会让人学会忽略红灯，留给本地跑。
+name: CI
+
+on:
+  push:
+ pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 跑 lint（不写文件）
+        run: node build.mjs --check
