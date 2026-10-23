@@ -30,7 +30,7 @@ export default [
     def: '外文 Threnodian。强大残象，以人类引以为傲的精神为食粮，伴着悲鸣诞生。她被要求去当的那个「共鸣者」就是冲它去的',
     ctx: '被问「共鸣者是干嘛的」「这个世界要面对什么敌人」时',
     tabu: '别把它讲成普通怪物——它是灾变的产物和推动力，不是被悲鸣打出来的',
-    rel: ['term-lament', 'term-sea-erosion', 'plot-star-sea-echo', 'char-feixue'],
+    rel: ['term-lament', 'term-sea-erosion', 'plot-star-sea-echo'],
     src: ['wuwa.huijiwiki.com/wiki/鸣式'],
     note: '已核：公测时发布的概念图形象为无冠者。绯雪「预取尽了成为鸣式共鸣者的未来」所以拒绝了会长',
   },
