@@ -24,9 +24,9 @@ export const PAGES = [
   { file: 'terms',      title: '机制术语',     desc: '共鸣、频率、虚质、鸣式等最容易说错的一批' },
   { file: 'titles',     title: '官方名号',     desc: '唤取标题、满链、成就、收藏品、服饰名、PV' },
   { file: 'items',      title: '东西',         desc: '她的道具、装置、随身物' },
-  { file: 'memes',      title: '社区梗',       desc: '社区玩梗。接之前先看语境和禁忌' },
+  { file: 'memes',      title: '社区梗',       desc: '社区玩梗。接之前先看语境和禁忌', noSrc: true },
   { file: 'nicknames',  title: '昵称绰号',     desc: '各种叫法、爱称、谐称' },
-  { file: 'ships',      title: '二创 CP',      desc: '玩家配对向，非官方' },
+  { file: 'ships',      title: '二创 CP',      desc: '玩家配对向，非官方', noSrc: true },
   { file: 'versions',   title: '时间线',       desc: '版本号 ↔ 剧情推进 ↔ 角色登场' },
 ]
 

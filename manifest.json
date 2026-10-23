@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-23T04:34:47.551Z",
+  "built": "2026-10-23T04:39:05.950Z",
   "pages": [
     {
       "file": "person",
@@ -24,18 +24,48 @@
       "title": "机制术语",
       "n": 10,
       "cp": 1618
+    },
+    {
+      "file": "titles",
+      "title": "官方名号",
+      "n": 8,
+      "cp": 1083
+    },
+    {
+      "file": "items",
+      "title": "东西",
+      "n": 11,
+      "cp": 1563
+    },
+    {
+      "file": "memes",
+      "title": "社区梗",
+      "n": 2,
+      "cp": 720
+    },
+    {
+      "file": "nicknames",
+      "title": "昵称绰号",
+      "n": 6,
+      "cp": 1039
+    },
+    {
+      "file": "ships",
+      "title": "二创 CP",
+      "n": 2,
+      "cp": 445
+    },
+    {
+      "file": "versions",
+      "title": "时间线",
+      "n": 3,
+      "cp": 715
     }
   ],
-  "todo": 1,
+  "todo": 2,
   "missing": [
     "chars",
     "world",
-    "org",
-    "titles",
-    "items",
-    "memes",
-    "nicknames",
-    "ships",
-    "versions"
+    "org"
   ]
 }

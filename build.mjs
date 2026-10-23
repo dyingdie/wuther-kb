@@ -44,9 +44,10 @@ for (const p of PAGES) {
     if (typeof e.tabu !== 'string') err(w, 'tabu 必须是字符串（没禁忌就写空串，等于显式声明「无特别禁忌」）')
     if (!Array.isArray(e.lvl) || !e.lvl.length) err(w, '缺 lvl 或 lvl 为空')
     else for (const l of e.lvl) if (!LEVELS.includes(l)) err(w, `lvl 「${l}」 不在枚举内`)
-    // 来源答不出来的不许进正式页；【待】条目例外，它本来就不给人看
+    // 来源答不出来的不许进正式页；【待】条目和 noSrc 板块例外（梗与 CP 的价值不在出处）
     const pending = (e.lvl || []).includes('待')
-    if (!pending && (!Array.isArray(e.src) || !e.src.length)) err(w, '缺 src（来源答不出来的不许进正式页，挪去标【待】）')
+    const exempt = pending || p.noSrc
+    if (!exempt && (!Array.isArray(e.src) || !e.src.length)) err(w, '缺 src（来源答不出来的不许进正式页，挪去标【待】）')
     if ('alias' in e && !Array.isArray(e.alias)) err(w, 'alias 必须是数组')
     if ('rel' in e && !Array.isArray(e.rel)) err(w, 'rel 必须是数组')
     if (cpLen(e.def || '') > 80) warn(w, `def 超过 80 码点（${cpLen(e.def)}），她要原样能用`)
