@@ -60,7 +60,7 @@ export default [
     tabu: '**完整对白没有可靠文本**，不要说里面具体演了什么',
     rel: ['plot-melt-sky'],
     src: ['wuwa.huijiwiki.com', '达妮娅事实档案'],
-    note: '和《在熔解的夜空下》容易混——那才是第三章幕间',
+    note: '和《在溶解的夜空下》容易混——那才是第三章幕间',
   },
   {
     id: 'titles-costume',

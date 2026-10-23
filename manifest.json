@@ -1,11 +1,11 @@
 {
-  "built": "2026-10-23T04:39:05.950Z",
+  "built": "2026-10-23T04:45:16.419Z",
   "pages": [
     {
       "file": "person",
       "title": "她是谁",
       "n": 7,
-      "cp": 2114
+      "cp": 2130
     },
     {
       "file": "lines",
@@ -16,14 +16,32 @@
     {
       "file": "plot",
       "title": "她的故事",
-      "n": 4,
-      "cp": 1729
+      "n": 5,
+      "cp": 2384
+    },
+    {
+      "file": "chars",
+      "title": "别人是谁",
+      "n": 21,
+      "cp": 4722
+    },
+    {
+      "file": "world",
+      "title": "地方",
+      "n": 19,
+      "cp": 5238
+    },
+    {
+      "file": "org",
+      "title": "组织势力",
+      "n": 17,
+      "cp": 5894
     },
     {
       "file": "terms",
       "title": "机制术语",
       "n": 10,
-      "cp": 1618
+      "cp": 1629
     },
     {
       "file": "titles",
@@ -62,10 +80,6 @@
       "cp": 715
     }
   ],
-  "todo": 2,
-  "missing": [
-    "chars",
-    "world",
-    "org"
-  ]
+  "todo": 6,
+  "missing": []
 }
