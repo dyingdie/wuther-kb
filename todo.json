@@ -7,6 +7,20 @@
     "kw": "达妮娅 闲趣语音 文本"
   },
   {
+    "id": "combat-element-reaction",
+    "page": "combat",
+    "t": "元素反应 / 效应系统",
+    "note": "官方目前只承认「六种共鸣属性」，元素 Debuff 叠加是爆料里提的。",
+    "kw": ""
+  },
+  {
+    "id": "combat-support-role",
+    "page": "combat",
+    "t": "协奏辅助 / 衍射辅助",
+    "note": "留占位是为了标明「查过、没查到」，不是要她照着编。",
+    "kw": ""
+  },
+  {
     "id": "ver-early",
     "page": "versions",
     "t": "1.x / 2.x 版本对应关系",
