@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-23T12:33:18.497Z",
+  "built": "2026-10-23T12:56:26.004Z",
   "pages": [
     {
       "file": "person",
@@ -95,9 +95,9 @@
     {
       "file": "jargon",
       "title": "玩家黑话",
-      "n": 24,
-      "cp": 3078,
-      "liteCp": 2270
+      "n": 40,
+      "cp": 5566,
+      "liteCp": 3941
     },
     {
       "file": "roles",
@@ -119,6 +119,13 @@
       "n": 27,
       "cp": 4296,
       "liteCp": 2929
+    },
+    {
+      "file": "modes",
+      "title": "玩法",
+      "n": 15,
+      "cp": 2816,
+      "liteCp": 1895
     },
     {
       "file": "memes",
@@ -158,11 +165,11 @@
     {
       "file": "versions",
       "title": "时间线",
-      "n": 11,
-      "cp": 3141,
-      "liteCp": 1757
+      "n": 14,
+      "cp": 3825,
+      "liteCp": 2224
     }
   ],
-  "todo": 5,
+  "todo": 9,
   "missing": []
 }
