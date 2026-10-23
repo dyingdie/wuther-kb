@@ -1,0 +1,41 @@
+{
+  "built": "2026-10-23T04:34:47.551Z",
+  "pages": [
+    {
+      "file": "person",
+      "title": "她是谁",
+      "n": 7,
+      "cp": 2114
+    },
+    {
+      "file": "lines",
+      "title": "她说了什么",
+      "n": 10,
+      "cp": 1848
+    },
+    {
+      "file": "plot",
+      "title": "她的故事",
+      "n": 4,
+      "cp": 1729
+    },
+    {
+      "file": "terms",
+      "title": "机制术语",
+      "n": 10,
+      "cp": 1618
+    }
+  ],
+  "todo": 1,
+  "missing": [
+    "chars",
+    "world",
+    "org",
+    "titles",
+    "items",
+    "memes",
+    "nicknames",
+    "ships",
+    "versions"
+  ]
+}
