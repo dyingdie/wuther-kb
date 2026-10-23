@@ -23,6 +23,13 @@
 > 因此 2026-10-24 新开 **`roles` 角色属性页**（一人一条：属性+武器+队里定位）。报告在 [`reports/pagecheck-accuracy.md`](./reports/pagecheck-accuracy.md)。
 > 最后核对时间：2026-10-24 凌晨。库在 `https://dyingdie.github.io/wuther-kb/index.html`。
 
+> 🚨 **2026-10-24：`.github/workflows/ci.yml` 推不上去，别用 `git add -A`。**
+> push 被拒，原话：`refusing to allow a Personal Access Token to create or update workflow '.github/workflows/ci.yml' without workflow scope`。
+> **本机 git 用的 PAT 没有 `workflow` 权限**。CI 文件在磁盘上、没进版本库；那一版内容 commit 已经绕开它推上去了（`27a7960`）。
+> **要发版时只 `git add` 具体文件，绝不用 `git add -A`** —— 一把把 `ci.yml` 重新捞进去，push 就又炸。
+> 想让 CI 真正上线只有一条路：**换一个有 `workflow` scope 的 PAT**（GitHub → Settings → Developer settings → Personal access tokens → 勾 workflow），换完再单独提交那一个文件。
+> CI 本身只跑 `build.mjs --check`（不跑 `--check-src`，因为出口 IP 对 wiki 全 403 会误报一片）。
+
 ## 0. 一句话现状
 
 **23 页 / 475 条**（其中 5 条【待】不入正式页）/ lint 干净 / **Pages 线上仍是 10-23 18:04 那版，落后一百多条，待发版**。
