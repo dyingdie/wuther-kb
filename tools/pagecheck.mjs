@@ -277,10 +277,39 @@ for (let i = 0; i < argv.length; i++) {
   else qs.push(a)
 }
 
-// 句子里带引号的整体当一句；没给参数就从标准输入读，一行一句
+// 标准输入有两种喂法，都得认：
+//   一、qq-log-scan.mjs --out 的三行一块 —— 「· [日期] 文件 #id 谁」/「  问句」/「  命中词：秧秧→chars-npc」
+//   二、裸问句，一行一句
+// 一要是照「一行一句」读，表头和命中词都会变成考题：命中词那行是扫描器自己算好的
+// 答案，喂进来等于把答案抄进卷子，这种题必中，分数会被抬上去而排序其实没变好。
+function parseStdin(raw) {
+  const lines = String(raw).split(/\r?\n/).map((s) => s.trim()).filter(Boolean)
+  const isHead = (l) => /^[·•]\s*\[/.test(l)
+  if (!lines.some(isHead)) return { list: lines, blockMode: false }
+  const list = []
+  let cur = []
+  let inBlock = false
+  const flush = () => { if (cur.length) { list.push(cur.join(' ')); cur = [] } }
+  for (const l of lines) {
+    if (isHead(l)) { flush(); inBlock = true; continue }
+    if (/^命中词[：:]/.test(l)) { flush(); continue }
+    if (!inBlock) { list.push(l); continue }
+    cur.push(l)
+  }
+  flush()
+  return { list, blockMode: true }
+}
+
 let questions = qs
+let blockMode = false
 if (!questions.length && !process.stdin.isTTY) {
-  questions = String(readFileSync(0, 'utf8')).split(/\r?\n/).map((s) => s.trim()).filter(Boolean)
+  const parsed = parseStdin(readFileSync(0, 'utf8'))
+  questions = parsed.list
+  blockMode = parsed.blockMode
+}
+if (blockMode) {
+  // 走 stderr，别混进给人看的结果里
+  console.error('[pagecheck] 按 q.txt 三行块读，只取问句行（表头和「命中词」行都不算题）—— 共 ' + questions.length + ' 道')
 }
 if (!questions.length) {
   console.log([
