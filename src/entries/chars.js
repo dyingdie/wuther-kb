@@ -256,7 +256,7 @@ export default [
     def: '瑝珑出身的镇玄司骑兼玄元门门主，气动属性迅刀，2026-08-20 上线（3.6）。师父静微真人，与漂泊者是同门师兄弟。',
     ctx: '被问「清宵是谁」「那个剑仙」时；也常见于达妮娅的震谐队讨论。',
     tabu: '**是气动，不是热熔也不是震谐**——震谐是偏谐路线名不是属性。常见别称「琴剑双绝」在 wiki infobox 查不到，没核实，别当官方称号。',
-    rel: ['chars-秧秧', 'attr-qingxiao', 'term-zhenxie'],
+    rel: ['chars-秧秧', 'roles2-qingxiao', 'term-zhenxie'],
     src: ['https://wuwa.huijiwiki.com/w/index.php?title=清宵'],
     note: '已核（wiki 清宵页 infobox wikitext，api.php 取第 0 节模板参数）：属性气动、武器迅刀、上线 2026-08-20（3.6）。师承：师父静微真人，共轭师徒是漂泊者（《金瞳异人剑法》）。下属：秋鸿、秧秧·玄翎、椋羽。⚠️未核：「琴剑双绝」。2026-08-17 是战斗演示公布日，08-20 才是 wiki 记的上线日，两个日期别混。',
   },

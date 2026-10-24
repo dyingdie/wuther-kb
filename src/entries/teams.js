@@ -55,7 +55,7 @@ export const entries = [
     def: '集谐队：陆·赫斯主C，达妮娅挂集谐模态，莫宁补集谐干涉。',
     ctx: '有人问集谐队怎么配、或提「陆达莫」',
     tabu: '攻略说过不在意生存可把莫宁换成琳奈；这是取舍不是硬规则',
-    rel: ['team-danya-role', 'attr-luhesi', 'term-zhenxie'],
+    rel: ['team-danya-role', 'roles2-luhesi', 'term-zhenxie'],
     src: [
       'https://forum.gamer.com.tw/C.php?bsn=74934',
       'https://www.gamersky.com/handbook/202605/2143115.shtml',
@@ -69,7 +69,7 @@ export const entries = [
     def: '达妮娅当主C时的搭配之一：琳奈叠偏谐给增益，莫宁补干涉。',
     ctx: '有人问「达妮娅主C怎么配」或提琳莫',
     tabu: '这是主C向的思路，和副C向的爱达千不是一套，别混着说',
-    rel: ['team-danya-role', 'attr-linnai', 'term-pianxie-branch'],
+    rel: ['team-danya-role', 'roles2-linnai', 'term-pianxie-branch'],
     src: [
       'https://forum.gamer.com.tw/C.php?bsn=74934',
       'https://www.gamersky.com/handbook/202605/2143115.shtml',
@@ -89,48 +89,6 @@ export const entries = [
     ],
   },
 
-  // ── D 角色属性速查（wiki infobox 原文，一人一条）──────────────
-  {
-    id: 'attr-luhesi',
-    t: '陆·赫斯的属性和武器',
-    lvl: ['官'],
-    def: '衍射属性，臂铠武器，2026-02-26上线（3.1）。新联邦的校医。',
-    ctx: '有人问陆·赫斯什么属性、用什么武器',
-    tabu: '库里的条目 id 是 chars-陆赫斯，中间的间隔号只在页面标题里',
-    rel: ['chars-陆赫斯', 'team-ludamo'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=陆·赫斯'],
-  },
-  {
-    id: 'attr-moning',
-    t: '莫宁的属性和武器',
-    lvl: ['官'],
-    def: '热熔属性，长刃武器，2026-01-15上线（3.0）。星炬学院教授。',
-    ctx: '有人问莫宁什么属性、用什么武器',
-    tabu: '她也在琳奈的偏谐队里出现，别因为属性是热熔就只想到聚爆',
-    rel: ['chars-莫宁', 'team-ludamo'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=莫宁'],
-  },
-  {
-    id: 'attr-linnai',
-    t: '琳奈的属性和武器',
-    lvl: ['官'],
-    def: '衍射属性，佩枪武器，2025-12-25上线（3.0）。技能页可切震谐或集谐模态。',
-    ctx: '有人问琳奈什么属性、为什么她在偏谐队里',
-    tabu: '能切模态是她个人技能，不是所有角色都能切，别推给全队',
-    rel: ['chars-琳奈', 'term-zhenxie'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=琳奈'],
-  },
-  {
-    id: 'attr-qingxiao',
-    t: '清宵的属性和武器',
-    lvl: ['官'],
-    def: '气动属性，迅刀武器，2026-08-20上线（3.6）。瑝珑镇玄司骑、门主，别号剑仙。',
-    ctx: '有人问清宵什么属性、是不是热熔或震谐',
-    tabu: '是气动，不是热熔也不是震谐；震谐是偏谐路线名不是属性，见 term-zhenxie-is-not-attr',
-    rel: ['chars-清宵'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=清宵'],
-    note: '「气动」已核对 wiki infobox。常见的「琴剑双绝」在 infobox 里没有，没核实。2026-08-17 是战斗演示公布日，wiki 写的上线日期是 08-20。',
-  },
 
   // ── E 机制术语（只补 combat.js 没有的）────────────────────────
   {
@@ -193,7 +151,7 @@ export const entries = [
     def: '震谐干涉＝响应角色对目标打一次特殊攻击，适合单体；集谐干涉＝全队对该敌人叠伤害，适合群怪。',
     ctx: '有人问震谐队和集谐队差在哪',
     tabu: '琳奈暂是3.0唯一能上偏移的角色，这是攻略组推测不是官方承诺。官方技能文本写「集谱」，攻略站多写「集谐」，是同一组词，讲的时候按官方的说，被追问再解释。3.7 官方术语里「震谐」另指四种负面状态之一（聚爆、震谐、光噪、电磁），见 combat 页减益效果——同词两义，按上下文说',
-    rel: ['attr-linnai', 'term-pianxie-branch', 'danya-modes'],
+    rel: ['roles2-linnai', 'term-pianxie-branch', 'danya-modes'],
     src: [
       'https://www.gamersky.com/handbook/202512/2065880.shtml',
       'https://www.taptap.cn/moment/762649998587330770',
@@ -207,7 +165,7 @@ export const entries = [
     def: '震谐和集谐是偏谐体系下偏移、干涉的两条路线，可由角色切换，不是共鸣属性，更不是湮灭加导电。',
     ctx: '有人把「震谐队」说成湮灭加导电的配队时',
     tabu: '六大共鸣属性里没有「震谐」；要组属性队只能从衍射热熔气动导电湮灭冷凝里挑',
-    rel: ['term-zhenxie', 'combat-attrs', 'attr-qingxiao'],
+    rel: ['term-zhenxie', 'combat-attrs', 'roles2-qingxiao'],
     src: [
       'https://www.gamersky.com/handbook/202512/2065880.shtml',
       'https://m.ali213.net/news/gl2512/1726735.html',

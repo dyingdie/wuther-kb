@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-24T04:05:17.145Z",
+  "built": "2026-10-24T05:18:59.987Z",
   "pages": [
     {
       "file": "person",
@@ -33,15 +33,29 @@
       "file": "chars",
       "title": "别人是谁",
       "n": 21,
-      "cp": 4403,
+      "cp": 4405,
       "liteCp": 2545
     },
     {
       "file": "chars-npc",
       "title": "别处的人",
-      "n": 42,
-      "cp": 7557,
-      "liteCp": 5109
+      "n": 34,
+      "cp": 5280,
+      "liteCp": 3873
+    },
+    {
+      "file": "chars-npc-2",
+      "title": "别处的人（其二）",
+      "n": 20,
+      "cp": 4456,
+      "liteCp": 2411
+    },
+    {
+      "file": "chars-archive",
+      "title": "档案里的人",
+      "n": 8,
+      "cp": 1483,
+      "liteCp": 1060
     },
     {
       "file": "world",
@@ -74,9 +88,16 @@
     {
       "file": "terms",
       "title": "机制术语",
-      "n": 47,
-      "cp": 7206,
-      "liteCp": 5013
+      "n": 26,
+      "cp": 3417,
+      "liteCp": 2639
+    },
+    {
+      "file": "terms-disaster",
+      "title": "灾变与侵蚀",
+      "n": 21,
+      "cp": 2940,
+      "liteCp": 2045
     },
     {
       "file": "terms-official",
@@ -117,15 +138,22 @@
       "file": "roles",
       "title": "角色属性",
       "n": 37,
-      "cp": 6221,
-      "liteCp": 4348
+      "cp": 6354,
+      "liteCp": 4481
+    },
+    {
+      "file": "roles-2",
+      "title": "角色属性·其二",
+      "n": 16,
+      "cp": 3180,
+      "liteCp": 2176
     },
     {
       "file": "teams",
       "title": "配队",
-      "n": 18,
-      "cp": 3217,
-      "liteCp": 2092
+      "n": 14,
+      "cp": 2618,
+      "liteCp": 1680
     },
     {
       "file": "combat",
@@ -198,10 +226,17 @@
       "liteCp": 2575
     },
     {
+      "file": "docs-2",
+      "title": "官方档案·其二",
+      "n": 23,
+      "cp": 4618,
+      "liteCp": 2789
+    },
+    {
       "file": "battle-terms",
       "title": "官方战斗词",
       "n": 25,
-      "cp": 4332,
+      "cp": 4334,
       "liteCp": 2734
     },
     {
@@ -228,9 +263,9 @@
     {
       "file": "lore-jinzhou",
       "title": "今州旧貌",
-      "n": 25,
-      "cp": 3390,
-      "liteCp": 2221
+      "n": 24,
+      "cp": 3230,
+      "liteCp": 2111
     },
     {
       "file": "lore-laguna",

@@ -199,7 +199,7 @@ export default [
     def: '官方 3.6 词条：清宵分出的一缕特殊剑意频率，凝聚她最本质、最纯粹的共鸣力',
     ctx: '问本命剑意、问清宵那缕剑意时',
     tabu: '官方只说来源是清宵、性质是剑意频率；这是清宵的词条不是达妮娅的，也别跟「剑魄」混',
-    rel: ['chars-清宵', 'attr-qingxiao'],
+    rel: ['chars-清宵', 'roles2-qingxiao'],
     src: ['https://mc.yakitahome.com/api/terms', 'source/yakitahome-terms.json'],
     note: 'uid:800055（3.6版本）官方原文照抄：「清宵所分出的一缕特殊的剑意频率，凝聚了她最为本质、最为纯粹的共鸣力。」官方英文名 Lifebound Sword Intent。⚠️这是清宵（瑝珑剑仙）的词条，别安到达妮娅身上。',
   },

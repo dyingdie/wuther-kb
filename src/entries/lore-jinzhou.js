@@ -287,15 +287,4 @@ export default [
     src: ['https://mc.yakitahome.com/api/terms', 'source/yakitahome-terms.json'],
     note: 'uid:term:260011（2.7版本）官方原文：「瑝珑三法司之一，除了享有重大案件的联合审理权之外，还享有监察权，即所谓“纠察邪佞，肃正纲纪”。一般兰台之中大小官员皆称御史，在六州流动或常驻的监察官员则称为六州监察史。」英文原名 Censorate。官方没写另外两司是哪两个。'
   },
-  {
-    id: 'lore-jinzhou-beibi',
-    t: '贝币',
-    lvl: ['官'],
-    def: '瑝珑发行、各地区官方认可的通用货币；远古时瑝珑的祖先拿海贝当钱，工艺几经更迭，贝型外观始终如一',
-    ctx: '问「瑝珑用什么钱」「这游戏的货币是什么」时',
-    tabu: '贝币是货币，不是护符或道具；官方只说它是通用货币，没说现在各地还通不通、怎么结算',
-    rel: ['world-huanglong'],
-    src: ['https://mc.yakitahome.com/api/terms', 'source/yakitahome-terms.json'],
-    note: 'uid:term:850104（2.4版本）官方原文照抄：「由瑝珑发行，被各大地区的官方认可的通用货币。在亘古以前，瑝珑的祖先便开始使用海贝作为货币。随着时间推移，它的制造的工艺几经更迭，但贝型的外观却始终如一。」英文原名 Shell Credit。',
-  }
 ]
