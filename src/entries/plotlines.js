@@ -226,10 +226,10 @@ export default [
     def: '《达妮娅的生日纪念》（3.3）全文两句：这一天值得纪念，因为能和最好的朋友们在一起',
     ctx: '问「她生日那天官方给了什么文案」「她过生日那段有没有官方说法」时',
     tabu: '这是官方纪念文案、不是她的台词；同文有两条 id（28050005 与 28050006），内容一模一样；别把这两句当她自己的愿望',
-    rel: ['person-danya', 'person-exit-procedure', 'rel-svigirl'],
+    rel: ['person-danya', 'doc-exit-procedure', 'rel-svigirl'],
     src: ['https://mc.yakitahome.com/api/info/detail?id=28050005', 'https://mc.yakitahome.com/api/info/detail?id=28050006'],
     body: `· 28050005 与 28050006 同题同文：“对她而言，这平和的一日就是最值得纪念的一天。”“于是，她要和最好的朋友们在一起。”
-· 同一批档案里另一份是《达妮娅的生日行程》（28050004），把那天出门写成六个阶段（person-exit-procedure）
+· 同一批档案里另一份是《达妮娅的生日行程》（28050004），把那天出门写成六个阶段（doc-exit-procedure）
 · “最好的朋友们”指谁官方没点名；同一批档案的接触名单上，西格莉卡、绯雪、娜斯塔霞都在`,
     note: '官方档案 28050005 与 28050006《达妮娅的生日纪念》（均 3.3版本），两条内容完全相同，逐字取自本地全量缓存 yakitahome-info-full.json。',
   },

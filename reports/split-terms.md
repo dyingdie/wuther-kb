@@ -40,10 +40,9 @@
 
 ## 3. lint 记录
 
-**当前 `node build.mjs --check` = exit 1，119 处错误**，全部是同一个根因：`terms-disaster` 还没在 meta.js 的 PAGES 里登记。
+**最终 `node build.mjs --check` = exit 0、✗ 0、⚠ 10**，「✓ lint 通过（10 条提示）」，条目合计 912、其中【待】9 条。
 
-- build.mjs 的 lint 只遍历 PAGES（L43），未登记页的条目不进 `all` 集合 → 全库指向这 21 个 id 的 rel 全被判成悬空（118 条），另有 1 条 `✗ [terms-disaster] src/entries 里的板块在 PAGES 里没登记`（L38）。
-- lead 在 meta.js 加一行 PAGES 后这 119 条会同时消失（id 没变，rel 按 id 解析）。
+过程留档（登记前那会儿是红的，原因单一，已解决）：build.mjs 的 lint 只遍历 PAGES（L43），未登记页的条目不进 `all` 集合 → 全库指向这 21 个 id 的 rel 全被判成悬空（118 条），另有 1 条 `✗ [terms-disaster] src/entries 里的板块在 PAGES 里没登记`（L38），合计 exit 1 / 119 处错误。lead 在 meta.js 登记该页后这 119 条同时消失（id 一个字没改，rel 按 id 解析）。
 
 为确认这不是真错，我另跑了**复刻 lint**（覆盖全部 42 个 entries 文件，包含未登记的 terms-disaster）：
 
@@ -52,17 +51,21 @@
 
 ### ⚠ 的两处文字变化（数量不变）
 
-- `term-shenghen`（声痕）与 `items-voice-mark` 撞名那条**不会消失**：撞名检查里只有「同页同名」才升级成 error，跨页同名一律只是 ⚠。未登记期间因为 term-shenghen 暂时不在 `all` 里，这条 ⚠ 暂时不见了；lead 登记后它会回来，文字变成「别称「声痕」与 items/items-voice-mark（词条名）撞了」——跟拆之前同一条，只是引用页号变了。
+- `term-shenghen`（声痕）与 `items-voice-mark` 撞名那条**没消失**：撞名检查里只有「同页同名」才升级成 error，跨页同名一律只是 ⚠。未登记期间因为 term-shenghen 暂时不在 `all` 里，这条 ⚠ 暂时不见了；登记后它回来了，文字是「⚠ [items-voice-mark] 别称「声痕」与 terms-disaster/term-shenghen（词条名）撞了」——同一条，只是引用页号变了。
 - `world-silenced-zone`（无音区）那条的引用页变成 `terms-disaster/term-silenced-zone`。
 - 其余 8 条一字未变。
 
-## 4. 待 lead 在 meta.js 里做的两件事（我没碰 meta.js）
+10 条 ⚠ 全文（与拆页前的同一批，跨页同名、无一条新造）：chars-绯雪 / term-astrum / term-deepspace / term-roi / term-silenced-zone / items-voice-mark / modes-stable / modes-singularity / modes-virus / nick-president。
 
-1. PAGES 加一行：
-   `{ file: 'terms-disaster', title: '灾变与侵蚀', desc: '灾变、侵蚀、空间与频率类术语：悲鸣、鸣式、海蚀现象、虚质空间、隧群、频率…' }`
-   （本报告里的两页码点就是按这个 title/desc 量的；desc 若改成别的字数，码点会跟着变。）
-2. ROUTES 加一条：`悲鸣 / 鸣式 / 海蚀现象 / 虚质空间 / 隧群 / 频率 这些词什么意思 → terms-disaster`
-3. 顺带一提：meta.js 里 terms 页的 desc 现在写的是「共鸣、频率、虚质、鸣式等最容易说错的一批」，但**频率 / 虚质 / 鸣式 已经搬到新页了**，这句留着会指错路，建议顺手改成「共鸣、声音痕迹、调律者、隧者、岁主等最容易说错的一批」之类。
+## 4. meta.js 登记（lead 已做，我全程没碰 meta.js）
+
+lead 已在 meta.js 登记，本报告里的两页码点就是按登记后的 title/desc 量的：
+
+- PAGES 新增：`{ file: 'terms-disaster', title: '灾变与侵蚀', desc: '灾变、侵蚀、空间与频率类术语：悲鸣、鸣式、海蚀现象、虚质空间、隧群、频率…' }`
+- ROUTES 新增：`['悲鸣 / 鸣式 / 海蚀现象 / 虚质空间 / 隧群 / 频率 这些词什么意思', 'terms-disaster']`
+- terms 页的 desc 也被 lead 顺手改对了：现在是「共鸣、声痕、调律者、隧者、岁主等最容易说错的一批」（原来写的频率 / 虚质 / 鸣式已经搬走了）。
+
+登记后的最终码点：**terms 26 条＝全版 3417 / 精简 2639；terms-disaster 21 条＝全版 2940 / 精简 2045**。
 
 登记完再跑一次 `node build.mjs --check` 就应该 exit 0。
 
