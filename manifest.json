@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-23T16:30:05.830Z",
+  "built": "2026-10-24T04:05:17.145Z",
   "pages": [
     {
       "file": "person",
@@ -40,15 +40,15 @@
       "file": "chars-npc",
       "title": "别处的人",
       "n": 42,
-      "cp": 7565,
+      "cp": 7557,
       "liteCp": 5109
     },
     {
       "file": "world",
       "title": "地方",
       "n": 14,
-      "cp": 2977,
-      "liteCp": 1763
+      "cp": 3063,
+      "liteCp": 1836
     },
     {
       "file": "world-extra",
@@ -68,29 +68,29 @@
       "file": "factions",
       "title": "阵营名录",
       "n": 22,
-      "cp": 4807,
-      "liteCp": 3602
+      "cp": 4926,
+      "liteCp": 3670
     },
     {
       "file": "terms",
       "title": "机制术语",
       "n": 47,
-      "cp": 6720,
-      "liteCp": 4570
+      "cp": 7206,
+      "liteCp": 5013
     },
     {
       "file": "terms-official",
       "title": "官方机制词",
       "n": 15,
-      "cp": 2561,
-      "liteCp": 1765
+      "cp": 2585,
+      "liteCp": 1789
     },
     {
       "file": "terms-story",
       "title": "官方剧情词",
       "n": 21,
-      "cp": 4102,
-      "liteCp": 2644
+      "cp": 4251,
+      "liteCp": 2793
     },
     {
       "file": "titles",
@@ -117,15 +117,15 @@
       "file": "roles",
       "title": "角色属性",
       "n": 37,
-      "cp": 6026,
-      "liteCp": 4119
+      "cp": 6221,
+      "liteCp": 4348
     },
     {
       "file": "teams",
       "title": "配队",
-      "n": 23,
-      "cp": 3911,
-      "liteCp": 2500
+      "n": 18,
+      "cp": 3217,
+      "liteCp": 2092
     },
     {
       "file": "combat",
@@ -159,8 +159,8 @@
       "file": "nicknames",
       "title": "昵称绰号",
       "n": 14,
-      "cp": 2515,
-      "liteCp": 1756
+      "cp": 2749,
+      "liteCp": 1990
     },
     {
       "file": "ships",
@@ -173,8 +173,8 @@
       "file": "allusions",
       "title": "台词出处",
       "n": 38,
-      "cp": 4755,
-      "liteCp": 3867
+      "cp": 4870,
+      "liteCp": 3970
     },
     {
       "file": "versions",
@@ -186,9 +186,9 @@
     {
       "file": "lore-terms",
       "title": "官方新名词",
-      "n": 22,
-      "cp": 3512,
-      "liteCp": 2348
+      "n": 26,
+      "cp": 4193,
+      "liteCp": 2796
     },
     {
       "file": "docs",
@@ -200,9 +200,65 @@
     {
       "file": "battle-terms",
       "title": "官方战斗词",
-      "n": 22,
-      "cp": 3880,
-      "liteCp": 2438
+      "n": 25,
+      "cp": 4332,
+      "liteCp": 2734
+    },
+    {
+      "file": "feixun",
+      "title": "飞讯",
+      "n": 20,
+      "cp": 4538,
+      "liteCp": 2106
+    },
+    {
+      "file": "feixun-chars",
+      "title": "飞讯签名",
+      "n": 21,
+      "cp": 3663,
+      "liteCp": 1741
+    },
+    {
+      "file": "old-lore",
+      "title": "早期旧事",
+      "n": 17,
+      "cp": 3609,
+      "liteCp": 2421
+    },
+    {
+      "file": "lore-jinzhou",
+      "title": "今州旧貌",
+      "n": 25,
+      "cp": 3390,
+      "liteCp": 2221
+    },
+    {
+      "file": "lore-laguna",
+      "title": "拉古那风物",
+      "n": 18,
+      "cp": 3166,
+      "liteCp": 1928
+    },
+    {
+      "file": "lore-qiqiu",
+      "title": "七丘角斗",
+      "n": 19,
+      "cp": 3412,
+      "liteCp": 1826
+    },
+    {
+      "file": "lore-blacktide",
+      "title": "黑潮猎场",
+      "n": 18,
+      "cp": 3484,
+      "liteCp": 2116
+    },
+    {
+      "file": "lore-late",
+      "title": "后期新词",
+      "n": 23,
+      "cp": 4012,
+      "liteCp": 2541
     }
   ],
   "todo": 9,
