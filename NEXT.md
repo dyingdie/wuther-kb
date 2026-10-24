@@ -112,11 +112,20 @@
 > 📌 **Pages 部署有延迟**：push 成功后新页可能 404 好几分钟（`terms-official.html` 等 5 个全 404，而线上 index 已是旧版新内容）。**别急着改配置——等几分钟重测（加 `?v=N` 绕缓存）**。2026-10-24 凌晨实测延迟约 3~5 分钟，之后 5 个新页全部 200。
 > 最后核对时间：2026-10-24 凌晨。库在 `https://dyingdie.github.io/wuther-kb/index.html`。
 
+> 🚨 **2026-10-24 晚 22:13：wiki 的「角色 / 技能详情」页能抓官方机制词——新角色机制的正规出处。**
+> `web_fetch` 打 `https://wuwa.huijiwiki.com/w/index.php?title=心/技能详情&action=raw` → 200，拿到**全套官方技能文本**（霆心域、共鸣模态·同奏/·电磁、电磁爆发与电磁效应、应世相/照世相、敛华障、灯同辉…）。
+> 本轮据此把 3.7 的心从「只有名字」补成有官方机制词的条目（`battle-terms` 新增 3 条，lvl 用 `['官']`），社区叫法「心配队」记进 `jargon`（`['社']`，wiki 无此词）。
+> 两条踩坑：①**同一 URL 连抓会撞 Cloudflare 挑战页**（返回 HTML 不是 wikitext），本轮重试到第 3 次才干净 → **抓完必须断言关键词在正文里**（用「霆心域」+「__NOREC__」判定），别把挑战页当正文存进 `source/`。
+> ②官方 `source/yakitahome-terms.json`（288 条）与 `source/yakitahome-info-full.json`（722 条文书）里**都没有**这些词 → **官方术语表 ≠ 官方机制词全收完**；官方机制词要去 wiki 技能详情页找。
+> ⚠️ **2026-10-24 晚 22:30：`github.com:443` 连不上**（三次 `Failed to connect to github.com:443 after 21077 ms`），而 Pages `dyingdie.github.io` 正常 200 → **只有 github.com 不通，别的网没事**。
+> **GitHub 挂掉时的绕法（走本地路径，不用网络）**：`git -C "C:\Users\28945\.dsh\dsh-onebot-qq\workspace\wuther-kb" fetch "C:\Users\28945\Documents\deepseek-harness\default-workspace\kb" main` 再 `merge --ff-only FETCH_HEAD` → QQ 机器人那份克隆照样能更新（本轮已验证）。
+> 最后核对时间：2026-10-24 晚 22:30。库在 `https://dyingdie.github.io/wuther-kb/index.html`。
+
 > ---
 
 ## 0. 一句话现状
 
-**42 页 / 912 条**（其中 9 条【待】不入正式页）/ lint 干净（**10 条 ⚠，全是跨页别称撞名；没有码点软警戒了，全库最大页 `roles` 6354 码点**）/ **已发版，线上是最新**（2026-10-24 晚 commit `de48e0c` push；clone 已同步、42 个 entries 在位）。⚠️ **发版后她读不读得到改动是另一回事**——ESM 缓存的坑见文首 P0。
+**42 页 / 917 条**（其中 9 条【待】不入正式页）/ lint 干净（**10 条 ⚠，全是跨页别称撞名；没有码点软警戒了，全库最大页 `roles` 6354 码点**）/ **2026-10-24 晚 22:13 又加 4 条**（3.7 心的官方机制词 3 条：霆心域 / 电磁爆发与电磁效应 / 共鸣模态·同奏与·电磁；社区叫法「心配队」1 条，commit `7196755`）——⚠️ **写这批时 github.com:443 连不上，push 没推上去，线上还是旧的**；clone 已用本地路径 fetch 同步到 7196755。⚠️ **她读不读得到改动是另一回事**——ESM 缓存的坑见文首 P0，这轮改的是已存在的 .js（jargon/battle-terms/roles-2），**要重启 bot 进程**。
 官方术语 288 条已全部收进库：新建 `feixun` / `feixun-chars` / `old-lore` / `lore-jinzhou` / `lore-laguna` / `lore-qiqiu` / `lore-blacktide` / `lore-late` 八页，只剩 5 条没建（猎犬/海蚀/夜归＝库内已有条目只差 uid 回填；`星星`、`类别` 是字段名不建）。（猎犬/海蚀/夜归＝库内已有条目只差 uid 回填；`星星`、`类别` 是字段名不建）。
 上一版的三个硬伤（两页撑爆、主角那页最薄、编造防线只靠人盯）**都已修完**，见第 2 节。
 
@@ -355,6 +364,8 @@
 
 限制：**只在有会话开着的时候跑**。想立刻补，直接在群里问她那个问题，然后口头让我扫。
 
+⚠️ **2026-10-24 晚：关键词法有盲区——她「答不出来」不等于「说了不记得」。** 本轮关键词法（「我不记得了/忘了/差不多吧/查不到」）命中 0 条新缺口，但翻最近 45 条对话发现一条真缺口：10-24 10:45 群里问「鸣潮角色心配队是什么」，她两条回复**正文是空的**（压根没答上）。**下回扫日志要把 out 正文为空的也算命中**，光看关键词会漏。
+
 ---
 
 ## 9. 她那边的验收标准
@@ -413,6 +424,7 @@ yakitahome 的档案与飞讯**已经全量拉完躺在 `kb/source/` 里**，直
 
 1. **`.lite.html` 到底切不切路由**——人设里已经写了「一律先抓 lite」（`C:\Users\28945\.dsh\dsh-onebot-qq\personas\达妮娅.md` 与 `C:\Users\28945\.dsh\AGENT.md` 两处都改了），但**这一刀还没真正落地**：要让 DSH 检索层只在没命中时才回退全版。上面那两处人设只是告诉她「优先抓 lite」，不是检索层强制。
 2. **群里 @她 的实测验收**——主人 10-23 晚口头过了一句「没什么问题」，但**没有留日志证据**。真要复核就拿 `C:\Users\28945\.dsh\dsh-onebot-qq\logs\qq_chat\` 的真实提问跑 pagecheck，报告在 `kb/reports/pagecheck-accuracy.md`。
+3. **commit `7196755` 还没推上 GitHub**（22:13 那批：霆心域 / 电磁爆发与电磁效应 / 共鸣模态 / 心配队）——写的时候 `github.com:443` 连不上。恢复后：`git push origin main` → `git -C <clone> fetch origin && merge --ff-only origin/main` → 线上验 `jargon.html` / `battle-terms.html` 含新词。
 
 ## 14. 【10-23 深夜】pagecheck 喂数据的坑：`q.txt` 是三行一块
 
