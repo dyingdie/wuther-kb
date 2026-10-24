@@ -5,3 +5,8 @@
 
 .DS_Store
 Thumbs.db
+
+# 临时产物（本地扫描/抓取用，不入库）
+tmp/
+# 某些命令把 %SystemDrive% 当字面量建出来的空壳目录
+%SystemDrive%/

@@ -1,7 +1,7 @@
 // 配队。src 指向 wiki 页或攻略出处。属性没核实的写 note。
 //
 // 分工：战斗机制本身在 combat.js（协奏、偏谐、蚀域、她的模态都在那边）。
-// 这一页只管「谁跟谁一起上」和「这些角色的属性/武器是什么」。
+// 这一页只管「谁跟谁一起上」；角色属性/武器一律看 roles 页（唯一出处），这里只留 roles 没有的人。
 // 重复定义 combat.js 已有的词会害她把两套说法混着讲，所以这里只补空缺。
 
 export const entries = [
@@ -82,7 +82,7 @@ export const entries = [
     def: '达妮娅主C的全热熔队：露帕、布兰特、长离三人都是热熔属性。',
     ctx: '有人问达妮娅主C有没有火队、提「三火」',
     tabu: '热熔同属性不等于能互相增伤，鸣潮属性只是分类，见 combat-attrs',
-    rel: ['attr-lupa', 'attr-bulanti', 'attr-changli'],
+    rel: ['roles-露帕', 'roles-布兰特', 'roles-长离'],
     src: [
       'https://forum.gamer.com.tw/C.php?bsn=74934',
       'https://www.gamersky.com/handbook/202605/2143115.shtml',
@@ -90,16 +90,6 @@ export const entries = [
   },
 
   // ── D 角色属性速查（wiki infobox 原文，一人一条）──────────────
-  {
-    id: 'attr-aimisi',
-    t: '爱弥斯的属性和武器',
-    lvl: ['官'],
-    def: '热熔属性，迅刀武器，2026-02-05上线（3.1）。能提前引爆五层以上的聚爆效应。',
-    ctx: '有人问爱弥斯什么属性、用什么武器',
-    tabu: '提前引爆只改结算时机，伤害仍按层数上限算，别说她能「无限叠」',
-    rel: ['chars-爱弥斯', 'term-jubao-effect', 'team-aidajie'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=爱弥斯'],
-  },
   {
     id: 'attr-luhesi',
     t: '陆·赫斯的属性和武器',
@@ -109,16 +99,6 @@ export const entries = [
     tabu: '库里的条目 id 是 chars-陆赫斯，中间的间隔号只在页面标题里',
     rel: ['chars-陆赫斯', 'team-ludamo'],
     src: ['https://wuwa.huijiwiki.com/w/index.php?title=陆·赫斯'],
-  },
-  {
-    id: 'attr-qianxiao',
-    t: '千咲的属性和武器',
-    lvl: ['官'],
-    def: '湮灭属性，长刃武器，2025-11-20上线（2.8）。能把聚爆效应上限提到13层。',
-    ctx: '有人问千咲什么属性、为什么爱达千里要带她',
-    tabu: '她改了上限不是改了基础值；基础10层、13层结算是10层的两倍',
-    rel: ['chars-千咲', 'term-jubao-effect', 'team-aidajie'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=千咲'],
   },
   {
     id: 'attr-moning',
@@ -141,36 +121,6 @@ export const entries = [
     src: ['https://wuwa.huijiwiki.com/w/index.php?title=琳奈'],
   },
   {
-    id: 'attr-lupa',
-    t: '露帕的属性和武器',
-    lvl: ['官'],
-    def: '热熔属性，长刃武器，2025-07-03上线（2.4）。黎那汐塔出身的角斗士。',
-    ctx: '有人问露帕什么属性、用什么武器',
-    tabu: '',
-    rel: ['team-threefire'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=露帕'],
-  },
-  {
-    id: 'attr-bulanti',
-    t: '布兰特的属性和武器',
-    lvl: ['官'],
-    def: '热熔属性，迅刀武器，2025-03-06上线（2.1）。愚人剧团，别号船长。',
-    ctx: '有人问布兰特什么属性、用什么武器',
-    tabu: '',
-    rel: ['team-threefire'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=布兰特'],
-  },
-  {
-    id: 'attr-changli',
-    t: '长离的属性和武器',
-    lvl: ['官'],
-    def: '热熔属性，迅刀武器，2024-07-22上线（1.1）。瑝珑人，今汐的师父。',
-    ctx: '有人问长离什么属性、用什么武器',
-    tabu: '',
-    rel: ['team-threefire'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=长离'],
-  },
-  {
     id: 'attr-qingxiao',
     t: '清宵的属性和武器',
     lvl: ['官'],
@@ -190,7 +140,7 @@ export const entries = [
     def: '热熔攻击给敌人叠的层数。官方术语只给一句「每5秒，使持有者受到5*层数的效果伤害」，没给层数上限',
     ctx: '有人问聚爆是什么、爱弥斯提前引爆怎么回事',
     tabu: '这是异常效应不是共鸣属性（官方把它和震谐、光噪、电磁并称「减益效果」）。「上限10层」「15秒不叠掉1层」是社区整理的数字，官方术语库查不到——要报数就说是社区数据，别当官方讲',
-    rel: ['team-aidajie', 'attr-qianxiao', 'danya-modes', 'term-jubao'],
+    rel: ['team-aidajie', 'roles-千咲', 'danya-modes', 'term-jubao'],
     src: [
       'https://mc.yakitahome.com/api/terms',
       'https://baike.baidu.com/item/聚爆效应/67359016',

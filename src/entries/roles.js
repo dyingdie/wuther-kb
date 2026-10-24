@@ -17,7 +17,12 @@
 // 景燃、奥古斯塔、莉莉（共 37 条）。
 //
 // 出处：每条都实抓过 wiki raw（/w/index.php?title=X&action=raw，属性栏在 infobox），
+// src 里写的是同一篇文章的页面地址 https://wuwa.huijiwiki.com/wiki/X。
 // 与 chars-npc.js 里已有属性写法的条目逐条对过，全部一致。
+//
+// 2026-10-24 复核：37 条的共鸣属性／武器类型／上线日期／稀有度逐条对 wiki infobox，
+// 四项全部一致，def 一字未改；只修了 tabu 里跟 infobox 打架的写法（属性与武器分组的
+// 人数、别号、所属团体、本名）。稀有度在 wiki 没有独立栏，只写在正文首句。
 //
 // 查过没查到（不建条目，别硬塞）：
 // · 阿列夫一 —— wiki 页有，但他不是可选共鸣者、是拉海洛地区的「虚无」鸣式，
@@ -34,9 +39,9 @@ export default [
     lvl: ['官'],
     def: '热熔属性，音感仪武器。限定五星，3.3（2026-05-21）上线。',
     ctx: '她被问「达妮娅是什么属性」「她拿什么武器」时。',
-    tabu: '队里是副C兼体系核心辅助，不是主C；属性栏的热熔跟三火队那三个人不是一回事，属性只是分类，见 combat-attrs',
+    tabu: '队里是副C兼体系核心辅助，不是主C；属性栏的热熔跟三火队那三个人不是一回事，属性只是分类，见 combat-attrs；热熔本库八个：她、爱弥斯、长离、布兰特、安可、炽霞、露帕、景燃',
     rel: ['person-danya','team-danya-role','gear-danya-weapon','combat-attrs'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E8%BE%BE%E5%A6%AE%E5%A8%85'],
+    src: ['https://wuwa.huijiwiki.com/wiki/达妮娅'],
   },
   {
     id: 'roles-爱弥斯',
@@ -44,9 +49,9 @@ export default [
     lvl: ['官'],
     def: '热熔属性，迅刀武器。限定五星，3.1（2026-02-05）上线。',
     ctx: '被问「爱弥斯是什么属性」「她拿什么武器」时。',
-    tabu: '爱达千里的主C爆发位，别跟达妮娅的副C搞反；teams/attr-aimisi 有更细的口径',
-    rel: ['chars-爱弥斯','attr-aimisi','team-aidajie'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%88%B1%E5%BC%A5%E6%96%AF'],
+    tabu: '爱达千里的主C爆发位，别跟达妮娅的副C搞反；她能提前引爆五层以上的聚爆效应，但只改结算时机，伤害仍按层数上限算',
+    rel: ['chars-爱弥斯','team-aidajie','term-jubao-effect'],
+    src: ['https://wuwa.huijiwiki.com/wiki/爱弥斯'],
   },
   {
     id: 'roles-千咲',
@@ -54,9 +59,9 @@ export default [
     lvl: ['官'],
     def: '湮灭属性，长刃武器。限定五星，2.8（2025-11-20）上线。',
     ctx: '被问「千咲是什么属性」，或问爱达千为什么带她时。',
-    tabu: '队里是减抗续航位；她改的是聚爆层数的上限，不是基础值',
-    rel: ['chars-千咲','attr-qianxiao','team-aidajie','term-jubao-effect'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%8D%83%E5%92%B2'],
+    tabu: '队里是减抗续航位；她改的是聚爆层数的上限（13层），不是基础值',
+    rel: ['chars-千咲','team-aidajie','term-jubao-effect'],
+    src: ['https://wuwa.huijiwiki.com/wiki/千咲'],
   },
   {
     id: 'roles-卡提希娅',
@@ -64,9 +69,9 @@ export default [
     lvl: ['官'],
     def: '气动属性，迅刀武器。限定五星，2.4（2025-06-12）上线。',
     ctx: '被问「卡提希娅是什么属性」「她拿什么武器」时。',
-    tabu: '和秧秧、忌炎同为气动，但武器不同；鸣式称她「迷途者」，那是称呼不是属性',
+    tabu: '和秧秧同为气动迅刀，和忌炎同为气动但他拿长刃；鸣式称她「迷途者」，那是称呼不是属性',
     rel: ['chars-卡提希娅'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%8D%A1%E6%8F%90%E5%B8%8C%E5%A8%85'],
+    src: ['https://wuwa.huijiwiki.com/wiki/卡提希娅'],
   },
   {
     id: 'roles-西格莉卡',
@@ -76,7 +81,7 @@ export default [
     ctx: '她被问「西西是什么属性」「她拿什么武器」时。',
     tabu: '臂铠跟凌阳同款但属性不同；星炬学院的学生、罗伊符文的共鸣者，别把学院当成她的属性出处',
     rel: ['rel-svigirl'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E8%A5%BF%E6%A0%BC%E8%8E%89%E5%8D%A1'],
+    src: ['https://wuwa.huijiwiki.com/wiki/西格莉卡'],
   },
   {
     id: 'roles-绯雪',
@@ -84,9 +89,9 @@ export default [
     lvl: ['官'],
     def: '冷凝属性，迅刀武器。限定五星，3.3（2026-04-30）上线。',
     ctx: '被问「绯雪是什么属性」「她拿什么武器」时。',
-    tabu: '跟散华同为冷凝迅刀，两个人的身份差得远，别混；她是苇原的巫女，别号灼樱巫女／巫女大人；wiki 角色信息框写她声痕在右胯，达妮娅的在胸口，别把两人的位置说成一回事',
+    tabu: '跟散华同为冷凝迅刀，两个人的身份差得远，别混；她是苇原的巫女，别号灼樱巫女／巫女大人；wiki 角色信息框写她声痕在右胯，达妮娅的在胸口，别把两人的位置说成一回事；wiki 角色信息框的所属团体写的是深空联合',
     rel: ['rel-feixue','person-danya'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%BB%AF%E9%9B%AA'],
+    src: ['https://wuwa.huijiwiki.com/wiki/绯雪'],
     note: '已核（wiki 绯雪页 infobox，2026-10-23）：本名绯雪、别号灼樱巫女／巫女大人、**声痕位置＝右胯**、共鸣属性冷凝、武器类型迅刀、限定五星、3.3（2026-04-30）上线。苇原的巫女这个说法另有一手：语音底本 kb/source/达妮娅_原文存档_v1.md:552「那位苇原的巫女」。',
   },
   {
@@ -95,9 +100,9 @@ export default [
     lvl: ['官'],
     def: '导电属性，长刃武器。常驻五星，1.0（2024-05-23）上线。',
     ctx: '被问「卡卡罗是什么属性」时。',
-    tabu: '导电本库里四个：卡卡罗、灯灯、吟霖、奥古斯塔；长刃七个。常被和丹瑾一起提，她四星湮灭迅刀，两人都不同',
+    tabu: '导电本库里四个：卡卡罗、灯灯、吟霖、奥古斯塔；长刃九个。常被和丹瑾一起提，她四星湮灭迅刀，两人都不同',
     rel: ['chars-卡卡罗','chars-丹瑾'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%8D%A1%E5%8D%A1%E7%BD%97'],
+    src: ['https://wuwa.huijiwiki.com/wiki/卡卡罗'],
   },
   {
     id: 'roles-椿',
@@ -107,7 +112,7 @@ export default [
     ctx: '被问「椿是什么属性」「她拿什么武器」时。',
     tabu: '和丹瑾同属性同武器；别把她当残星会的人，那段是在泰缇斯系统模拟的星图时间线里',
     rel: ['chars-椿'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E6%A4%BF'],
+    src: ['https://wuwa.huijiwiki.com/wiki/椿'],
   },
   {
     id: 'roles-丹瑾',
@@ -115,9 +120,9 @@ export default [
     lvl: ['官'],
     def: '湮灭属性，迅刀武器。四星，1.0（2024-05-23）上线。',
     ctx: '被问「丹瑾是什么属性」「她几星」时。',
-    tabu: '四星说的是稀有度不是强度；别号玉玉女侠是社区叫法，不是官方称号',
+    tabu: '四星说的是稀有度不是强度；wiki 别号栏列着「丹槿」（二测「共鸣测试」名，带删除线）和「玉玉女侠」（呜呜物流内部论坛），都不是官方称号',
     rel: ['chars-丹瑾','chars-卡卡罗'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E4%B8%B9%E7%91%BE'],
+    src: ['https://wuwa.huijiwiki.com/wiki/丹瑾'],
   },
   {
     id: 'roles-秧秧',
@@ -125,9 +130,9 @@ export default [
     lvl: ['官'],
     def: '气动属性，迅刀武器。四星，1.0（2024-05-23）上线。',
     ctx: '被问「秧秧是什么属性」「她几星」时。',
-    tabu: '四星、1.0 就在，是全游戏的看板娘，别当新角色介绍；本名玄翎',
+    tabu: '四星、1.0 就在，社区常拿她当看板娘，别当新角色介绍；wiki 本名栏写的是秧秧，页面顶上的消歧义模板才写「秧秧·玄翎」',
     rel: ['chars-秧秧'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%A7%A7%E7%A7%A7'],
+    src: ['https://wuwa.huijiwiki.com/wiki/秧秧'],
   },
   {
     id: 'roles-散华',
@@ -137,7 +142,7 @@ export default [
     ctx: '被问「散华是什么属性」时。',
     tabu: '四星；跟绯雪同为冷凝迅刀，但一个今汐近卫一个苇原巫女，仇远那条线是另一回事',
     rel: ['chars-散华','chars-今汐','chars-仇远'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E6%95%A3%E5%8D%8E'],
+    src: ['https://wuwa.huijiwiki.com/wiki/散华'],
   },
   {
     id: 'roles-珂莱塔',
@@ -147,7 +152,7 @@ export default [
     ctx: '被问「珂莱塔是什么属性」「她拿什么武器」时。',
     tabu: '佩枪本库里四个：珂莱塔、炽霞、秋水、莉莉；别号欧泊，社区叫的「土豆」是梗不是本名',
     rel: ['chars-珂莱塔','world-laguna'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%8F%82%E8%8E%B1%E5%A1%94'],
+    src: ['https://wuwa.huijiwiki.com/wiki/珂莱塔'],
   },
   {
     id: 'roles-维里奈',
@@ -157,7 +162,7 @@ export default [
     ctx: '被问「维里奈是什么属性」「谁会治疗」时。',
     tabu: '音感仪本库里九个：达妮娅、安可、白芷、她、吟霖、折枝、穗穗、坎特蕾拉、守岸人；社区拿她和白芷并称两个治疗，但 wiki 没有「定位」栏，别当官方标签',
     rel: ['chars-维里奈','org-先行公约','chars-白芷'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%BB%B4%E9%87%8C%E5%A5%88'],
+    src: ['https://wuwa.huijiwiki.com/wiki/维里奈'],
   },
   {
     id: 'roles-忌炎',
@@ -165,9 +170,9 @@ export default [
     lvl: ['官'],
     def: '气动属性，长刃武器。限定五星，1.0（2024-05-23）上线。',
     ctx: '被问「忌炎是什么属性」时。',
-    tabu: '长刃本库里七个：今汐、千咲、卡卡罗、桃祈、露帕、景燃和他；气动跟秧秧、卡提希娅、西格莉卡、尤诺、鉴心同，别互相安',
+    tabu: '长刃本库里九个：今汐、千咲、卡卡罗、灯灯、桃祈、露帕、景燃、奥古斯塔和他；气动本库八个：卡提希娅、西格莉卡、秧秧、仇远、鉴心、尤诺、秋水和他，别互相安',
     rel: ['chars-忌炎'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%BF%8C%E7%82%8E'],
+    src: ['https://wuwa.huijiwiki.com/wiki/忌炎'],
   },
   {
     id: 'roles-长离',
@@ -176,8 +181,8 @@ export default [
     def: '热熔属性，迅刀武器。限定五星，1.1（2024-07-22）上线。',
     ctx: '被问「长离是什么属性」「今汐的师父是什么属性」时。',
     tabu: '瑝珑出身、今汐的师父；同属性的还有达妮娅和爱弥斯，但同属性不等于能互相增伤，见 combat-attrs',
-    rel: ['chars-长离','attr-changli','chars-今汐','combat-attrs'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E9%95%BF%E7%A6%BB'],
+    rel: ['chars-长离','chars-今汐','combat-attrs'],
+    src: ['https://wuwa.huijiwiki.com/wiki/长离'],
   },
   {
     id: 'roles-凌阳',
@@ -187,7 +192,7 @@ export default [
     ctx: '被问「凌阳是什么属性」「舞狮的是谁」时。',
     tabu: '臂铠跟西格莉卡同款；社区叫他「雪豹」是内测梗，不是设定',
     rel: ['chars-凌阳'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%87%8C%E9%98%B3'],
+    src: ['https://wuwa.huijiwiki.com/wiki/凌阳'],
   },
   {
     id: 'roles-今汐',
@@ -197,7 +202,7 @@ export default [
     ctx: '被问「今汐是什么属性」时。',
     tabu: '今州令尹，「令尹」是官职不是名字；近卫散华、师父长离是两条独立关系，别拼成一家',
     rel: ['chars-今汐','chars-长离','chars-散华'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E4%BB%8A%E6%B1%90'],
+    src: ['https://wuwa.huijiwiki.com/wiki/今汐'],
   },
   {
     id: 'roles-炽霞',
@@ -205,9 +210,9 @@ export default [
     lvl: ['官'],
     def: '热熔属性，佩枪武器。四星，1.0（2024-05-23）上线。',
     ctx: '被问「炽霞是什么属性」「她几星」时。',
-    tabu: '四星，别说成五星——wiki 星级栏写的就是四星；本名马小芳，页面标题和常用叫法是炽霞',
+    tabu: '四星，别说成五星——wiki 没有星级栏，稀有度写在正文首句（四星共鸣者）；本名马小芳，页面标题和常用叫法是炽霞',
     rel: ['chars-炽霞','world-jinzhou'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%82%BD%E9%9C%9E'],
+    src: ['https://wuwa.huijiwiki.com/wiki/炽霞'],
   },
   {
     id: 'roles-仇远',
@@ -217,7 +222,7 @@ export default [
     ctx: '被问「仇远是什么属性」时。',
     tabu: '和散华是远房表亲，那是亲属不是属性关系；wiki 所属团体「镇抚司」那行带删除线，别说成现役',
     rel: ['chars-仇远','chars-散华','chars-伤痕'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E4%BB%87%E8%BF%9C'],
+    src: ['https://wuwa.huijiwiki.com/wiki/仇远'],
   },
   {
     id: 'roles-布兰特',
@@ -226,8 +231,8 @@ export default [
     def: '热熔属性，迅刀武器。限定五星，2.1（2025-03-06）上线。',
     ctx: '被问「布兰特是什么属性」时。',
     tabu: '愚人剧团团长，洛可可才是副手，别把两人说反；同属性的还有达妮娅、爱弥斯、长离',
-    rel: ['chars-布兰特','attr-bulanti','team-threefire'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%B8%83%E5%85%B0%E7%89%B9'],
+    rel: ['chars-布兰特','team-threefire'],
+    src: ['https://wuwa.huijiwiki.com/wiki/布兰特'],
   },
   {
     id: 'roles-安可',
@@ -235,9 +240,9 @@ export default [
     lvl: ['官'],
     def: '热熔属性，音感仪武器。常驻五星，1.0（2024-05-23）上线。',
     ctx: '被问「安可是谁」「她是什么属性」时。',
-    tabu: '黑海岸的客卿，别跟今州的人混；音感仪和达妮娅、维里奈、白芷同款，本库共九个',
+    tabu: '黑海岸的人（wiki 出身地写新联邦，客卿是她搭档秋水），别跟今州的人混；音感仪和达妮娅、维里奈、白芷同款，本库共九个',
     rel: ['chars-安可','org-黑海岸'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%AE%89%E5%8F%AF'],
+    src: ['https://wuwa.huijiwiki.com/wiki/安可'],
   },
   {
     id: 'roles-洛可可',
@@ -247,7 +252,7 @@ export default [
     ctx: '被问「洛可可是什么属性」「她拿什么武器」时。',
     tabu: '愚人剧团副手、道具师，团长是布兰特；臂铠本库五个，还有西格莉卡、凌阳、鉴心、尤诺',
     rel: ['chars-洛可可','chars-布兰特','org-愚人剧团'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E6%B4%9B%E5%8F%AF%E5%8F%AF'],
+    src: ['https://wuwa.huijiwiki.com/wiki/洛可可'],
   },
   {
     id: 'roles-灯灯',
@@ -257,7 +262,7 @@ export default [
     ctx: '被问「灯灯是什么属性」时。',
     tabu: '和卡卡罗同为导电、都是长刃；四星说的是稀有度。瑝珑越州出来的呜呜物流领航员',
     rel: ['chars-灯灯','org-呜呜物流'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%81%AF%E7%81%AF'],
+    src: ['https://wuwa.huijiwiki.com/wiki/灯灯'],
   },
   {
     id: 'roles-白芷',
@@ -267,7 +272,7 @@ export default [
     ctx: '被问「白芷是什么属性」时。',
     tabu: '社区拿她和维里奈并称两个治疗，但 wiki 角色档案里没有「定位」「职业」栏，「治疗」是叫法不是官方标签',
     rel: ['chars-白芷','chars-维里奈'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%99%BD%E8%8A%B7'],
+    src: ['https://wuwa.huijiwiki.com/wiki/白芷'],
   },
   {
     id: 'roles-鉴心',
@@ -277,7 +282,7 @@ export default [
     ctx: '被问「鉴心是什么属性」「六羡茶馆那是谁」时。',
     tabu: '出身瑝珑，别说成「今州拳师」；臂铠本库五个，其中三个是气动：西格莉卡、尤诺和她',
     rel: ['chars-鉴心','world-huanglong'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E9%89%B4%E5%BF%83'],
+    src: ['https://wuwa.huijiwiki.com/wiki/鉴心'],
   },
 
   {
@@ -288,7 +293,7 @@ export default [
     ctx: '被问「吟霖是什么属性」「他拿什么武器」时。',
     tabu: '导电本库里四个：卡卡罗、灯灯、吟霖、奥古斯塔；音感仪九个，见 roles-维里奈。他养父是偃师，那是关系不是属性',
     rel: ['chars-吟霖'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%90%9F%E9%9C%96'],
+    src: ['https://wuwa.huijiwiki.com/wiki/吟霖'],
   },
   {
     id: 'roles-折枝',
@@ -298,7 +303,7 @@ export default [
     ctx: '被问「折枝是什么属性」时。',
     tabu: '冷凝音感仪；音感仪九个见 roles-维里奈。别因为都拿音感仪就归成一类，wiki 没有定位栏',
     rel: ['chars-折枝'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E6%8A%98%E6%9E%9D'],
+    src: ['https://wuwa.huijiwiki.com/wiki/折枝'],
   },
   {
     id: 'roles-露帕',
@@ -306,9 +311,9 @@ export default [
     lvl: ['官'],
     def: '热熔属性，长刃武器。限定五星，2.4（2025-07-03）上线。',
     ctx: '被问「露帕是什么属性」「七丘那个角斗士是什么属性」时。',
-    tabu: '七丘角斗士，跟同乡总督奥古斯塔（导电长刃）分清；长刃本库七个，见 roles-忌炎',
+    tabu: '七丘角斗士，跟同乡总督奥古斯塔（导电长刃）分清；长刃本库九个，见 roles-忌炎',
     rel: ['chars-露帕'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E9%9C%B2%E5%B8%95'],
+    src: ['https://wuwa.huijiwiki.com/wiki/露帕'],
   },
   {
     id: 'roles-穗穗',
@@ -318,7 +323,7 @@ export default [
     ctx: '被问「穗穗是什么属性」时。',
     tabu: '明庭世家、昭明商会理事；wiki 相关人士栏写她妹妹是秧秧（气动迅刀），别把两人并成一个人',
     rel: ['chars-穗穗','chars-秧秧'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%A9%97%E7%A9%97'],
+    src: ['https://wuwa.huijiwiki.com/wiki/穗穗'],
   },
   {
     id: 'roles-桃祈',
@@ -326,9 +331,9 @@ export default [
     lvl: ['官'],
     def: '湮灭属性，长刃武器。四星，1.0（2024-05-23）上线。',
     ctx: '被问「桃祈是什么属性」时。',
-    tabu: '四星、1.0 就在；今州天工部边防科负责人，跟湮灭、椿、卡提希娅、丹瑾、洛可可同属性。长刃本库七个，见 roles-忌炎',
+    tabu: '四星、1.0 就在；今州天工部边防科负责人，跟湮灭的千咲、椿、丹瑾、洛可可、坎特蕾拉同属性（卡提希娅是气动，别混）。长刃本库九个，见 roles-忌炎',
     rel: ['chars-桃祈'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E6%A1%83%E7%A5%88'],
+    src: ['https://wuwa.huijiwiki.com/wiki/桃祈'],
   },
   {
     id: 'roles-坎特蕾拉',
@@ -338,7 +343,7 @@ export default [
     ctx: '被问「坎特蕾拉是什么属性」「翡萨烈家的家主是什么属性」时。',
     tabu: 'wiki 正文标题写全「坎特蕾拉·翡萨烈」，页面名是简称；出身黎那汐塔翡萨烈家族，跟珂莱塔（莫塔里家族、冷凝佩枪）不是一家',
     rel: ['chars-坎特蕾拉','chars-珂莱塔'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%9D%8E%E7%89%B9%E8%95%BE%E6%8B%89'],
+    src: ['https://wuwa.huijiwiki.com/wiki/坎特蕾拉'],
   },
   {
     id: 'roles-守岸人',
@@ -348,7 +353,7 @@ export default [
     ctx: '被问「守岸人是什么属性」时。',
     tabu: '「守岸人」这名字在《001号星图的收容解析》里也出现过，wiki 没写那是同一位还是机构，别替他并成一处',
     rel: ['chars-守岸人'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%AE%88%E5%B2%B8%E4%BA%BA'],
+    src: ['https://wuwa.huijiwiki.com/wiki/守岸人'],
   },
   {
     id: 'roles-秋水',
@@ -358,7 +363,7 @@ export default [
     ctx: '被问「秋水是什么属性」「安可身边那个人是什么属性」时。',
     tabu: '四星；黑海岸的情报商人，安可的搭档兼监护人。佩枪本库四个：珂莱塔、炽霞、秋水、莉莉',
     rel: ['chars-秋水','chars-安可'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E7%A7%8B%E6%B0%B4'],
+    src: ['https://wuwa.huijiwiki.com/wiki/秋水'],
   },
   {
     id: 'roles-尤诺',
@@ -368,7 +373,7 @@ export default [
     ctx: '被问「尤诺是什么属性」时。',
     tabu: '七丘谕女；臂铠本库五个，其中气动三个：西格莉卡、尤诺、鉴心，见 roles-鉴心。同版本上线的奥古斯塔（导电长刃）跟她不是同一个人',
     rel: ['chars-尤诺','chars-奥古斯塔'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%B0%A4%E8%AF%BA'],
+    src: ['https://wuwa.huijiwiki.com/wiki/尤诺'],
   },
   {
     id: 'roles-景燃',
@@ -376,9 +381,9 @@ export default [
     lvl: ['官'],
     def: '热熔属性，长刃武器。限定五星，3.6（2026-09-10）上线。',
     ctx: '被问「景燃是什么属性」「鬼猫是什么属性」时。',
-    tabu: '梦州寻幽客，别号「鬼猫」；跟同为长刃的桃祈（湮灭、四星）分清。热熔本库五个，见 roles-达妮娅',
+    tabu: '梦州寻幽客，wiki 别号栏写「鬼猫挈灯」（社区叫「鬼猫」）；跟同为长刃的桃祈（湮灭、四星）分清。热熔本库八个，见 roles-达妮娅',
     rel: ['chars-景燃','chars-桃祈'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E6%99%AF%E7%87%83'],
+    src: ['https://wuwa.huijiwiki.com/wiki/景燃'],
   },
   {
     id: 'roles-奥古斯塔',
@@ -388,7 +393,7 @@ export default [
     ctx: '被问「奥古斯塔是什么属性」「七丘总督是什么属性」时。',
     tabu: '七丘法比亚纳总督；导电本库四个见 roles-卡卡罗，长刃七个见 roles-忌炎',
     rel: ['chars-奥古斯塔'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E5%A5%A5%E5%8F%A4%E6%96%AF%E5%A1%94'],
+    src: ['https://wuwa.huijiwiki.com/wiki/奥古斯塔'],
   },
   {
     id: 'roles-莉莉',
@@ -398,6 +403,6 @@ export default [
     ctx: '被问「莉莉是什么属性」时。',
     tabu: '联邦城出身的调香师少女；佩枪本库四个：珂莱塔、炽霞、秋水、莉莉。上线时间 wiki 没写，别拿别处的时间顶上去',
     rel: ['chars-莉莉'],
-    src: ['https://wuwa.huijiwiki.com/w/index.php?title=%E8%8E%89%E8%8E%89'],
+    src: ['https://wuwa.huijiwiki.com/wiki/莉莉'],
   },
 ]
