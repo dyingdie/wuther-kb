@@ -47,7 +47,15 @@
 > git -C "C:\Users\28945\.dsh\dsh-onebot-qq\workspace\wuther-kb" fetch origin
 > git -C "C:\Users\28945\.dsh\dsh-onebot-qq\workspace\wuther-kb" merge --ff-only origin/main
 > ```
-> 插件索引有 15 秒 TTL，改完 15 秒自动生效；目录在 bot 启动时固定，别指望改配置热加载。
+> 🚨 **2026-10-24 晚更正：不是 TTL 的问题，真凶是 ESM 缓存。**
+> 插件用 `await import()` 读 `src/meta.js` 与 `src/entries/*.js`，Node 的 ESM 模块缓存按 URL 走 —— **改过的 .js 她永远读不到，只有新建的文件能进来**。已改 `plugins/kb-local/kb-core.js` 两处，import 时带 `?v=<mtimeMs>` 破缓存（源文件与运行副本是同一个 inode，改一处两处都生效）。**但跑着的 bot 进程内存里还是旧模块，要重启 bot/插件进程才生效**；DSH 桌面端没找到 reload 入口。目录在 bot 启动时固定，别指望改配置热加载。
+> 🚨 **2026-10-24 晚 21:15 补库轮次：只补上一条真缺口。**
+> 扫 7 个日志文件 7143 行，她说了「我不记得 / 忘了 / 差不多吧 / 查不到」共 9 条，逐条看下来**只有一条是真设定缺口**：
+> · 「真的亲人吗？」（2026-10-23 04:04 群里问的是**娜波摩算不算亲人**）→ 她答「…差不多吧…谁说得准呢…」。查证：`source/在熔解的夜空下.txt`、`source/影下不落的黄金.txt` 全文「亲人」**0 次**；`source/yakitahome-info-full.json` 里 5 次全是无关文书（矿场安全守则「不要相信亲人的呼唤声」、流浪猫公告）；官方文本里娜波摩只以**导师/监护**姿态出现（「娜波摩……她说得对，小家伙……也许你的确还有转机」「你必须学会接受它，融入祂」），西格莉卡说「唯一一张合照，还是娜波摩拉着你拍的」。**「亲人」这一层只来自人设 `AGENT.md`**。
+> → `person/rel-nabomo` 的 def 改成「她认的亲人——」，tabu 写死「**「亲人」这一层是她自己认的**，底本和 wiki 都没写亲属关系，照实说「我认的亲人」就行，别说成官方写明」。她下次被问能答「我认的亲人」，而不是「差不多吧」。
+> 顺手校了 `rel-feixue` 的关系定性：她来自**深空联合特别对策组**，底本里**站在对面**（一直监视她），{PlayerName} 说「绯雪只是在履行自己的职责。而且，她是个很温柔的人」——问她跟绯雪什么关系，按底本说「对面的人、也是当初救过她的人」，别顺口说成一家人。
+> 其余 8 条不是缺口：「娅娅，秧秧是谁」（已补 `chars-npc/秧秧`）、「为什么不能叫你娅娅」（人设「叫我达妮娅」）、「藕粉椰果」（词条早删了）、「这期有五万八」（矩阵分数口径打架，tabu 已写死别断言满分）、「现在还在学吗」「不知道怎么还回复这么久」「区是什么意思」（元话题）、矩阵是什么（她答了，`modes` 页现在更准）。
+> 🧹 **同轮还瘦身了 `person` 页**：`person-exit-procedure`（官方档案 28050004《达妮娅的生日行程》）整条搬到 `docs-2`，id 改 `doc-exit-procedure`（**它是文书，不是「她是谁」**），`items.js` / `plotlines.js` 四处 rel 同步改名。**person 17 条 / 5595 码点，docs-2 24 条 / 5765 码点——现在全库没有一页超 6553 警戒线**（最大是 `roles` 6354）。
 > 插件的 `index.js` 工具描述**硬写着「24 页」和旧页名清单**（源：`default-workspace\plugins\dsh-onebot-qq-main\plugins\kb-local\`；运行副本：`C:\Users\28945\.dsh\profiles\desktop\node_modules\dsh-onebot-qq\plugins\kb-local\`）——**两处都要改**。
 > 最后核对时间：2026-10-24 中午。库在 `https://dyingdie.github.io/wuther-kb/index.html`。
 >
@@ -108,7 +116,7 @@
 
 ## 0. 一句话现状
 
-**42 页 / 912 条**（其中 9 条【待】不入正式页）/ lint 干净（**10 条 ⚠，全是跨页别称撞名，没有码点软警戒了**）/ **已发版，线上是最新**（2026-10-24 下午 commit `957f794` push；实测 `index.html` / `roles-2.html` / `chars-npc-2.html` / `chars-archive.html` / `docs-2.html` / `terms-disaster.html` / `sitemap.xml` 全 200，sitemap 43 条）。
+**42 页 / 912 条**（其中 9 条【待】不入正式页）/ lint 干净（**10 条 ⚠，全是跨页别称撞名；没有码点软警戒了，全库最大页 `roles` 6354 码点**）/ **已发版，线上是最新**（2026-10-24 晚 commit `de48e0c` push；clone 已同步、42 个 entries 在位）。⚠️ **发版后她读不读得到改动是另一回事**——ESM 缓存的坑见文首 P0。
 官方术语 288 条已全部收进库：新建 `feixun` / `feixun-chars` / `old-lore` / `lore-jinzhou` / `lore-laguna` / `lore-qiqiu` / `lore-blacktide` / `lore-late` 八页，只剩 5 条没建（猎犬/海蚀/夜归＝库内已有条目只差 uid 回填；`星星`、`类别` 是字段名不建）。（猎犬/海蚀/夜归＝库内已有条目只差 uid 回填；`星星`、`类别` 是字段名不建）。
 上一版的三个硬伤（两页撑爆、主角那页最薄、编造防线只靠人盯）**都已修完**，见第 2 节。
 
