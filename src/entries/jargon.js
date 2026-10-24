@@ -460,4 +460,15 @@ export default [
     src: ['wuwa.huijiwiki.com/w/index.php?title=梗/黑话'],
     note: '检索式（2026-10-23）：huijiwiki /w/api.php list=search srsearch=insource:"垫刀" → totalhits=0；梗/黑话页 raw 全文（玩法/拐/称呼/合称/养成/唤取/其他系统七段）无此词；素材 kb/source/modes-research-2026-10-23.md §1.4 社区标题样本无此词。⚠️下轮可查方向：贴吧/NGA 抽卡讨论，或别的游戏语境下的用法对照。查不到就让它一直待着——宁可空着，也别让她顺口编一个',
   },
+  {
+    id: 'j-xinbing',
+    t: '心配队',
+    lvl: ['社'],
+    def: '社区叫法：以 3.7 的「心」（导电）当主C那套配队，攻略里也叫「鉴心配队」',
+    ctx: '有人问「心配队是什么」「鸣潮角色心配队」「心怎么配队」时',
+    tabu: '攻略作者起的名，wiki 里查不到这个词；1.0 那个视频说的是鉴心的队、3.7 这篇说的是心的队，同名两解没有权威说法，别替她断；队友名单每个版本都在变（攻略自己就写着锁暝那条是推测），别背死名单',
+    rel: ['roles2-心', 'roles-鉴心'],
+    src: ['https://www.taptap.cn/moment/854680763013009342', 'https://www.bilibili.com/video/BV1gf421X7aD/'],
+    note: '出处：TapTap《鸣潮配队 | V3.7心配队详解》（轩儿Xuaner，2026-10-01，798 浏览）开头原话「心配队来啦~轩儿Xuaner给各位整理了鸣潮V3.7心最新的配队推荐」；B 站 BV1gf421X7aD《【鸣潮】鉴心配队排轴全面攻略…》（UP 暴风魚，2024-05-31，43.6 万播放）标题里的「心配队」说的是鉴心。⚠️wiki /w/api.php list=search srsearch=心配 → totalhits=1455 全是分字命中（配音／演员／鉴心…），无「心配」词条 → 属社区叫法。官方那边的对应物是心的两条模态「共鸣模态·同奏」「共鸣模态·电磁」（见 battle-terms 的 bt-xin-modal）。3.7 攻略给的建议是「心+锁暝？+守岸人」与「心+导电主+穗穗」，前者原文明写是推测。',
+  },
 ]
