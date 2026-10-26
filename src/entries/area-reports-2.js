@@ -1,0 +1,23 @@
+// area-reports-2 —— 探索报告逐篇：瑝珑今州、瑝珑梦州、黑海岸
+// 每篇一行：地点 · 报告名。名称照抄 wiki 原文，别改字。
+export default [
+  { id: "ar-jz-zhongqu", t: "中曲台地 · 孤独索拉·中曲台地篇", lvl: ["官"], def: "今州中曲台地的《孤独索拉·中曲台地篇》", ctx: "被问「今州中曲台地的探索报告」时", tabu: "报告名照抄原文", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-jz-yunlinggu", t: "云陵谷 · 关外金铃", lvl: ["官"], def: "今州云陵谷的《关外金铃》", ctx: "被问「今州云陵谷的探索报告」时", tabu: "报告名照抄原文", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-jz-jinzhoucheng", t: "今州城 · 今州城区项目建设报告书", lvl: ["官"], def: "今州城的《今州城区项目建设报告书》", ctx: "被问「今州城有什么探索报告」时", tabu: "**这是建设公文不是机密档案**，别自己升级它的分量", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-jz-huangshi", t: "荒石高地 · 异鸟集卷", lvl: ["官"], def: "今州荒石高地的《异鸟集卷》", ctx: "被问「今州荒石高地的探索报告」时", tabu: "报告名照抄原文", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-jz-beiluoye", t: "北落野 · 踏白小队对北落峡谷的调查记录", lvl: ["官"], def: "今州北落野的《踏白小队对北落峡谷的调查记录》", ctx: "被问「北落野的探索报告」时", tabu: "**踏白小队是科考队**，别把记录说成战斗日志", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-jz-guixu", t: "归墟港市 · 一段尚未消逝的录音", lvl: ["官"], def: "今州归墟港市的《一段尚未消逝的录音》", ctx: "被问「归墟港市的探索报告」时", tabu: "**原文只写「尚未消逝」**，别替它下结论说人还活着", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）。⚠️未核：录音内容与结局未读到原文。" },
+  { id: "ar-jz-yuanniaoze", t: "怨鸟泽 · 怨鸟般的恋爱故事·影评", lvl: ["官"], def: "今州怨鸟泽的《怨鸟般的恋爱故事·影评》", ctx: "被问「今州怨鸟泽的探索报告」时", tabu: "**是影评不是作品本身**，两者别混", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-jz-wuguangzhisen", t: "无光之森 · 无光之森戏猿行为报告", lvl: ["官"], def: "今州无光之森的《无光之森戏猿行为报告》", ctx: "被问「无光之森的探索报告」时", tabu: "报告名照抄原文，别改成「嬉猿」", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-jz-wumingwan", t: "无明湾 · 犯罪社会学·流放者", lvl: ["官"], def: "今州无明湾的《犯罪社会学·流放者》", ctx: "被问「无明湾的探索报告」时", tabu: "**报告名不带书名号**，别自己补《》", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-jz-hukou", t: "虎口山脉 · 辉萤石矿脉勘察报告", lvl: ["官"], def: "今州虎口山脉的《辉萤石矿脉勘察报告》", ctx: "被问「虎口山脉的探索报告」时", tabu: "报告名照抄原文", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-jz-chengxiao", t: "乘霄山 · 孤独索拉·虹镇温泉特别篇", lvl: ["官"], def: "今州乘霄山的《孤独索拉·虹镇温泉特别篇》", ctx: "被问「乘霄山的探索报告」时", tabu: "**和《孤独索拉·中曲台地篇》同系列**，别当成两篇无关的东西", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/今州"], note: "已核（wiki 探索报告/瑝珑/今州 表）" },
+  { id: "ar-mz-fangqing", t: "方擎西峰 · 评书底本·奇人岿义孑", lvl: ["官"], def: "梦州方擎西峰的《评书底本·奇人岿义孑》", ctx: "被问「梦州方擎西峰的探索报告」时", tabu: "**原文有引号与书名号混排**，名字照抄", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/梦州"], note: "已核（wiki 探索报告/瑝珑/梦州 表）" },
+  { id: "ar-mz-xuanyou", t: "玄幽东岳 · 生灵世界·玄方地界（选段）", lvl: ["官"], def: "梦州玄幽东岳的《生灵世界·玄方地界》选段", ctx: "被问「玄幽东岳的探索报告」时", tabu: "**原文标了「选段」**，是节选不是全文", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/梦州"], note: "已核（wiki 探索报告/瑝珑/梦州 表）" },
+  { id: "ar-mz-luoyuan", t: "落渊南丘 · 衔翎游记（节选）", lvl: ["官"], def: "梦州落渊南丘的《衔翎游记》节选", ctx: "被问「落渊南丘的探索报告」时", tabu: "原文标了「节选」", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/梦州"], note: "已核（wiki 探索报告/瑝珑/梦州 表）" },
+  { id: "ar-mz-xuanfangcheng", t: "玄方城 · 关外铃音中的玄方地界", lvl: ["官"], def: "梦州玄方城的《关外铃音》中的玄方地界", ctx: "被问「玄方城的探索报告」时", tabu: "**原文是「《关外铃音》中的玄方地界」**，别把书名和篇名拆成两个报告", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/梦州"], note: "已核（wiki 探索报告/瑝珑/梦州 表）" },
+  { id: "ar-mz-mengshu-jihui", t: "梦枢天罗 · 会谈纪要——关于天人计划", lvl: ["官"], def: "梦州梦枢天罗的《会谈纪要——关于天人计划》", ctx: "被问「梦枢天罗的探索报告」时", tabu: "**梦枢天罗有两篇**，别只说一篇就说完了", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/梦州"], note: "已核（wiki 探索报告/瑝珑/梦州 表）" },
+  { id: "ar-mz-mengshu-houji", t: "梦枢天罗 · 会谈后记——玄方城的终点", lvl: ["官"], def: "梦州梦枢天罗的《会谈后记——玄方城的终点》", ctx: "被问「梦枢天罗的探索报告」时", tabu: "**和《会谈纪要》同一处地点的两篇**，别混", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/瑝珑/梦州"], note: "已核（wiki 探索报告/瑝珑/梦州 表）" },
+  { id: "ar-hh-qundao", t: "黑海岸群岛 · 黑海岸入门小百科", lvl: ["官"], def: "黑海岸群岛的《黑海岸入门小百科》", ctx: "被问「黑海岸的探索报告」时", tabu: "**名字里的入门是真的入门**，别把它说成高阶机密", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/黑海岸"], note: "已核（wiki 探索报告/黑海岸 表）" },
+  { id: "ar-hh-taitaisu", t: "泰缇斯之底 · 黑海岸进阶小百科", lvl: ["官"], def: "泰缇斯之底的《黑海岸进阶小百科》", ctx: "被问「泰缇斯之底的探索报告」时", tabu: "**名字里的进阶是真的进阶**，别和入门那篇对调", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=探索报告/黑海岸"], note: "已核（wiki 探索报告/黑海岸 表）" },
+];

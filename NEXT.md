@@ -431,3 +431,15 @@ yakitahome 的档案与飞讯**已经全量拉完躺在 `kb/source/` 里**，直
 `qq-log-scan.mjs --out q.txt` 写的是**表头 / 问句 / `命中词：…`** 三行一块，**不是一行一句**。当成一行一句读，71 条候选会摊成 213 道题——其中 71 道是表头（垃圾）、**71 道是「命中词」行，也就是把扫描器自己算好的答案当成了考题**，必中、分数虚高而排序一点没变好。
 `pagecheck.mjs` 的 `parseStdin()` 现在认这两种喂法（见到 `· [` 开头的行就进块模式），走 stderr 报「共 N 道」。**但别再手写 `Get-Content q.txt | pagecheck.mjs` 之外的花样喂法**——30 条基准是逐条灌的，喂法一变，数字就不可比。
 另记一条踩坑：**PowerShell 的 `>` 重定向写 UTF-16LE**，node 按 utf8 读会得到乱码、`split` 全 0 块，看着像「工具没输出」。读这类文件先看 BOM（`0xff 0xfe` → `buf.slice(2).toString('utf16le')`）。ts/pagecheck-accuracy.md`。
+
+> 🚨 **2026-10-27：本轮新增 22 个页面。发版后 bot 侧必须做三件事：** ① `git fetch origin && git merge --ff-only origin/main` 同步克隆；② **重启 bot 进程**（ESM 缓存，改过的 .js 不重启读不到）；③ 用 `mcp__qq__kb_read` 读一页新页（如 memes-web）验证新页真的可读。
+> 本轮在 src/meta.js 的 PAGES 新登记的页面名：memes-web、memes-web-game、memes-web-media、memes-web-new、memes-web-words、adult-terms、adult-scale、adult-memes、adult-talk、area-reports、area-reports-2、area-reports-3、ver-early、lines-voice-gap、combat-support-role、growth、enemies、enemies-2、enemies-3、enemies-4、enemy-rules、echoes、echoes-2、echoes-3、weapons、weapons-2。
+> **新增工具 `tools/check-pages.mjs`**：只读自检，逐个 import 所有 src/entries 板块文件，打印条目数、码点、缺字段数，语法错标 ERR。补上 build.mjs --check 的盲区（--check 只查已登记的板块）。跑法 `node tools/check-pages.mjs`。
+> **本轮踩到的坑（流程上都已修掉，照抄即可）**：
+> ① `[System.IO.File]::WriteAllLines(相对路径, ...)` **静默失败**——.NET 的 CurrentDirectory 和 PowerShell 的当前位置不是同一个，文件写到别处去了，本地 Test-Path 返回 False 且不报错。必须用绝对路径。
+> ② PowerShell 5.1 传给原生程序（node -e）时会**吃掉参数里的双引号**：正确写法是外层用 PS 双引号、JS 内部一律用单引号。
+> ③ 终端命令文本里出现真换行会把 PSReadLine 弄进续行态。写文件用**分隔符法**最稳：`
+` 当换行、`@` 当占位符、JS 字符串一律双引号；内容里不能出现 `
+` 字符。
+> ④ 写完 .js 忘了收尾 `];` → 整个 build 崩（SyntaxError: Unexpected end of input）。用 tools/check-pages.mjs 一眼看出哪个文件 ERR。
+>

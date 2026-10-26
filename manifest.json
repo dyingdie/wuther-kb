@@ -1,33 +1,33 @@
 {
-  "built": "2026-10-24T14:21:35.136Z",
+  "built": "2026-10-26T22:00:52.371Z",
   "pages": [
     {
       "file": "person",
       "title": "她是谁",
       "n": 17,
-      "cp": 5595,
-      "liteCp": 2397
+      "cp": 5677,
+      "liteCp": 2479
     },
     {
       "file": "lines",
       "title": "她说了什么",
       "n": 32,
-      "cp": 5865,
-      "liteCp": 3319
+      "cp": 5961,
+      "liteCp": 3415
     },
     {
       "file": "plotlines",
       "title": "她说过的重话",
       "n": 18,
-      "cp": 5590,
-      "liteCp": 2218
+      "cp": 5662,
+      "liteCp": 2290
     },
     {
       "file": "plot",
       "title": "她的故事",
       "n": 13,
-      "cp": 6092,
-      "liteCp": 1674
+      "cp": 6180,
+      "liteCp": 1762
     },
     {
       "file": "chars",
@@ -117,22 +117,22 @@
       "file": "titles",
       "title": "官方名号",
       "n": 41,
-      "cp": 5168,
-      "liteCp": 3138
+      "cp": 5458,
+      "liteCp": 3428
     },
     {
       "file": "items",
       "title": "东西",
       "n": 21,
-      "cp": 3660,
-      "liteCp": 2559
+      "cp": 3768,
+      "liteCp": 2667
     },
     {
       "file": "jargon",
       "title": "玩家黑话",
       "n": 41,
-      "cp": 5786,
-      "liteCp": 4102
+      "cp": 5977,
+      "liteCp": 4293
     },
     {
       "file": "roles",
@@ -173,8 +173,8 @@
       "file": "memes",
       "title": "社区梗",
       "n": 22,
-      "cp": 3682,
-      "liteCp": 2721
+      "cp": 3828,
+      "liteCp": 2867
     },
     {
       "file": "memes-her",
@@ -186,9 +186,9 @@
     {
       "file": "nicknames",
       "title": "昵称绰号",
-      "n": 14,
-      "cp": 2749,
-      "liteCp": 1990
+      "n": 24,
+      "cp": 4760,
+      "liteCp": 3227
     },
     {
       "file": "ships",
@@ -201,8 +201,8 @@
       "file": "allusions",
       "title": "台词出处",
       "n": 38,
-      "cp": 4870,
-      "liteCp": 3970
+      "cp": 5668,
+      "liteCp": 4530
     },
     {
       "file": "versions",
@@ -235,9 +235,9 @@
     {
       "file": "battle-terms",
       "title": "官方战斗词",
-      "n": 28,
-      "cp": 5050,
-      "liteCp": 3191
+      "n": 30,
+      "cp": 5343,
+      "liteCp": 3422
     },
     {
       "file": "feixun",
@@ -294,8 +294,187 @@
       "n": 23,
       "cp": 4012,
       "liteCp": 2541
+    },
+    {
+      "file": "memes-web",
+      "title": "全网热梗",
+      "n": 37,
+      "cp": 3713,
+      "liteCp": 2879
+    },
+    {
+      "file": "memes-web-media",
+      "title": "全网热梗·影视综艺",
+      "n": 39,
+      "cp": 3726,
+      "liteCp": 2877
+    },
+    {
+      "file": "memes-web-words",
+      "title": "全网热梗·句式",
+      "n": 39,
+      "cp": 4058,
+      "liteCp": 3218
+    },
+    {
+      "file": "adult-terms",
+      "title": "成人内容术语",
+      "n": 31,
+      "cp": 3280,
+      "liteCp": 2699
+    },
+    {
+      "file": "adult-scale",
+      "title": "分级与尺度",
+      "n": 15,
+      "cp": 1992,
+      "liteCp": 1610
+    },
+    {
+      "file": "adult-memes",
+      "title": "成人圈梗",
+      "n": 20,
+      "cp": 2025,
+      "liteCp": 1612
+    },
+    {
+      "file": "adult-talk",
+      "title": "成人话题口径",
+      "n": 11,
+      "cp": 1425,
+      "liteCp": 1058
+    },
+    {
+      "file": "area-reports",
+      "title": "区域探索报告",
+      "n": 15,
+      "cp": 1985,
+      "liteCp": 1682
+    },
+    {
+      "file": "area-reports-2",
+      "title": "区域探索报告·其二",
+      "n": 19,
+      "cp": 1870,
+      "liteCp": 1510
+    },
+    {
+      "file": "area-reports-3",
+      "title": "区域探索报告·其三",
+      "n": 41,
+      "cp": 3977,
+      "liteCp": 3158
+    },
+    {
+      "file": "ver-early",
+      "title": "早期版本",
+      "n": 28,
+      "cp": 5267,
+      "liteCp": 3366
+    },
+    {
+      "file": "lines-voice-gap",
+      "title": "战斗语音",
+      "n": 22,
+      "cp": 3618,
+      "liteCp": 2308
+    },
+    {
+      "file": "combat-support-role",
+      "title": "协奏与辅助",
+      "n": 23,
+      "cp": 3427,
+      "liteCp": 2249
+    },
+    {
+      "file": "growth",
+      "title": "养成与操作",
+      "n": 27,
+      "cp": 3761,
+      "liteCp": 2564
+    },
+    {
+      "file": "enemies",
+      "title": "敌人图鉴",
+      "n": 20,
+      "cp": 1843,
+      "liteCp": 1438
+    },
+    {
+      "file": "enemy-rules",
+      "title": "敌人机制",
+      "n": 10,
+      "cp": 1120,
+      "liteCp": 909
+    },
+    {
+      "file": "echoes",
+      "title": "声骸图鉴",
+      "n": 61,
+      "cp": 5999,
+      "liteCp": 4527
+    },
+    {
+      "file": "echoes-2",
+      "title": "声骸图鉴·其二",
+      "n": 62,
+      "cp": 6316,
+      "liteCp": 4608
+    },
+    {
+      "file": "echoes-3",
+      "title": "声骸图鉴·其三",
+      "n": 64,
+      "cp": 6342,
+      "liteCp": 4743
+    },
+    {
+      "file": "weapons",
+      "title": "武器图鉴",
+      "n": 50,
+      "cp": 7051,
+      "liteCp": 3441
+    },
+    {
+      "file": "weapons-2",
+      "title": "武器图鉴·其二",
+      "n": 74,
+      "cp": 6043,
+      "liteCp": 4489
+    },
+    {
+      "file": "enemies-2",
+      "title": "敌人图鉴·其二",
+      "n": 33,
+      "cp": 2693,
+      "liteCp": 2082
+    },
+    {
+      "file": "enemies-3",
+      "title": "敌人图鉴·其三",
+      "n": 51,
+      "cp": 5035,
+      "liteCp": 4143
+    },
+    {
+      "file": "enemies-4",
+      "title": "敌人图鉴·其四",
+      "n": 31,
+      "cp": 3533,
+      "liteCp": 3002
+    },
+    {
+      "file": "echo-sets",
+      "title": "合鸣套装",
+      "n": 37,
+      "cp": 5373,
+      "liteCp": 3584
     }
   ],
-  "todo": 9,
-  "missing": []
+  "todo": 20,
+  "missing": [
+    "memes-web-game",
+    "memes-web-new",
+    "weapon-rules"
+  ]
 }

@@ -174,6 +174,7 @@ export default [
     def: '没查到：wiki 无词条，攻略站导航看得到关卡页，正文这轮没取到。',
     ctx: '被追问「全息具体怎么打、有什么规则」时——这一条默认不上线，只用来提醒别现编。',
     tabu: '别替她编规则，她会照着编的说；问到就说不记得',
+    src: ["https://wuthering.gg/zh-Hans/guide/system/"],
     note: '检索式：huijiwiki /w/api.php list=search srsearch=全息战略（命中成就彩蛋、I.R.I.S.、先行公约，无词条）；梗/黑话页只有「全息：全息战略」一行；wuthering.gg/zh-Hans/guide/system/ 导航见全息战略·速攻、飞檐、致爆、竞雪、刀伶之舞，正文未取',
   },
 ]

@@ -1,0 +1,7 @@
+{
+ "source": "https://wuwa.huijiwiki.com/w/api.php",
+ "endpoint": "https://wuwa.huijiwiki.com/w/api.php",
+ "kind": "area-exploration-reports",
+ "prefix": "探索报告",
+ "pages": []
+}
