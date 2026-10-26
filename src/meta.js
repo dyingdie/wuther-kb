@@ -91,6 +91,7 @@ export const PAGES = [
   { file: 'echo-rules', title: '声骸与声痕机制', desc: '声痕词条、COST、合鸣套装与共鸣属性怎么算' },
   { file: 'memes-web-social', title: '全网热梗·社交', desc: '社交平台与群聊里的流行说法、表情包与接梗方式' },
   { file: 'modes-detail', title: '高难玩法细节', desc: '逆境深塔、冥歌海墟、终焉矩阵的机制与社区叫法' },
+  { file: 'adult-terms-2', title: '成人内容术语·其二', desc: '成人向术语补充：平台、角色设定标签、服装元素与产业行话' },
 ]
 
 // 检索路由：什么问题查哪页。index.html 顶部固定展示，抓一次就够定位
@@ -161,6 +162,7 @@ export const ROUTES = [
   ['声痕词条 / COST 是什么 / 合鸣套装怎么叠', 'echo-rules'],
   ['群聊怎么接梗 / 表情包梗 / 社交平台流行语', 'memes-web-social'],
   ['深塔怎么打 / 海墟 / 矩阵机制 / 凹分', 'modes-detail'],
+  ['成人圈缩写 / 委婉说法 / 常见误读', 'adult-terms-2'],
 ]
 
 // 页面尺寸硬上限：工具结果裁剪器 thresholdChars，超过只留头 4096 + 尾 1024
