@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-26T22:04:11.903Z",
+  "built": "2026-10-26T22:15:44.355Z",
   "pages": [
     {
       "file": "person",
@@ -483,8 +483,40 @@
       "n": 37,
       "cp": 5373,
       "liteCp": 3584
+    },
+    {
+      "file": "weapon-rules",
+      "title": "武器机制",
+      "n": 21,
+      "cp": 3293,
+      "liteCp": 2196
+    },
+    {
+      "file": "echo-rules",
+      "title": "声骸与声痕机制",
+      "n": 40,
+      "cp": 5920,
+      "liteCp": 4174
+    },
+    {
+      "file": "memes-web-social",
+      "title": "全网热梗·社交",
+      "n": 49,
+      "cp": 4671,
+      "liteCp": 3693
+    },
+    {
+      "file": "modes-detail",
+      "title": "高难玩法细节",
+      "n": 42,
+      "cp": 7030,
+      "liteCp": 4509
     }
   ],
-  "todo": 20,
-  "missing": []
+  "todo": 26,
+  "missing": [
+    "achievements",
+    "events",
+    "constellations"
+  ]
 }
