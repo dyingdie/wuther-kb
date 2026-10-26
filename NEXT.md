@@ -443,3 +443,16 @@ yakitahome 的档案与飞讯**已经全量拉完躺在 `kb/source/` 里**，直
 ` 字符。
 > ④ 写完 .js 忘了收尾 `];` → 整个 build 崩（SyntaxError: Unexpected end of input）。用 tools/check-pages.mjs 一眼看出哪个文件 ERR。
 >
+
+> 🚨 **2026-10-27 夜：本轮扩库完成并已推送（commit 6dce2fc 及后续）。发版后 bot 侧不需要重启就能读到新页。**
+> 实测：`mcp__qq__kb_read({page: "memes-web", lite: true})` 直接返回了 37 条新内容（2897 字符）。说明插件是**动态读 src/entries 与 manifest** 的，**只有改插件自身代码才需要重启 bot**；改条目文件不需要。
+> 本轮结束时的库规模：**68 个板块 / 1856 条**（其中 20 条标【待】不进正式页），lint 0 错误。
+> 本轮新增板块（每条都有出处，跨页撞名都是设计使然）：
+> · 全网热梗：`memes-web`(37)、`memes-web-game`(28)、`memes-web-media`(39)、`memes-web-new`(29)、`memes-web-words`(39) ＋ 成人相关：`adult-terms`(31)、`adult-scale`(15)、`adult-memes`(20)、`adult-talk`(11) ＋ 鸣潮：`enemies`(20)、`enemies-2`(33)、`enemies-3`(51)、`enemies-4`(31)、`enemy-rules`(10)、`echoes`(61)、`echoes-2`(62)、`echoes-3`(64)、`echo-sets`(37)、`weapons`(50)、`weapons-2`(74)、`area-reports`(15)、`area-reports-2`(19)、`area-reports-3`(41)、`ver-early`(28)、`lines-voice-gap`(24)、`combat-support-role`(26)、`growth`(32) ＋ 扩写既有页：`jargon`(42)、`nicknames`(25)、`allusions`(38)、`battle-terms`(30)。
+> **两个必须记住的坑**：
+> ① **mc.yakitahome.com 整站当前 525**（源站 SSL 握手失败，node / curl / read_page 三条路都试过）。area-reports 的内容改用**鸣潮 wiki 的「探索报告」总表页**（`https://wuwa.huijiwiki.com/w/index.php?title=探索报告&action=raw`）及各地区子表，数据是同一批。站点恢复后可再抓 yakitahome 做交叉核对。
+> ② **wiki 用 node fetch 会撞 Cloudflare 挑战页**（返回「请稍候…」HTML），只有 `read_page` 工具能过。wiki 的 `api.php`（allpages / revisions）用 read_page 也通。
+> **官方用字是「瑝珑」和「黯原」**（见 source/yakitahome-terms.json 官方 288 条术语），库里的写法是对的；wiki 的页面标题用同字，不要被编码问题带偏。
+> **PLAN.md 第十节已订正**：原先拿「隧者／巴德尔」当编造的例子是错的——官方术语 uid:700008 就是「隧者」，罗伊《三纪神话》里祂名为「巴德尔」。**正确口径：wiki 查不到 ≠ 编造，要同时查官方术语档案。**
+> 新增工具：`tools/check-pages.mjs`（只读自检，逐个 import 所有板块，打印条目数/码点/缺字段，语法错标 ERR）与 `tools/release-kb.mjs`（build → lint → 逐文件 git add → commit → push 一条龙）。
+>
