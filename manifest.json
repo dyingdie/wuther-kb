@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-26T22:22:55.836Z",
+  "built": "2026-10-26T22:25:36.627Z",
   "pages": [
     {
       "file": "person",
@@ -355,8 +355,8 @@
       "file": "adult-talk",
       "title": "成人话题口径",
       "n": 11,
-      "cp": 1425,
-      "liteCp": 1058
+      "cp": 1433,
+      "liteCp": 1066
     },
     {
       "file": "area-reports",
@@ -418,8 +418,8 @@
       "file": "enemy-rules",
       "title": "敌人机制",
       "n": 10,
-      "cp": 1120,
-      "liteCp": 909
+      "cp": 1130,
+      "liteCp": 919
     },
     {
       "file": "echoes",
@@ -495,15 +495,15 @@
       "file": "weapon-rules",
       "title": "武器机制",
       "n": 21,
-      "cp": 3293,
-      "liteCp": 2196
+      "cp": 3302,
+      "liteCp": 2205
     },
     {
       "file": "echo-rules",
       "title": "声骸与声痕机制",
       "n": 40,
-      "cp": 5920,
-      "liteCp": 4174
+      "cp": 5934,
+      "liteCp": 4188
     },
     {
       "file": "memes-web-social",
@@ -516,8 +516,8 @@
       "file": "modes-detail",
       "title": "高难玩法细节",
       "n": 42,
-      "cp": 7030,
-      "liteCp": 4509
+      "cp": 7057,
+      "liteCp": 4536
     },
     {
       "file": "adult-terms-2",

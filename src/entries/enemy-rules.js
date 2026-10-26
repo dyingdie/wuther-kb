@@ -1,6 +1,6 @@
 // enemy-rules —— 敌人机制：级别、属性、种类、掉落
 export default [
-  { id: "enemy-rule-level", t: "敌人级别", lvl: ["官"], def: "四级：轻波级、巨浪级、怒涛级、海啸级，海啸级最高", ctx: "被问这只怪几级、级别怎么排时", tabu: "顺序别弄反：轻波 < 巨浪 < 怒涛 < 海啸", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=分类:敌方"], note: "已核（wiki 分类:敌方 表的级别筛选器）：海啸级、怒涛级、巨浪级、轻波级。" },
+  { id: "enemy-rule-level", t: "敌人级别", alias: ["几级", "等级", "级别"], lvl: ["官"], def: "四级：轻波级、巨浪级、怒涛级、海啸级，海啸级最高", ctx: "被问这只怪几级、级别怎么排时", tabu: "顺序别弄反：轻波 < 巨浪 < 怒涛 < 海啸", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=分类:敌方"], note: "已核（wiki 分类:敌方 表的级别筛选器）：海啸级、怒涛级、巨浪级、轻波级。" },
   { id: "enemy-rule-attr", t: "敌人属性", lvl: ["官"], def: "每个敌人带一个属性：冷凝、热熔、导电、气动、衍射、湮灭、物理", ctx: "被问这只怪是什么属性时", tabu: "wiki 那列标题写的是『抗性』，没写明指它的属性还是弱点，别直接下『它怕什么』的结论", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=分类:敌方"], note: "已核（wiki 分类:敌方 表的属性筛选器）：七种属性名。⚠️未核：该列的确切语义，游戏内文本未抓到。" },
   { id: "enemy-rule-kind", t: "敌人种类", lvl: ["官"], def: "分人类、残象、机傀、梦魇残象四类，残象再分轰鸣、静默、啸叫、呓语四种", ctx: "被问这怪属于哪一类、为什么打起来手感不一样时", tabu: "梦魇残象是残象的变体，别当成独立第五类；残象四支的行为差异没核到原文，别细讲机制", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=分类:敌方"], note: "已核（wiki 分类:敌方 表的种类筛选器）：人类 / 残象（轰鸣种·静默种·啸叫种·呓语种）/ 机傀 / 梦魇残象。" },
   { id: "enemy-rule-restag", t: "残象四支", lvl: ["官"], def: "残象分轰鸣种、静默种、啸叫种、呓语种，wiki 表里名字后面会标出来", ctx: "看到名字带『种』的怪、想知道它属于哪一支时", tabu: "那个『种』说的是种类不是属性，属性是另一列，别混着讲", rel: [], src: ["wuwa.huijiwiki.com/w/index.php?title=分类:敌方"], note: "已核（wiki 分类:敌方 表括注）：轰鸣种 / 静默种 / 啸叫种 / 呓语种。⚠️未核：四支之间的行为差异机制。" },
