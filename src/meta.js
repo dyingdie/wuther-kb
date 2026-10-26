@@ -84,7 +84,6 @@ export const PAGES = [
   { file: 'enemies-3', title: '敌人图鉴·其三', desc: '2.0 - 2.8 版本敌人：梦魇系列、节使、角斗家与旧地图怪' },
   { file: 'enemies-4', title: '敌人图鉴·其四', desc: '1.0 - 1.3 版本敌人：最早那批首领与野外怪' },
   { file: 'echo-sets', title: '合鸣套装', desc: '声骸合鸣套装：核心机制、掉落来源、套装归属与常见误解' },
-  { file: 'weapon-rules', title: '武器机制', desc: '武器类型、谐振与精炼、共鸣合成与获取途径' },
 ]
 
 // 检索路由：什么问题查哪页。index.html 顶部固定展示，抓一次就够定位
@@ -148,7 +147,6 @@ export const ROUTES = [
   ['这怪几级 / 3.x 新出的怪 / 呓语种 是什么', 'enemies、enemies-2、enemy-rules'],
   ['2.x 1.x 的老怪 / 梦魇系列是哪几只 / 最早的敌人', 'enemies-3、enemies-4'],
   ['这套声骸套装怎么用 / 合鸣套装是什么 / 这套掉哪个怪', 'echo-sets'],
-  ['武器精炼 / 谐振是什么 / 武器怎么共鸣合成 / 武器类型', 'weapon-rules'],
 ]
 
 // 页面尺寸硬上限：工具结果裁剪器 thresholdChars，超过只留头 4096 + 尾 1024

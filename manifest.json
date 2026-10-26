@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-26T22:01:12.963Z",
+  "built": "2026-10-26T22:03:29.021Z",
   "pages": [
     {
       "file": "person",
@@ -303,11 +303,25 @@
       "liteCp": 2879
     },
     {
+      "file": "memes-web-game",
+      "title": "全网热梗·游戏圈",
+      "n": 28,
+      "cp": 2593,
+      "liteCp": 1998
+    },
+    {
       "file": "memes-web-media",
       "title": "全网热梗·影视综艺",
       "n": 39,
       "cp": 3726,
       "liteCp": 2877
+    },
+    {
+      "file": "memes-web-new",
+      "title": "全网热梗·近两年",
+      "n": 28,
+      "cp": 2567,
+      "liteCp": 2030
     },
     {
       "file": "memes-web-words",
@@ -472,9 +486,5 @@
     }
   ],
   "todo": 20,
-  "missing": [
-    "memes-web-game",
-    "memes-web-new",
-    "weapon-rules"
-  ]
+  "missing": []
 }
