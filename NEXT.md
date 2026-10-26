@@ -456,3 +456,12 @@ yakitahome 的档案与飞讯**已经全量拉完躺在 `kb/source/` 里**，直
 > **PLAN.md 第十节已订正**：原先拿「隧者／巴德尔」当编造的例子是错的——官方术语 uid:700008 就是「隧者」，罗伊《三纪神话》里祂名为「巴德尔」。**正确口径：wiki 查不到 ≠ 编造，要同时查官方术语档案。**
 > 新增工具：`tools/check-pages.mjs`（只读自检，逐个 import 所有板块，打印条目数/码点/缺字段，语法错标 ERR）与 `tools/release-kb.mjs`（build → lint → 逐文件 git add → commit → push 一条龙）。
 >
+
+> 🚨 **2026-10-27 深夜：新建页必须带检索别名（alias），否则她根本检索不到。**
+> 验收工具：`node tools/pagecheck.mjs "这怪几级" "开黄腔是什么梗" "武器精炼是什么" "深塔怎么打" "矩阵怎么打" "这个声骸几星"`（只读本地，不联网；多条问句用空格分隔）。
+> 本轮实测：**加 alias 之前 11 问只中 7 问**，漏的全是「几级」「精炼」「开黄腔」「深塔怎么打」这类**玩家口头说法与条目正式名不一致**的问法。修法是给条目加 alias（检索入口，不放评价）：
+> enemy-rule-level 加「几级/等级/级别」；adult-t-liaogeng 加「开黄腔」；weapon-rules-resonance-tiers 加「谐振」；weapon-rules-refine 加「精炼」；md-tower-unlock 加「深塔」；md-lagoon-layers 加「海墟」；md-matrix-bosses 加「矩阵」；echo-rule-star 加「几星/星级」。改完同一批问句 **11 问全中**。
+> **写新页的规矩：条目名用官方/ wiki 的正式叫法，alias 另写玩家在群里实际怎么问**（几级、几星、精炼、开黄腔、矩阵这类）。
+> 本轮库规模：**74 板块 / 2067 条**（26 条待定，不进正式页），lint 0 错误（116 条提示全是跨页同实体撞名，设计使然）。
+> 新增工具：`tools/check-pages.mjs`（逐板块自检：条目数/码点/缺字段/语法 ERR）、`tools/release-kb.mjs`（build → lint → 逐路径 git add → commit → push 一条龙）。
+>
