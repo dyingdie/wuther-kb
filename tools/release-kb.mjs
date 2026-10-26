@@ -11,7 +11,7 @@ console.log("=== build ===");
 console.log(execFileSync(NODE, ["build.mjs"], { cwd: R, encoding: "utf8" }));
 console.log("=== lint ===");
 console.log(execFileSync(NODE, ["build.mjs", "--check"], { cwd: R, encoding: "utf8" }));
-const gen = PAGES.map((p) => p.file + ".html").filter((f) => existsSync(R + "/" + f));
+const gen = PAGES.flatMap((p) => [p.file + ".html", p.file + ".lite.html"]).filter((f) => existsSync(R + "/" + f));
 const list = ["src", "tools", "reports", "source", "PLAN.md", "NEXT.md", "manifest.json", "sitemap.xml", "todo.json", ...gen, "index.html"].filter((f) => existsSync(R + "/" + f));
 g(["add", ...list]);
 const st = g(["status", "--short"]).trim();
