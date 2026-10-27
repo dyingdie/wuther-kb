@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-26T22:25:59.324Z",
+  "built": "2026-10-27T06:03:51.239Z",
   "pages": [
     {
       "file": "person",
@@ -485,6 +485,20 @@
       "liteCp": 3584
     },
     {
+      "file": "achievements",
+      "title": "成就与彩蛋",
+      "n": 24,
+      "cp": 2826,
+      "liteCp": 2122
+    },
+    {
+      "file": "events",
+      "title": "活动与卡池",
+      "n": 5,
+      "cp": 700,
+      "liteCp": 485
+    },
+    {
       "file": "constellations",
       "title": "角色命座",
       "n": 27,
@@ -528,8 +542,5 @@
     }
   ],
   "todo": 26,
-  "missing": [
-    "achievements",
-    "events"
-  ]
+  "missing": []
 }
